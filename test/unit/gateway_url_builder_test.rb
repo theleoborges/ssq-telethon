@@ -2,7 +2,11 @@ require 'test_helper'
 
 class GatewayUrlBuilderTest < ActiveSupport::TestCase
   test "something interesting" do
-    builder = GatewayUrlBuilder.new
-    assert_equal builder.to_url, "https://203.202.39.43/vpcpay?vpc_Version=1&vpc_Locale=en&vpc_Command=pay&vpc_AccessCode=A53853CE&vpc_MerchTxnRef=123&vpc_Merchant=TESTANDREWK&vpc_OrderInfo=VPC+Example&vpc_Amount=100&vpc_ReturnURL=http://localhost/ASP_VPC_3Party_DR.asp&&vpc_SecureHash=A7F22A5CA87DD2FC6BA3F78359DA639A"
+    ParamsHasher.any_instance.stubs(:to_hash).returns('84f80a3ae85bbc0ad0b7cf957352569b')    
+    builder = GatewayUrlBuilder.new("txn1", "order1", 100)
+    
+    assert_equal builder.to_url, "https://gateway.com/vpcpay?vpc_Version=1&vpc_Locale=en&vpc_Command=pay&vpc_AccessCode=access_code&vpc_MerchTxnRef=txn1&vpc_Merchant=merchant&vpc_OrderInfo=order1&vpc_Amount=100&vpc_ReturnURL=http://localhost:3000/gateway_callback&vpc_SecureHash=84f80a3ae85bbc0ad0b7cf957352569b"
+    
+    ParamsHasher.any_instance.unstub(:to_hash)
   end
 end

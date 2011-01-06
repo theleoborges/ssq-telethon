@@ -1,10 +1,31 @@
 class GatewayUrlBuilder
-  # vpc_AccessCode=A53853CE&vpc_MerchTxnRef=123&vpc_Merchant=TESTANDREWK&vpc_OrderInfo=VPC+Example&vpc_Amount=100&vpc_ReturnURL=http://localhost/ASP_VPC_3Party_DR.asp&&vpc_SecureHash=A7F22A5CA87DD2FC6BA3F78359DA639A"
-  def initialize(access_code, transaction_ref, merchant, order_info, amount, callback_url)
-    
+  # transaction_reference - this is a unique number that identifies this transaction between the app and the gateway
+  # order_info - this is the same thing, but identifies the transaction between the app and the user. Not sure if it can be the same
+  attr_reader :transaction_reference, :order_info, :amount
+
+  def initialize(transaction_reference, order_info, amount)
+    @transaction_reference = transaction_reference
+    @order_info = order_info
+    @amount = amount.to_s
   end
 
   def to_url
+    params = {
+      secret: AppConstants.gateway_secret_hash,
+      access_code: AppConstants.gateway_access_code, 
+      transaction_ref: transaction_reference, 
+      merchant: AppConstants.merchant_id, 
+      order_info: order_info, 
+      amount: amount, 
+      callback_url: AppConstants.gateway_callback_uri
+    }
+    secure_hash = ParamsHasher.new.to_hash(params)
     
+    gateway_uri = "https://gateway.com/vpcpay?vpc_Version=1&vpc_Locale=en&vpc_Command=pay&"
+    gateway_uri << "vpc_AccessCode=#{AppConstants.gateway_access_code}&vpc_MerchTxnRef=#{transaction_reference}&"
+    gateway_uri << "vpc_Merchant=#{AppConstants.merchant_id}&vpc_OrderInfo=#{order_info}&vpc_Amount=#{amount}&"
+    gateway_uri << "vpc_ReturnURL=#{AppConstants.gateway_callback_uri}&vpc_SecureHash=#{secure_hash}"
   end
+  
+
 end
