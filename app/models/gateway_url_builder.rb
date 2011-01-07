@@ -13,7 +13,6 @@ class GatewayUrlBuilder
 
   def to_url
     params = {
-      :secret          =>  AppConstants.gateway_secret_hash,
       :vpc_Version     =>  1,
       :vpc_Locale      =>  "en",
       :vpc_Command     =>  "pay",
@@ -24,13 +23,9 @@ class GatewayUrlBuilder
       :vpc_OrderInfo   =>  order_info,
       :vpc_Amount      =>  amount
     }
-    secure_hash = ParamsHasher.new.to_hash(params)
+    params[:vpc_SecureHash] = ParamsHasher.new(AppConstants.gateway_secret_hash).to_hash(params)
 
-    params.delete(:secret)
-    queryString = params.inject([]) do |acc, elem|
-      acc << URI.escape("#{elem[0]}=#{elem[1]}")
-    end
-    "#{AppConstants.gateway_payment_uri}?#{queryString.join("&")}&vpc_SecureHash=#{secure_hash}"
+    AppConstants.gateway_payment_uri + '?' + URI.encode_www_form(params)
   end
   
 
