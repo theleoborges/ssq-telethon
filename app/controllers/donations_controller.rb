@@ -4,7 +4,8 @@ class DonationsController < ApplicationController
     "1" => "Transaction could not be processed",
     "E" => "Transaction declined - contact issuing bank",
     "2" => "Transaction declined - contact issuing bank",
-    "3"	=> "No reply from Processing Host 4	Card has expired",
+    "3"	=> "No reply from Processing Host",
+    "4" => "Card has expired",
     "5"	=> "Insufficient credit"
   }
   
