@@ -13,6 +13,7 @@
 <ol class="tf-sections">
 
   <li class="section">
+      <%if @return_code.to_s == "0" %>
       <fieldset id="contact-details">
           <legend>Thank you!</legend>
           <fieldset style="height: 5em">
@@ -24,6 +25,22 @@
                   </li>
               </ol>
       </fieldset>
+      <% else %>
+      <fieldset id="contact-details">      
+          <legend>Ooops! Something went wrong!</legend>
+          <fieldset style="height: 5em">
+              <ol class="ftw-questions ftw-slot-in">
+                  <li class="xf-input">
+                      <label for="contact-phone">
+                          <span class="xf-label" style="width: 50em">
+                            We were unable to process your order!<br>
+                            <%= @error_msg %>
+                          </span>
+                      </label>
+                  </li>
+              </ol>
+      </fieldset>      
+      <% end %>
   </li>
 </ol>
 
