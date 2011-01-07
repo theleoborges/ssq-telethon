@@ -1,184 +1,423 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
- 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en-AU"> 
-	<head> 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
-		<title>Premier's Disaster Relief Appeal</title> 
-		<!-- Build: build-9388 --> 
-    <%= stylesheet_link_tag "minicart_1.0.css", :cache => true %>
-	  <%= stylesheet_link_tag "payment-20100104", :cache => true %>    
-    <%= stylesheet_link_tag "donations", :cache => true %>	  
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script> 
-    
-    <script type="text/javascript" src="https://www.smartservice.qld.gov.au/payment/minicart/contents_1.0.js"></script> 
+		"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-    <script type="text/javascript" src="https://www.smartservice.qld.gov.au/payment/outage/outage_warnings.js"></script> 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-AU" lang="en-AU">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Checkout (1 of 3): Customer details</title>
+	    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
+        <!-- Build: build-8993 -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <%= stylesheet_link_tag "payment-20100104.css", :cache => true%>
+			<link rel="AGLS_Metadata_Element_Set_v1-3" href="http://www.agls.gov.au/AGLS_Metadata_Element_Set_v1-3.html" />
+			<meta name="DC.Coverage.jurisdiction" scheme="AglsJuri" content="Queensland" />
+			<meta name="DC.Type.documentType" scheme="agls-document" content="service" />
+			<meta name="DC.Type.serviceType" scheme="agls-service" content="financial" />
+			<style type="text/css">
+            <!--
+                #name .ftw-questions abbr.xf-required { display: none; }
+            -->
+        </style>
+            <!--[if lt IE 9]><link rel="stylesheet" href="/payment/ui/ie.css" type="text/css" /><![endif]-->
+	<!--[if lt IE 7]><script>document.createElement('abbr')</script><![endif]-->
 
-	<!--[if lt IE 7]><script>document.createElement('abbr')</script><![endif]--> 
-	</head> 
- 
-	<body id="qld-gov-au" class="donations"> 
-<div id="access"> 
-	<h2>Access keys and skip links</h2> 
-	<ul> 
-		<li><a href="http://www.qld.gov.au/help/accessibility/keyboard.html#access-keys">Access keys</a></li> 
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-19229479-1' ]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+    </head>
+
+	<body id="qld-gov-au" class="payment application">
 		
-		
-		<li><a href="#content">Skip to content</a></li> 
-		<li><a href="#footer">Skip to footer</a></li> 
-	</ul> 
-</div> 
-<div id="header"><div class="inner"> 
-	<h2>Site header</h2> 
-<div id="qg-logo"><a href="http://www.qld.gov.au/"><%= image_tag "qglogo.gif", :size => "140x50", :alt => "Queensland Government" %></a></div> 
-	<ul id="tools"> 
-		<li><a href="http://www.thepremier.qld.gov.au/index.aspx" accesskey="2">Home</a></li> 
-		<li><a href="http://www.thepremier.qld.gov.au/tools/sitemap.aspx" accesskey="3">Site map</a></li> 
-		<li><a href="http://www.thepremier.qld.gov.au/tools/contact.aspx" accesskey="4">Contact us</a></li> 
-		<li><a href="http://www.thepremier.qld.gov.au/tools/help.aspx">Help</a></li> 
-		<li class="last-child"><form action="http://pan.search.qld.gov.au/search/search.cgi" id="search-form"> 
-			<div> 
-				<label for="search-query">Search Queensland Government</label> 
-				<input type="text" name="query" id="search-query" size="15" value="" accesskey="5" /> 
-				<input type="submit" value="Search" /> 
-				<input type="hidden" name="num_ranks" value="10" /> 
-				<input type="hidden" name="tiers" value="off" /> 
-				<input type="hidden" name="collection" value="qld-gov" /> 
-				<input type="hidden" name="profile" value="the-premier" /> 
-			</div> 
-		</form></li> 
-	</ul> 
-	<h2><a id="agency" href="http://www.thepremier.qld.gov.au/initiatives/disaster_recovery/index.aspx">Premier's Disaster Relief Appeal</a></h2> 
-</div></div> 
- 
-<div id="page-container"><div id="about" class="aside"><div class="inner">                <h2>About donations</h2> 
-                <p>Thank you for choosing to donate to the Premier's Disaster Relief Appeal.
-                All donations received will go towards assisting victims of disasters.</p> 
-                <p>All donations greater than $2 are tax deductible and a receipt will be issued at the time of making your contribution.</p> 
-                <p><a href="http://www.thepremier.qld.gov.au/initiatives/disaster_recovery/index.aspx">More information about the Premier's Disaster Relief Appeal</a></p> 
-</div></div> 
-    <div id="content-container"> 
-<div id="article-container"> 
-	<div id="content"> 
-                    	<div class="tf-status" id="outage-warnings-container"></div> 
+
+    <div id="access">
+        <h2>Access keys and skip links</h2>
+        <ul>
+            <li><a href="http://www.qld.gov.au/help/accessibility/keyboard.html#access-keys">Access keys</a></li>
+
+            <li><a href="#content">Skip to content</a></li>
+            <li><a href="#footer">Skip to footer</a></li>
+        </ul>
+    </div>
+    <div id="header">
+        <div class="inner">
+            <h2>Site header</h2>
+
+            <div id="qg-logo"><a href="http://www.qld.gov.au/"><%= image_tag "qglogo.gif", :alt => "Queensland Government", :size=> "140x50" %></a></div>
+            <ul id="tools">
+                <li><a href="http://www.qld.gov.au/" accesskey="2">Home</a></li>
+                <li><a href="http://www.qld.gov.au/services/" accesskey="3">Site map</a></li>
+                <li><a href="/payment/contact" accesskey="4">Contact us</a></li>
+                <li><a href="http://www.qld.gov.au/help/">Help</a></li>
+
+                <li class="last-child">
+                    <form action="http://pan.search.qld.gov.au/search/search.cgi" id="search-form">
+                        <div>
+                            <label for="search-query">Search Queensland Government</label>
+                            <input type="text" name="query" id="search-query" size="15" value="" accesskey="5"/>
+                            <input type="submit" value="Search"/>
+                            <input type="hidden" name="num_ranks" value="10"/>
+                            <input type="hidden" name="tiers" value="off"/>
+
+                            <input type="hidden" name="collection" value="qld-gov"/>
+                            <input type="hidden" name="profile" value="qld"/>
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="page-container">
+            
+    <div id="content-container">
+    <div id="article-container">
+        <div id="content">
+						<div class="tf-status" id="outage-warnings-container"></div>
     
     
 	
     
-    
-    
-<div class="article tf-form"><div class="inner"> 
-        <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
-        <div class="ftw-preamble"> 
-            <p>The Queensland Government would like to thank you for your contribution.</p> 
-            <ul> 
-                <li>Amounts are in Australian dollars.</li> 
-                <li><abbr title="required" class="xf-required">*</abbr> indicates required fields.</li> 
-            </ul> 
-        </div> 
- 
-        <form action="campaigns" method="post" class="usetheforces"> 
-            <ol class="ftw-questions"> 
-                    <li> 
-                        <span class="xf-label">I would like to donate to:</span> 
-                        Premier's Disaster Relief Appeal December 2010
-                        <input type="hidden" name="form.campaignUuid" value="81965ef9-406c-4406-a373-11552fd6c43c" id="form_campaignUuid"/> <br/> 
-                    </li> 
- 
-<li class="xf-input">
-<label for="amount">
-	<span class="xf-label">I would like to make a donation of</span>
-	<abbr class="xf-required" title="required">*</abbr>
-	<small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
-</label>
-<input type="text" id="amount" name="form.amount" value="" size="5" maxlength="12"/>
-</li>
- 
- 
-                <li class="tf-footer"> 
-                    <h2>Receipts and your privacy</h2> 
-                    <p>Receipts are issued for all donations.
-                    To assist in processing donations, you will be asked for your contact details.
-                    These may be left blank if you wish to donate anonymously.</p> 
- 
-<input type="hidden" name="struts.token.name" value="struts.token" /> 
-<input type="hidden" name="struts.token" value="8F0N061TP6CDONY5WKBUHHSG4UPRMQ97" />                    <script type="text/javascript"><!--
-                        document.write('<input type="hidden" name="ssqCartId" value="' + SSQ.cart.id + '" />');
-                    // --></script> 
-                    <noscript><input type="hidden" name="ssqCartId" value="" /></noscript> 
-                    <ol class="tf-submit"> 
+    <div class="article tf-form"><div class="inner">
+        <div class="header"><h1>Checkout (1 of 3): Customer details</h1></div>
 
-<li class="wfd-primary-action"><strong><input type="submit" id="donate" value="Donate" /></strong></li>
-                    </ol> 
-                </li> 
-            </ol> 
- 
-        </form> 
-    </div></div>    
- 
-	</div> 
-</div> 
-	<div id="minicart" class="aside"><div class="inner"> 
-		<div id="ssq-minicart" class="placeholder"> 
-			<h2>Cart</h2> 
-			<div id="ssq-minicart-view"> 
-				<script type="text/javascript"><!--
-					document.write('<div class="ssq-minicart-loading"><p>Loading <a href="https://www.smartservice.qld.gov.au/payment/cart/view">cart</a>…</p></div>');
-				// --></script> 
-				<noscript> 
-					<p class="ssq-minicart-noscript">Edit cart or checkout to place your order.</p>
-					<div class="ssq-minicart-submit">
-						<input type="hidden" id="ssq-cart-contents" name="ssq-cart-contents" value="" />
-						<img src="https://www.smartservice.qld.gov.au/payment/minicart/synchronise" id="ssq-synch-img" height="0" width="0" alt="" />
-						<a href="https://www.smartservice.qld.gov.au/payment/cart/checkout" id="ssq-cart-checkout"><img id="ssq_minicart_checkout" src="https://www.smartservice.qld.gov.au/payment/minicart/btn-checkout.png" alt="Checkout" /></a>
-						<a href="https://www.smartservice.qld.gov.au/payment/cart/view" id="ssq-cart-edit"><img id="ssq_minicart_cart" src="https://www.smartservice.qld.gov.au/payment/minicart/btn-cart.png" alt="Edit cart" /></a>
-					</div>
-				</noscript> 
-			</div> 
-			<div class="ssq-minicart-cards"> 
-				<h3>Cards accepted</h3> 
-				<ul> 
-					<li><img src="https://www.smartservice.qld.gov.au/payment/minicart/visa.png" alt="Visa" /></li> 
-					<li><img src="https://www.smartservice.qld.gov.au/payment/minicart/mastercard.png" alt="MasterCard" /></li> 
-				</ul> 
-			</div> 
-		</div> 
-	</div></div> 
-    </div> 
-</div> 
-<div id="footer"> 
-<h2>Site footer</h2> 
-<ul> 
-	<li><a href="http://www.thepremier.qld.gov.au/tools/copyright.aspx">Copyright</a></li> 
-	<li><a href="http://www.thepremier.qld.gov.au/tools/disclaimer.aspx">Disclaimer</a></li> 
-	<li><a href="http://www.thepremier.qld.gov.au/tools/privacy.aspx">Privacy</a></li> 
+        <div class="ftw-preamble">
+
+            <ul>
+                <li>Enter customer details to continue.</li>
+                <li><abbr class="xf-required" title="required">*</abbr>
+                    indicates required fields.</li>
+            </ul>
+        </div>
+
+        <form action="/payment/order/47b08abd-d19e-4938-b711-f8bc88432488/checkout" method="post" id="checkout" class="usetheforces tt-citizen hint-after">
+
+            <ol class="tf-sections">
+                <li class="section">
+                    <fieldset id="contact-details">
+                        <legend>Customer details</legend>
+                        <div class="ftw-instructions privacy">
+                            <p>Customer details assist with enquiries relating to this order.</p>
+                        </div>
+                        <ol class="ftw-questions">
+
+                            <li class="section">
+                                <fieldset>
+                                    <legend>Customer name</legend>
+                                    <ol class="ftw-questions ftw-slot-in">
+                                        <li class="xf-group">
+                                            <fieldset id="name">
+                                                <legend>
+                                                    <span class="xf-label">Name</span>
+
+                                                    
+                                                </legend>
+                                                <ol class="ftw-questions xf-appearance-compact">
+                                                    <li class="xf-input">
+                                                        <label for="name-title">
+                                                            <span class="xf-label">Title</span>
+                                                        </label>
+<input type="text" name="form.title" size="5" maxlength="12" value="" id="name-title"/>                                                    </li>
+
+                                                    <li class="xf-input">
+
+                                                        <label for="name-given">
+                                                            <span class="xf-label">Given name</span>
+                                                            
+                                                        </label>
+<input type="text" name="form.givenName" size="20" maxlength="40" value="" id="name-given"/>                                                    </li>
+
+                                                    <li class="xf-input">
+                                                        <label for="name-family">
+                                                            <span class="xf-label">Family name</span>
+
+                                                            
+                                                        </label>
+<input type="text" name="form.familyName" size="20" maxlength="40" value="" id="name-family"/>                                                    </li>
+                                                </ol>
+                                            </fieldset>
+                                        </li>
+                                        <li class="xf-input">
+                                            <label for="organisation">
+                                                <span class="xf-label">Organisation name</span>
+
+                                            </label>
+<input type="text" name="form.organisationName" size="40" maxlength="200" value="" id="organisation"/>                                        </li>
+
+                                    </ol>
+                                </fieldset>
+                            </body>
+
+                            <li class="section">
+                                <fieldset>
+                                    <legend>Contact by phone, fax or email</legend>
+
+                                    <ol class="ftw-questions ftw-slot-in">
+                                        <li class="xf-input">
+                                            <label for="contact-phone">
+                                                <span class="xf-label">Phone</span>
+                                                
+                                            </label>
+<input type="text" name="form.contactPhone" size="15" maxlength="20" value="" id="contact-phone"/>                                        </li>
+
+                                        <li class="xf-input">
+                                            <label for="contact-fax">
+
+                                                <span class="xf-label">Fax</span>
+                                                
+                                            </label>
+<input type="text" name="form.contactFax" size="15" maxlength="20" value="" id="contact-fax"/>                                        </li>
+
+                                            
+<li class="xf-select">
+<ul class="xf-choices">
+<li><label for="copy-of-receipt-requested"><input type="checkbox" name="form.copyOfReceiptRequested" id="copy-of-receipt-requested" value="true" />Send a copy of receipt and any items via email</label></li>
+</ul>
+</li>
+
+                                        <li class="xf-input">
+
+                                            <label for="contact-email">
+                                                <span class="xf-label">Email</span>
+                                                
+                                            </label>
+<input type="text" name="form.contactEmail" size="40" maxlength="100" value="" id="contact-email"/>                                        </li>
+
+                                        <li class="xf-input">
+                                            <label for="contact-email-confirm">
+                                                <span class="xf-label">Confirm email</span>
+
+                                                
+                                                <span class="xf-hint">Please retype to confirm</span>
+                                            </label>
+<input type="text" name="form.contactEmailConfirm" size="40" maxlength="100" value="" id="contact-email-confirm"/>                                        </li>
+                                    </ol>
+                                </fieldset>
+                            </li>
+
+                            <li class="section">
+                                <fieldset>
+
+                                    <legend>Contact by post</legend>
+                                    <ol class="ftw-questions ftw-slot-in">
+<li class="xf-group">
+<fieldset id="contact-address">
+	<legend>
+		<span class="xf-label">Postal address</span>
+	</legend>
+	<ol class="ftw-questions">
+
+        <li class="xf-input">
+            <label for="contact-address-line1">
+                <span class="xf-label">Address line 1</span>
+                
+            </label>
+<input type="text" name="form.contactAddress.line1" size="30" maxlength="50" value="" id="contact-address-line1"/>        </li>
+
+<li class="xf-input">
+<label for="contact-address-line2">
+	<span class="xf-label">Address line 2 (optional)</span>
+
+</label>
+<input type="text" id="contact-address-line2" name="form.contactAddress.line2" value="" size="30" maxlength="50"/>
+</li>
+
+<li class="xf-input">
+<label for="contact-address-line3">
+	<span class="xf-label">Address line 3 (optional)</span>
+</label>
+<input type="text" id="contact-address-line3" name="form.contactAddress.line3" value="" size="30" maxlength="50"/>
+</li>
+
+<li class="xf-input">
+<label for="contact-suburb">
+	<span class="xf-label">Town, suburb or city</span>
+
+</label>
+<input type="text" id="contact-suburb" name="form.contactAddress.suburb" value="" maxlength="46"/>
+</li>
+
+<li class="xf-input">
+<label for="contact-state">
+	<span class="xf-label">State or territory</span>
+</label>
+<input type="text" id="contact-state" name="form.contactAddress.state" value="QLD" size="10" maxlength="46"/>
+</li>
+
+<li class="xf-input">
+<label for="contact-postcode">
+	<span class="xf-label">Postal or zip code</span>
+
+</label>
+<input type="text" id="contact-postcode" name="form.contactAddress.postcode" value="" size="5" maxlength="12"/>
+</li>
+
+<li class="xf-input">
+<label for="contact-country">
+	<span class="xf-label">Country</span>
+</label>
+<input type="text" id="contact-country" name="form.contactAddress.country" value="Australia" size="30" maxlength="100"/>
+</li>
+
+	</ol>
+</fieldset>
+</li>
+
+                                    </ol>
+                                </fieldset>
+                            </li>
+                        </ol>
+                    </fieldset>
+                </li>
+
     
-	<li><a href="http://www.qld.gov.au/help/accessibility/keyboard.html#access-keys" accesskey="0">Access keys</a></li> 
-	<li><a href="http://www.qld.gov.au/languages/">Other languages</a></li> 
-</ul> 
-<p>© The State of Queensland (Department of the Premier and Cabinet) 2009.
-</p> 
-<p><a href="http://www.qld.gov.au/" accesskey="1">Queensland Government</a></p> 
-</div> 
- 
+
+                <li class="section">
+                    <h2>Order details</h2>
+
+                    <div class="ftw-instructions">
+                        <p>Please take a moment to make sure this order is correct.</p>
+                    </div>
+
+<table class="line-items">
+    <col />
+    <col />
+    <col class="number" align="char" char="." />
+    <col class="number" align="char" char="." />
+
+    <col class="number" align="char" char="." />
+    <col class="number" />
+    <col class="number" align="char" char="." />
+    <thead>
+        <tr>
+            <th scope="col">Item description</th>
+            <td></td>
+            <th scope="col">Reference</th>
+
+            <th scope="col" class="number">Unit price <small>(excl. GST)</small></th>
+            <th scope="col" class="number">GST</th>
+            <th scope="col" class="number">Unit price <small>(incl. GST)</small></th>
+            <th scope="col" class="number">Qty</th>
+            <th scope="col" class="number">Total</th>
+
+        </tr>
+    </thead>
+
+                <tbody>
+
+<tr>
+    <td scope="row">
+        <strong>Donation to Premier's Disaster Relief Appeal December 2010</strong>
+        <span class="description">All donations over $2.00 are tax deductible</span>
+
+	    <small class="agency">Department of the Premier and Cabinet</small>
+    </td>
+        <td></td>
+        <td class="identifier"></td>
+        <td class="number">$10.00</td>
+        <td class="number">$0.00</td>
+        <td class="number">$10.00</td>
+
+            <td class="number">
+                1
+            </td>
+            <td class="number">$10.00</td>
+</tr>
+                </tbody>
+
+    <tfoot>
+        <tr class="total">
+	        <td></td><td></td><td></td><td></td>
+
+            <td></td>
+            <td>
+			</td>
+            <th scope="row">Total</th>
+            <td class="number">$10.00</td>
+        </tr>
+    </tfoot>
+</table>
+
+                </li>
+                <li class="group">
+
+<table class="line-items-summary">
+	<col />
+	<col class="number" align="char" char="." />
+	
+	<tbody>
+		<tr class="total">
+			<th scope="row">Total amount paid<br/><small>No GST has been charged</small></th>
+
+			<td class="number">$10.00</td>
+			
+		</tr>
+	</tbody>
+</table>
+                </li>
+                <li class="tf-footer">
+                    <ul class="tf-submit">
+                        <li class="wfd-primary-action"><strong><input type="submit" id="pay" value="Continue" /></strong></li>
+                    </ul>
+
+                </li>
+            </ol>
+        </form>
+    </div></div>
+    
+    
+
+        </div>
+    </div>
+                
+    </div>
+    </div>
+
+    <div id="footer">
+            <div class="inner">
+        <h2>Site footer</h2>
+        <ul>
+            <li><a href="/payment/legal/copyright">Copyright</a></li>
+            <li><a href="/payment/legal/disclaimer">Disclaimer</a></li>
+            <li><a href="/payment/legal/privacy">Privacy</a></li>
+
+                <li><a href="/payment/legal/terms">Terms and conditions</a></li>
+            <li><a href="http://www.qld.gov.au/help/accessibility/keyboard.html#access-keys" accesskey="0">Access keys</a></li>
+            <li><a href="http://www.qld.gov.au/languages/">Other languages</a></li>
+        </ul>
+        <p>    © The State of Queensland
+    
+     2008.
+</p>
+
+        <p><a href="http://www.qld.gov.au/" accesskey="1">Queensland Government</a></p>
+
+    </div>
+    </div>
+
         <!-- SiteCatalyst code version: H.21.
         Copyright 1996-2010 Adobe, Inc. All Rights Reserved
-        More info available at http://www.omniture.com --> 
-        <script type="text/javascript" src="/services/ui/s_code.js"></script> 
-        <script type="text/javascript"> 
- 
+        More info available at http://www.omniture.com -->
+        <script language="JavaScript" type="text/javascript" src="/payment/ui/s_code.js"></script>
+        <script language="JavaScript" type="text/javascript">
+
         <!--
         /* You may give each page an identifying name, server, and channel on
         the next lines. */
-        s.pageName="donations:appeal10"
+        s.pageName="papi:order:checkout"
         s.server=""
         s.channel=""
         s.pageType=""
         s.prop1=""
         s.prop2=""
- 
+
         /* Conversion Variables */
         s.campaign=""
         s.state=""
@@ -189,27 +428,24 @@
         s.eVar1=""
         s.eVar2=""
         /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
-        var s_code=s.t();if(s_code)document.write(s_code)//--></script> 
-        <script type="text/javascript"><!--
+        var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+        <script language="JavaScript" type="text/javascript"><!--
         if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
         //--></script><noscript><a href="http://www.omniture.com" title="Web Analytics"><img
         src="http://smartservicequeensland.122.2o7.net/b/ss/ssqsmartservdevelopment/1/H.21--NS/0?[AQB]&cdp=4&[AQE]"
-        height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/--> 
-        <!-- End SiteCatalyst code version: H.21. --> 
-    <script type="text/javascript" src="https://www.smartservice.qld.gov.au/payment/ui/minicart_1.0.js"></script> 
-    <script type="text/javascript" src="https://www.smartservice.qld.gov.au/payment/ui/jquery.forces.forms.1.2.js"></script> 
-	<script type="text/javascript"> 
+        height="1" width="1" border="0" alt="" /></a></noscript><!--/DO NOT REMOVE/-->
+
+        <!-- End SiteCatalyst code version: H.21. -->
+    
+    <script type="text/javascript" src="/payment/ui/jquery.forces.forms.1.2.js"></script>
+	<script type="text/javascript">
 	<!-- //
 	
-        var issue = $('#issue');
-        var issueDisclosure = function() {
-            $('#issue-type').forces_attr('relevant', $('#issue').forces_val() == "Yes");
-        };
-        issue.click(issueDisclosure);
-        issueDisclosure();
-    
+        var nameGiven=$("#name-given");if(nameGiven.is(":-xf-required")){var nameFamily=$("#name-family");$("#name-given,#name-family").change(function(){nameGiven.forces_attr("required",nameFamily.is(":-xf-empty"));nameFamily.forces_attr("required",nameGiven.is(":-xf-empty"))}).triggerHandler("change")}$("#contact-email, #delivery-email").forces_attr("type","email").change(function(){var B=$(this);B.forces_setCustomValidity(B.val().match(/@[0-9.]+$/)?$.forces.MSG_TYPE_MISMATCH.email:null)}).triggerHandler("change");$.fn.forces_isConfirmationFor=function(D){D=$(D);var C=$(this);D.add(C).change(function(){C.forces_setCustomValidity(D.forces_val()==C.forces_val()?"":"doesn't match "+D.forces_label());if(C.is(":-tf-validated")){C.forces_validate()}});return this};$("#contact-email-confirm").forces_isConfirmationFor("#contact-email");$("#delivery-email-confirm").forces_isConfirmationFor("#delivery-email");var emailReceipt=$("#copy-of-receipt-requested");if(emailReceipt.is(":checked")||!$("#contact-email").is(":-xf-required")){emailReceipt.click(function(){$("#contact-email, #contact-email-confirm").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}var taxInvoiceRequired=$("#tax-invoice-required");taxInvoiceRequired.click(function(){$("#tax-business-details").forces_attr("relevant",taxInvoiceRequired.is(":checked"))}).triggerHandler("click");var abn=$("#abn");abn.change(function(){var H=abn.val().replace(/\s+/g,"");if(H.length==0){abn.forces_setCustomValidity("")}else{if(H.match(/^[0-9]{11}$/)){var G=H.split("");var J=G[0]*10;var I=1;for(var F=1;11>F;F++){J+=(G[F]*I);I+=2}if(J%89===10){abn.forces_setCustomValidity("")}else{abn.forces_setCustomValidity("invalid number")}}else{abn.forces_setCustomValidity("invalid number")}}});if(abn.is(":-xf-required")){var taxAddressRequiredFields=$("#tax-address :-xf-required");var abnAddressChangeHandler=function(){var B=abn.is(":-xf-empty");taxAddressRequiredFields.forces_attr("required",B).filter(":-xf-invalid").forces_validate();abn.forces_attr("required",!B||taxAddressRequiredFields.filter(":-xf-empty").length>0).filter(":-xf-invalid").forces_validate()};abnAddressChangeHandler();abn.change(abnAddressChangeHandler);taxAddressRequiredFields.change(abnAddressChangeHandler);$(document).bind($.forces.EVENT_XF_SUBMIT_ERROR,function(){var B=$('.tf-alert a[href$="#abn"]');if(B.length&&B.text().match(/^ABN: must be completed$/)){B.text("ABN or business address: must be completed");B.closest("ol").find('a[href*="#tax-"]').parent().remove()}})}var addressAsAbove=$("#delivery-address-same-as-contact-address");addressAsAbove.click(function(){$("#delivery-details-needed").forces_attr("relevant",!addressAsAbove.is(":checked"))}).triggerHandler("click");    
 	// -->
-	</script> 
+	</script>
 	
-	</body> 
+        
+        <!--[if lt IE 9]><script type="text/javascript" src="/payment/ui/ie.js"></script><![endif]-->
+    </body>
 </html>
