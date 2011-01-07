@@ -30,7 +30,7 @@ class GatewayUrlBuilder
     queryString = params.inject([]) do |acc, elem|
       acc << "#{elem[0]}=#{elem[1]}"
     end
-    AppConstants.gateway_payment_uri << queryString.join("&") << "&vpc_SecureHash=#{secure_hash}"
+    "#{AppConstants.gateway_payment_uri}?#{queryString.join("&")}&vpc_SecureHash=#{secure_hash}"
   end
   
 

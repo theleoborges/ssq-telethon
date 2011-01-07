@@ -14,6 +14,6 @@ test:
   <<: *default
   gateway_access_code: "access_code"
   gateway_secret_hash:  "secret"
-  gateway_payment_uri:  "https://gateway.com/vpcpay?"
+  gateway_payment_uri:  "https://gateway.com/vpcpay"
   gateway_callback_uri: "http://localhost:3000/gateway_callback"  
   merchant_id:  "merchant"  
