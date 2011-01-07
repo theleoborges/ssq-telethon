@@ -17,12 +17,12 @@ class GatewayUrlBuilder
       :vpc_Version     =>  1,
       :vpc_Locale      =>  "en",
       :vpc_Command     =>  "pay",
-      :vpc_AccessCode  =>  AppConstants.gateway_access_code, 
-      :vpc_MerchTxnRef =>  transaction_reference, 
-      :vpc_Merchant    =>  AppConstants.merchant_id, 
-      :vpc_OrderInfo   =>  order_info, 
-      :vpc_Amount      =>  amount, 
-      :vpc_ReturnURL   =>  AppConstants.gateway_callback_uri
+      :vpc_Merchant    =>  AppConstants.merchant_id,
+      :vpc_AccessCode  =>  AppConstants.gateway_access_code,
+      :vpc_ReturnURL   =>  AppConstants.gateway_callback_uri,
+      :vpc_MerchTxnRef =>  transaction_reference,
+      :vpc_OrderInfo   =>  order_info,
+      :vpc_Amount      =>  amount
     }
     secure_hash = ParamsHasher.new.to_hash(params)
 
