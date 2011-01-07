@@ -1,0 +1,29 @@
+Receipt number: <%= @donation.order_info %>
+Date / time:    <%= DateTime.now %>
+
+   Customer: <%= @donation.customer.title %> <%= @donation.customer.given_name %> <%= @donation.customer.family_name %>
+   Organisation: <%= @donation.customer.organisation_name %>
+
+   Title: Donation to New Bicycle Fund
+   Description: All donations over $2.00 are tax deductible
+   Agency: Department of the Premier and Cabinet
+   Reference:
+   Amount Ex GST: $<%= @donation.amount %>
+   GST: $0.00
+   Total Amount: $<%= @donation.amount %>
+
+Total (excl. GST): $$<%= @donation.amount %>
+Total GST amount paid: $0.00
+Total amount paid (incl. GST): $<%= @donation.amount %>
+--------------------------------------------------------------------------------------
+
+
+We value your enquiries and feedback. The Queensland Government is committed to continually improving the quality of our services.
+Please do not reply to this email as it has been automatically generated. You may contact us at:
+enquiries@smartservice.qld.gov.au or on 13 13 04 8:00am - 6:00pm (Australian Eastern Standard Time) Monday to Friday (not including Public Holidays) Calls from within Australia are charged at the local rate.
+From outside Australia, call +617 3405 0970, +10 hours UTC.
+
+
+***************************************************
+Important! Please do not reply to this email.
+***************************************************

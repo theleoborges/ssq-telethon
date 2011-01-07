@@ -1,10 +1,20 @@
+<script type="text/javascript">
+  // $(function(){
+  //   $("#checkout").validate({
+  //      errorElement: "em",
+  //      errorLabelContainer: "#messageBox ol",
+  //      wrapper: "li"       
+  //   });
+  // });
+
+</script>
+
 <div id="page-container">
 
 <div id="content-container">
 <div id="article-container">
 <div id="content">
 <div class="tf-status" id="outage-warnings-container"></div>
-
 
 <div class="article tf-form">
 <div class="inner">
@@ -33,8 +43,9 @@
                   <li class="xf-input">
                       <label for="contact-phone">
                           <span class="xf-label">Amount</span>
+                          <abbr class="xf-required" title="required">*</abbr>
                       </label>
-                      <input type="text" name="amount" size="15" maxlength="20" value="" id="amount"/>
+                      <input type="text" name="amount" size="15" maxlength="20" value="" id="amount" />
                       <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
                   </li>
               </ol>

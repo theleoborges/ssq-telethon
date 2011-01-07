@@ -1,5 +1,6 @@
 class Donation < ActiveRecord::Base
   belongs_to :customer
+  validates_presence_of :amount, :transaction_reference, :order_info
 
   after_initialize do
     self.generate_identifiers! if new_record?

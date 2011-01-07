@@ -7,7 +7,7 @@
         <title>Checkout (1 of 3): Customer details</title>
 	    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
         <!-- Build: build-8993 -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <%= javascript_include_tag "jquery-1.4.4.min.js" %>
     <%= stylesheet_link_tag "payment-20100104.css" %>
     <%= stylesheet_link_tag "dashboards.css" %>
 			<link rel="AGLS_Metadata_Element_Set_v1-3" href="http://www.agls.gov.au/AGLS_Metadata_Element_Set_v1-3.html" />
@@ -20,19 +20,7 @@
             -->
         </style>
             <!--[if lt IE 9]><link rel="stylesheet" href="/payment/ui/ie.css" type="text/css" /><![endif]-->
-	<!--[if lt IE 7]><script>document.createElement('abbr')</script><![endif]-->
-
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-19229479-1' ]);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+	          <!--[if lt IE 7]><script>document.createElement('abbr')</script><![endif]-->
     </head>
 
 	<body id="qld-gov-au" class="payment application">
@@ -136,7 +124,8 @@
 
   <!-- End SiteCatalyst code version: H.21. -->
 
-  <script type="text/javascript" src="/payment/ui/jquery.forces.forms.1.2.js"></script>
+  <%= javascript_include_tag "jquery.forces.forms.1.2.js" %>
+  
   <script type="text/javascript">
       <!-- //
        

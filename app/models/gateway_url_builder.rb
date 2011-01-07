@@ -18,10 +18,10 @@ class GatewayUrlBuilder
     }
     params[:vpc_SecureHash] = ParamsHasher.new(AppConstants.gateway_secret_hash).to_hash(params)
 
-    queryString = params.collect do |elem|
+    queryString = params.sort.collect do |elem|
       "#{CGI.escape(elem[0].to_s)}=#{CGI.escape(elem[1].to_s)}"
     end
-    "#{AppConstants.gateway_payment_uri}?#{queryString.sort.join("&")}"
+    "#{AppConstants.gateway_payment_uri}?#{queryString.join("&")}"
   end
 
 end
