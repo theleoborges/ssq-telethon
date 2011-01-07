@@ -1,4 +1,6 @@
 SsqTelethon::Application.routes.draw do
+  get "dashboards/index"
+
   get "donations/index"
   get "donations/callback"
 
