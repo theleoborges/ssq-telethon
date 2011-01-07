@@ -13,20 +13,24 @@ class GatewayUrlBuilder
 
   def to_url
     params = {
-      :secret =>  AppConstants.gateway_secret_hash,
-      :access_code =>  AppConstants.gateway_access_code, 
-      :transaction_ref =>  transaction_reference, 
-      :merchant =>  AppConstants.merchant_id, 
-      :order_info =>  order_info, 
-      :amount =>  amount, 
-      :callback_url =>  AppConstants.gateway_callback_uri
+      :secret          =>  AppConstants.gateway_secret_hash,
+      :vpc_Version     =>  1,
+      :vpc_Locale      =>  "en",
+      :vpc_Command     =>  "pay",
+      :vpc_AccessCode  =>  AppConstants.gateway_access_code, 
+      :vpc_MerchTxnRef =>  transaction_reference, 
+      :vpc_Merchant    =>  AppConstants.merchant_id, 
+      :vpc_OrderInfo   =>  order_info, 
+      :vpc_Amount      =>  amount, 
+      :vpc_ReturnURL   =>  AppConstants.gateway_callback_uri
     }
     secure_hash = ParamsHasher.new.to_hash(params)
-    
-    gateway_uri = "#{AppConstants.gateway_payment_uri}?vpc_Version=1&vpc_Locale=en&vpc_Command=pay&"
-    gateway_uri << "vpc_AccessCode=#{AppConstants.gateway_access_code}&vpc_MerchTxnRef=#{transaction_reference}&"
-    gateway_uri << "vpc_Merchant=#{AppConstants.merchant_id}&vpc_OrderInfo=#{order_info}&vpc_Amount=#{amount}&"
-    gateway_uri << "vpc_ReturnURL=#{AppConstants.gateway_callback_uri}&vpc_SecureHash=#{secure_hash}"
+
+    params.delete(:secret)
+    queryString = params.inject([]) do |acc, elem|
+      acc << "#{elem[0]}=#{elem[1]}"
+    end
+    AppConstants.gateway_payment_uri << queryString.join("&") << "&vpc_SecureHash=#{secure_hash}"
   end
   
 

@@ -7,6 +7,7 @@ class ParamsHasher
     string = params.keys.sort.inject(secret) { |acc, key|
       acc << params[key]
     }
+
     Digest::MD5.new.hexdigest(string)
   end
 end
