@@ -16,7 +16,7 @@ class DonationsController < ApplicationController
     donation.amount = params[:amount]
     donation.save!
 
-    redirect_to_payment_gateway donation
+    self.redirect_to_payment_gateway donation
   end
 
   def generate_transaction_reference
