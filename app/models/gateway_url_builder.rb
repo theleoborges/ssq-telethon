@@ -11,13 +11,13 @@ class GatewayUrlBuilder
 
   def to_url
     params = {
-      secret: AppConstants.gateway_secret_hash,
-      access_code: AppConstants.gateway_access_code, 
-      transaction_ref: transaction_reference, 
-      merchant: AppConstants.merchant_id, 
-      order_info: order_info, 
-      amount: amount, 
-      callback_url: AppConstants.gateway_callback_uri
+      :secret =>  AppConstants.gateway_secret_hash,
+      :access_code =>  AppConstants.gateway_access_code, 
+      :transaction_ref =>  transaction_reference, 
+      :merchant =>  AppConstants.merchant_id, 
+      :order_info =>  order_info, 
+      :amount =>  amount, 
+      :callback_url =>  AppConstants.gateway_callback_uri
     }
     secure_hash = ParamsHasher.new.to_hash(params)
     
