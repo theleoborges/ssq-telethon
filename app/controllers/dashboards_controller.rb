@@ -1,6 +1,6 @@
 class DashboardsController < ApplicationController
   def index
-    total = Donation.sum('amount');
-    render :json => total.to_json
+    data = {'total' => Donation.sum('amount'), 'donations' => Donation.count}
+    render :json => data.to_json
   end
 end
