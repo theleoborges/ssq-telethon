@@ -20,7 +20,7 @@
     </ul>
 </div>
 
-<%= form_tag('donations/create', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
+<%= form_tag('donations', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
 
 <ol class="tf-sections">
 
@@ -65,7 +65,7 @@
                                         <label for="name-title">
                                             <span class="xf-label">Title</span>
                                         </label>
-                                        <input type="text" name="form.title" size="5" maxlength="12" value=""
+                                        <input type="text" name="customer[title]" size="5" maxlength="12" value=""
                                                id="name-title"/></li>
 
                                     <li class="xf-input">
@@ -74,7 +74,7 @@
                                             <span class="xf-label">Given name</span>
 
                                         </label>
-                                        <input type="text" name="form.givenName" size="20" maxlength="40" value=""
+                                        <input type="text" name="customer[given_name]" size="20" maxlength="40" value=""
                                                id="name-given"/></li>
 
                                     <li class="xf-input">
@@ -83,7 +83,7 @@
 
 
                                         </label>
-                                        <input type="text" name="form.familyName" size="20" maxlength="40" value=""
+                                        <input type="text" name="customer[family_name]" size="20" maxlength="40" value=""
                                                id="name-family"/></li>
                                 </ol>
                             </fieldset>
@@ -93,7 +93,7 @@
                                 <span class="xf-label">Organisation name</span>
 
                             </label>
-                            <input type="text" name="form.organisationName" size="40" maxlength="200" value=""
+                            <input type="text" name="customer[organisation_name]" size="40" maxlength="200" value=""
                                    id="organisation"/></li>
 
                     </ol>
@@ -110,7 +110,7 @@
                                 <span class="xf-label">Phone</span>
 
                             </label>
-                            <input type="text" name="form.contactPhone" size="15" maxlength="20" value=""
+                            <input type="text" name="customer[phone]" size="15" maxlength="20" value=""
                                    id="contact-phone"/></li>
 
                         <li class="xf-input">
@@ -119,14 +119,14 @@
                                 <span class="xf-label">Fax</span>
 
                             </label>
-                            <input type="text" name="form.contactFax" size="15" maxlength="20" value=""
+                            <input type="text" name="customer[fax]" size="15" maxlength="20" value=""
                                    id="contact-fax"/></li>
 
 
                         <li class="xf-select">
                             <ul class="xf-choices">
                                 <li><label for="copy-of-receipt-requested"><input type="checkbox"
-                                                                                  name="form.copyOfReceiptRequested"
+                                                                                  name="customer[wants_receipt_by_email]"
                                                                                   id="copy-of-receipt-requested"
                                                                                   value="true"/>Send a copy of receipt
                                     and any items via email</label></li>
@@ -139,7 +139,7 @@
                                 <span class="xf-label">Email</span>
 
                             </label>
-                            <input type="text" name="form.contactEmail" size="40" maxlength="100" value=""
+                            <input type="text" name="customer[email]" size="40" maxlength="100" value=""
                                    id="contact-email"/></li>
 
                         <li class="xf-input">
@@ -149,7 +149,7 @@
 
                                 <span class="xf-hint">Please retype to confirm</span>
                             </label>
-                            <input type="text" name="form.contactEmailConfirm" size="40" maxlength="100" value=""
+                            <input type="text" name="customer_email_confirm]" size="40" maxlength="100" value=""
                                    id="contact-email-confirm"/></li>
                     </ol>
                 </fieldset>
@@ -172,7 +172,7 @@
                                             <span class="xf-label">Address line 1</span>
 
                                         </label>
-                                        <input type="text" name="form.contactAddress.line1" size="30" maxlength="50"
+                                        <input type="text" name="customer[address_line_1]" size="30" maxlength="50"
                                                value="" id="contact-address-line1"/></li>
 
                                     <li class="xf-input">
@@ -180,7 +180,7 @@
                                             <span class="xf-label">Address line 2 (optional)</span>
 
                                         </label>
-                                        <input type="text" id="contact-address-line2" name="form.contactAddress.line2"
+                                        <input type="text" id="contact-address-line2" name="customer[address_line_2]"
                                                value="" size="30" maxlength="50"/>
                                     </li>
 
@@ -188,7 +188,7 @@
                                         <label for="contact-address-line3">
                                             <span class="xf-label">Address line 3 (optional)</span>
                                         </label>
-                                        <input type="text" id="contact-address-line3" name="form.contactAddress.line3"
+                                        <input type="text" id="contact-address-line3" name="customer[address_line_3]"
                                                value="" size="30" maxlength="50"/>
                                     </li>
 
@@ -197,7 +197,7 @@
                                             <span class="xf-label">Town, suburb or city</span>
 
                                         </label>
-                                        <input type="text" id="contact-suburb" name="form.contactAddress.suburb"
+                                        <input type="text" id="contact-suburb" name="customer[city]"
                                                value="" maxlength="46"/>
                                     </li>
 
@@ -205,7 +205,7 @@
                                         <label for="contact-state">
                                             <span class="xf-label">State or territory</span>
                                         </label>
-                                        <input type="text" id="contact-state" name="form.contactAddress.state"
+                                        <input type="text" id="contact-state" name="customer[state]"
                                                value="QLD" size="10" maxlength="46"/>
                                     </li>
 
@@ -214,7 +214,7 @@
                                             <span class="xf-label">Postal or zip code</span>
 
                                         </label>
-                                        <input type="text" id="contact-postcode" name="form.contactAddress.postcode"
+                                        <input type="text" id="contact-postcode" name="customer[postalcode]"
                                                value="" size="5" maxlength="12"/>
                                     </li>
 
@@ -222,7 +222,7 @@
                                         <label for="contact-country">
                                             <span class="xf-label">Country</span>
                                         </label>
-                                        <input type="text" id="contact-country" name="form.contactAddress.country"
+                                        <input type="text" id="contact-country" name="customer[country]"
                                                value="Australia" size="30" maxlength="100"/>
                                     </li>
 

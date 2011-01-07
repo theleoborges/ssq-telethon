@@ -9,8 +9,22 @@ class DonationsController < ApplicationController
   }
   
   def create
-    transaction_reference = UUID.new.generate(:compact).to_s
-    url_builder = GatewayUrlBuilder.new transaction_reference, transaction_reference, params[:amount]
+    donation = Donation.new
+    donation.customer = Customer.new(params[:customer])
+    donation.transaction_reference = generate_transaction_reference()
+    donation.amount = params[:amount]
+    donation.save!
+
+    redirect_to_payment_gateway donation
+  end
+
+  def generate_transaction_reference
+    @uuid_generator ||= UUID.new
+    @uuid_generator.generate(:compact).to_s
+  end
+
+  def redirect_to_payment_gateway donation
+    url_builder = GatewayUrlBuilder.new donation.transaction_reference, donation.transaction_reference, (donation.amount * 100).to_i
     redirect_to url_builder.to_url
   end
   
