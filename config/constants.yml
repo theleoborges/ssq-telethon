@@ -1,11 +1,11 @@
 # Enter your per-environment constants below
 
 development: &default
-  gateway_access_code: "access_code"
-  gateway_secret_hash:  "secret"
-  gateway_payment_uri:  "https://gateway.com/vpcpay?"
+  gateway_access_code: "244E358F"
+  gateway_secret_hash:  "42077ACECA1D7465E70C2563730B2D7A"
+  gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay?"
   gateway_callback_uri: "http://localhost:3000/gateway_callback"
-  merchant_id:  "merchant"
+  merchant_id:  "TESTSMAQLDCOM01"
   
 production:
   <<: *default

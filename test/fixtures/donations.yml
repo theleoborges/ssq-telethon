@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  transaction_reference: MyString
+  order_info: MyString
+  amount: 9.99
+
+two:
+  transaction_reference: MyString
+  order_info: MyString
+  amount: 9.99
