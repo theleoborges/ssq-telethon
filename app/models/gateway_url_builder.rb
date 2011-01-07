@@ -27,7 +27,7 @@ class GatewayUrlBuilder
     secure_hash = ParamsHasher.new.to_hash(params)
 
     params.delete(:secret)
-    queryString = params.inject([]) do |acc, elem|
+    queryString = params.sort.inject([]) do |acc, elem|
       acc << URI.escape("#{elem[0]}=#{elem[1]}")
     end
     "#{AppConstants.gateway_payment_uri}?#{queryString.join("&")}&vpc_SecureHash=#{secure_hash}"
