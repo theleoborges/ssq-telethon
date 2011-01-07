@@ -59,8 +59,7 @@
     </ul>
 </div>
 
-<form action="/payment/order/47b08abd-d19e-4938-b711-f8bc88432488/checkout" method="post" id="checkout"
-      class="usetheforces tt-citizen hint-after">
+<%= form_tag('donations/create', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
 
 <ol class="tf-sections">
 
@@ -74,7 +73,7 @@
                       <label for="contact-phone">
                           <span class="xf-label">Amount</span>
                       </label>
-                      <input type="text" name="form.contactPhone" size="15" maxlength="20" value="" id="contact-phone"/>
+                      <input type="text" name="amount" size="15" maxlength="20" value="" id="amount"/>
                       <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
                   </li>
               </ol>
@@ -377,7 +376,7 @@
 
 </li>
 </ol>
-</form>
+<% end %>
 </div>
 </div>
 
