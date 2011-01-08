@@ -28,5 +28,12 @@ class DonationsController < ApplicationController
 
     @error_msg = ERROR_MESSAGES[@return_code]
   end
+  
+  def load_test
+    donation = Donation.new
+    donation.customer = Customer.new(params[:customer])
+    donation.amount = 300
+    donation.save!    
+  end
 
 end
