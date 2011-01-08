@@ -1,5 +1,5 @@
 class DonationMailer < ActionMailer::Base
-  default :from => "osidt@smartservice.qld.gov.au"
+  default :from => "do-not-reply@smartservice.qld.gov.au"
   
   def donation_confirmation(donation)
     @donation = donation

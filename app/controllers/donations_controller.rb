@@ -41,9 +41,7 @@ class DonationsController < ApplicationController
     donation.return_code = return_code
     donation.save!
 
-    if (donation.customer.wants_receipt_by_email? && @return_code.to_s == "0")
-      DonationMailer.delay.donation_confirmation(donation)
-    end
+    deliver_messages(donation)
 
     flash[:transaction_reference] = transaction_reference
     flash[:return_code] = return_code
@@ -54,4 +52,14 @@ class DonationsController < ApplicationController
 
   def complete
   end
+  
+  def deliver_messages(donation)
+    if (donation.customer.wants_receipt_by_email? && donation.return_code == "0")
+      DonationMailer.delay.donation_confirmation(donation)
+    end
+    if (donation.customer.wants_receipt_by_snail_mail? && donation.return_code == "0")
+      DonationMailer.delay.snail_mail_confirmation(donation)
+    end        
+  end
+  private :deliver_messages
 end
