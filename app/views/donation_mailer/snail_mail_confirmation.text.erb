@@ -1,10 +1,7 @@
-Tax Receipt No: <%= @donation.id %>
---------------------------------------------------
-Premier's Disaster Relief Appeal
-ABN 69 689 161 916 
-PO Box 15185 CITY EAST QLD 4002
---------------------------------------------------
+Donation Details
+----------------------------------------
 
+Receipt no: <%= @donation.id %>
 Date / time:    <%= DateTime.now %>
 
    Customer: <%= @donation.customer.title %> <%= @donation.customer.given_name %> <%= @donation.customer.family_name %>
@@ -21,6 +18,20 @@ Date / time:    <%= DateTime.now %>
 Total (excl. GST): $$<%= @donation.amount %>
 Total GST amount paid: $0.00
 Total amount paid (incl. GST): $<%= @donation.amount %>
+--------------------------------------------------------------------------------------
+
+Customer Address Details
+----------------------------------------
+
+ Customer Name: <%= @donation.customer.title %> <%= @donation.customer.given_name %> <%= @donation.customer.family_name %>
+ Address Line 1: <%= @donation.customer.address_line_1 %>
+ Address Line 2: <%= @donation.customer.address_line_2 %>
+ Address Line 3: <%= @donation.customer.address_line_3 %>
+ City: <%= @donation.customer.city %>
+ State: <%= @donation.customer.state %>
+ Postalcode: <%= @donation.customer.postalcode %>
+ Country: <%= @donation.customer.country %>
+
 --------------------------------------------------------------------------------------
 
 
