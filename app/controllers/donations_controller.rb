@@ -8,6 +8,10 @@ class DonationsController < ApplicationController
     "4" => "Card has expired",
     "5"	=> "Insufficient credit"
   }
+
+  def index
+    response.headers['Cache-Control'] = 'public, max-age=300'
+  end
   
   def create
     donation = Donation.new
@@ -28,5 +32,13 @@ class DonationsController < ApplicationController
 
     @error_msg = ERROR_MESSAGES[@return_code]
   end
+  
+  def load_test
+    donation = Donation.new
+    donation.customer = Customer.new(params[:customer])
+    donation.amount = 300
+    donation.save!    
+  end
+  
 
 end
