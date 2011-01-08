@@ -20,6 +20,12 @@ class DonationsController < ApplicationController
   
   def callback
     @return_code = params["vpc_TxnResponseCode"].to_s
+    transaction_reference = params["vpc_MerchTxnRef"].to_s
+
+    donation = Donation.find_by_transaction_reference(transaction_reference)
+    donation.return_code = @return_code
+    donation.save!
+
     @error_msg = ERROR_MESSAGES[@return_code]
   end
 
