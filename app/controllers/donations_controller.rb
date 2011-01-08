@@ -16,7 +16,11 @@ class DonationsController < ApplicationController
   end
 
   def retry
+    @return_code = flash[:return_code]
+    return redirect_to root_url if @return_code.nil?
+
     @donation = Donation.find(flash[:transaction_reference])
+    @error_msg = ERROR_MESSAGES[@return_code]
     render :action => "index"
   end
 
@@ -49,9 +53,5 @@ class DonationsController < ApplicationController
   end
 
   def complete
-    @return_code = flash[:return_code]
-    return redirect_to root_url if @return_code.nil?
-
-    @error_msg = ERROR_MESSAGES[@return_code]
   end
 end

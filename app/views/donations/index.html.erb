@@ -3,7 +3,8 @@
     <div id="article-container">
       <div id="content">
 
-        
+        <% if @donation.id.nil? %>
+
         <div class="article">
           <div class="inner"> 
             <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
@@ -15,15 +16,27 @@
                 Appeal.</p>         
             </div> 
           </div>
+        </div>
+
+        <% else %>
+
+        <div class="article">
+          <div class="inner">
+            <div class="header"><h1>Payment Error</h1></div>
+            <div class="ftw-preamble">
+                    <p>Oops! Something went wrong, and we were unable to process your donation. Please try again.</p>
+                    <p>Error Message: <%= @error_msg %></p>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
 
           <div class="tf-status" id="outage-warnings-container"></div>
-
 
           <div class="article tf-form">
             <div class="inner">
               <div class="header"><h1>Donate to the flood relief appeal</h1></div>
-
-
 
               <div class="ftw-preamble">
                 <ul>
@@ -46,7 +59,7 @@
                               <span class="xf-label">Amount</span>
                               <abbr class="xf-required" title="required">*</abbr>
                             </label>
-                            <input type="text" name="amount" size="15" maxlength="20" value="<%= sprintf("%.2f", @donation.amount.to_f) %>" id="amount" />
+                            <input type="text" name="amount" size="15" maxlength="20" value="<%= @donation.amount.to_f == 0 ? "" : sprintf("%.2f", @donation.amount.to_f) %>" id="amount" />
                             <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
                           </li>
                         </ol>
