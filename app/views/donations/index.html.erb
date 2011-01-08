@@ -1,360 +1,296 @@
 <div id="page-container">
-<div id="content-container">
-<div id="article-container">
-<div id="content">
+  <div id="content-container">
+    <div id="article-container">
+      <div id="content">
 
-    
-<div class="article">
-  <div class="inner"> 
-    <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
-    <div class="ftw-preamble"> 
-      <p>The Queensland Government has launched an appeal to help fellow
-  Queenslanders affected by the recent floods. Many communities have
-  been devastated. Some families have lost everything. You can help
-  make a difference by donating to the Premier's Flood Relief
-  Appeal.</p>         
-    </div> 
-</div>
+        
+        <div class="article">
+          <div class="inner"> 
+            <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
+            <div class="ftw-preamble"> 
+              <p>The Queensland Government has launched an appeal to help fellow
+                Queenslanders affected by the recent floods. Many communities have
+                been devastated. Some families have lost everything. You can help
+                make a difference by donating to the Premier's Flood Relief
+                Appeal.</p>         
+            </div> 
+          </div>
 
-<div class="tf-status" id="outage-warnings-container"></div>
-
-
-<div class="article tf-form">
-<div class="inner">
-<div class="header"><h1>Donate to the flood relief appeal</h1></div>
+          <div class="tf-status" id="outage-warnings-container"></div>
 
 
+          <div class="article tf-form">
+            <div class="inner">
+              <div class="header"><h1>Donate to the flood relief appeal</h1></div>
 
-<div class="ftw-preamble">
-    <ul>
-        <li>Enter customer details to continue.</li>
-        <li><abbr class="xf-required" title="required">*</abbr>
-            indicates required fields.
-        </li>
-    </ul>
 
-<%= form_tag('donations', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
 
-<ol class="tf-sections">
-  <li class="section">
-      <fieldset id="contact-details">
-          <legend>Amount</legend>
-          <fieldset>
-              <ol class="ftw-questions ftw-slot-in">
-                  <li class="xf-input">
-                      <label for="contact-phone">
-                          <span class="xf-label">Amount</span>
-                          <abbr class="xf-required" title="required">*</abbr>
-                      </label>
-                      <input type="text" name="amount" size="15" maxlength="20" value="" id="amount" />
-                      <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
+              <div class="ftw-preamble">
+                <ul>
+                  <li>Enter customer details to continue.</li>
+                  <li><abbr class="xf-required" title="required">*</abbr>
+                    indicates required fields.
                   </li>
-              </ol>
-      </fieldset>
-  </li>
+                </ul>
 
-<li class="section">
-    <fieldset id="contact-details">
-        <legend>Customer details</legend>
-        <div class="ftw-instructions privacy">
-            <p>Customer details assist with enquiries relating to this donation.</p>
-        </div>
-        <ol class="ftw-questions">
+                <%= form_tag('donations', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
 
-            <li class="section">
-                <fieldset>
-                    <legend>Customer name</legend>
-                    <ol class="ftw-questions ftw-slot-in">
-                        <li class="xf-group">
-                            <fieldset id="name">
-                                <legend>
+                <ol class="tf-sections">
+                  <li class="section">
+                    <fieldset id="contact-details">
+                      <legend>Amount</legend>
+                      <fieldset>
+                        <ol class="ftw-questions ftw-slot-in">
+                          <li class="xf-input">
+                            <label for="contact-phone">
+                              <span class="xf-label">Amount</span>
+                              <abbr class="xf-required" title="required">*</abbr>
+                            </label>
+                            <input type="text" name="amount" size="15" maxlength="20" value="" id="amount" />
+                            <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
+                          </li>
+                        </ol>
+                      </fieldset>
+                  </li>
+
+                  <li class="section">
+                    <fieldset id="contact-details">
+                      <legend>Customer details</legend>
+                      <div class="ftw-instructions privacy">
+                        <p>Customer details assist with enquiries relating to this donation.</p>
+                      </div>
+                      <ol class="ftw-questions">
+
+                        <li class="section">
+                          <fieldset>
+                            <legend>Customer name</legend>
+                            <ol class="ftw-questions ftw-slot-in">
+                              <li class="xf-group">
+                                <fieldset id="name">
+                                  <legend>
                                     <span class="xf-label">Name</span>
 
 
-                                </legend>
-                                <ol class="ftw-questions xf-appearance-compact">
+                                  </legend>
+                                  <ol class="ftw-questions xf-appearance-compact">
                                     <li class="xf-input">
-                                        <label for="name-title">
-                                            <span class="xf-label">Title</span>
-                                        </label>
-                                        <input type="text" name="customer[title]" size="5" maxlength="12" value=""
-                                               id="name-title"/></li>
-
-                                    <li class="xf-input">
-
-                                        <label for="name-given">
-                                            <span class="xf-label">Given name</span>
-
-                                        </label>
-                                        <input type="text" name="customer[given_name]" size="20" maxlength="40" value=""
-                                               id="name-given"/></li>
+                                      <label for="name-title">
+                                        <span class="xf-label">Title</span>
+                                      </label>
+                                      <input type="text"
+                                      name="customer[title]" size="5"
+                                      maxlength="12" value="" id="name-title"/></li>
 
                                     <li class="xf-input">
-                                        <label for="name-family">
-                                            <span class="xf-label">Family name</span>
+
+                                      <label for="name-given">
+                                        <span class="xf-label">Given name</span>
+
+                                      </label>
+                                      <input type="text"
+                                             name="customer[given_name]"
+                                             size="20" maxlength="40"
+                                             value="" 
+                                             id="name-given"/></li>
+
+                                    <li class="xf-input">
+                                      <label for="name-family">
+                                        <span class="xf-label">Family name</span>
 
 
-                                        </label>
-                                        <input type="text" name="customer[family_name]" size="20" maxlength="40" value=""
-                                               id="name-family"/></li>
-                                </ol>
-                            </fieldset>
-                        </li>
-                        <li class="xf-input">
-                            <label for="organisation">
-                                <span class="xf-label">Organisation name</span>
+                                      </label>
+                                      <input type="text"
+                                             name="customer[family_name]"
+                                             size="20" maxlength="40"
+                                             value="" 
+                                             id="name-family"/></li>
+                                  </ol>
+                                </fieldset>
+                              </li>
+                              <li class="xf-input">
+                                <label for="organisation">
+                                  <span class="xf-label">Organisation name</span>
 
-                            </label>
-                            <input type="text" name="customer[organisation_name]" size="40" maxlength="200" value=""
-                                   id="organisation"/></li>
+                                </label>
+                                <input type="text"
+                                       name="customer[organisation_name]"
+                                       size="40" maxlength="200"
+                                       value="" 
+                                       id="organisation"/></li>
 
-                    </ol>
-                </fieldset>
-              </li>
-
-            <li class="section">
-                <fieldset>
-                    <legend>Contact by phone, fax or email</legend>
-
-                    <ol class="ftw-questions ftw-slot-in">
-                        <li class="xf-input">
-                            <label for="contact-phone">
-                                <span class="xf-label">Phone</span>
-
-                            </label>
-                            <input type="text" name="customer[phone]" size="15" maxlength="20" value=""
-                                   id="contact-phone"/></li>
-
-                        <li class="xf-input">
-                            <label for="contact-fax">
-
-                                <span class="xf-label">Fax</span>
-
-                            </label>
-                            <input type="text" name="customer[fax]" size="15" maxlength="20" value=""
-                                   id="contact-fax"/></li>
-
-
-                        <li class="xf-select">
-                            <ul class="xf-choices">
-                                <li><label for="copy-of-receipt-requested"><input type="checkbox"
-                                                                                  name="customer[wants_receipt_by_email]"
-                                                                                  id="copy-of-receipt-requested"
-                                                                                  value="true"/>Send a copy of receipt
-                                    and any items via email</label></li>
-                            </ul>
+                            </ol>
+                          </fieldset>
                         </li>
 
-                        <li class="xf-input">
+                        <li class="section">
+                          <fieldset>
+                            <legend>Contact by phone, fax or email</legend>
 
-                            <label for="contact-email">
-                                <span class="xf-label">Email</span>
+                            <ol class="ftw-questions ftw-slot-in">
+                              <li class="xf-input">
+                                <label for="contact-phone">
+                                  <span class="xf-label">Phone</span>
 
-                            </label>
-                            <input type="text" name="customer[email]" size="40" maxlength="100" value=""
-                                   id="contact-email"/></li>
+                                </label>
+                                <input type="text" name="customer[phone]" size="15" maxlength="20" value=""
+                                       id="contact-phone"/></li>
 
-                        <li class="xf-input">
-                            <label for="contact-email-confirm">
-                                <span class="xf-label">Confirm email</span>
+                              <li class="xf-input">
+                                <label for="contact-fax">
+
+                                  <span class="xf-label">Fax</span>
+
+                                </label>
+                                <input type="text" name="customer[fax]" size="15" maxlength="20" value=""
+                                       id="contact-fax"/></li>
 
 
-                                <span class="xf-hint">Please retype to confirm</span>
-                            </label>
-                            <input type="text" name="customer_email_confirm]" size="40" maxlength="100" value=""
-                                   id="contact-email-confirm"/></li>
-                    </ol>
-                </fieldset>
-            </li>
+                              <li class="xf-select">
+                                <ul class="xf-choices">
+                                  <li><label for="copy-of-receipt-requested"><input type="checkbox" 
+                                                                                    name="customer[wants_receipt_by_email]"
+                                                                                    id="copy-of-receipt-requested"
+                                                                                    value="true"/>Send a copy of receipt
+                                      and any items via email</label></li>
+                                </ul>
+                              </li>
 
-            <li class="section">
-                <fieldset>
+                              <li class="xf-input">
 
-                    <legend>Contact by post</legend>
-                    <ol class="ftw-questions ftw-slot-in">
-                        <li class="xf-group">
-                            <fieldset id="contact-address">
-                                <legend>
+                                <label for="contact-email">
+                                  <span class="xf-label">Email</span>
+
+                                </label>
+                                <input type="text" name="customer[email]" size="40" maxlength="100" value=""
+                                       id="contact-email"/></li>
+
+                              <li class="xf-input">
+                                <label for="contact-email-confirm">
+                                  <span class="xf-label">Confirm email</span>
+
+
+                                  <span class="xf-hint">Please retype to confirm</span>
+                                </label>
+                                <input type="text" name="customer_email_confirm]" size="40" maxlength="100" value=""
+                                       id="contact-email-confirm"/></li>
+                            </ol>
+                          </fieldset>
+                        </li>
+
+                        <li class="section">
+                          <fieldset>
+
+                            <legend>Contact by post</legend>
+                            <ol class="ftw-questions ftw-slot-in">
+                              <li class="xf-group">
+                                <fieldset id="contact-address">
+                                  <legend>
                                     <span class="xf-label">Postal address</span>
-                                </legend>
-                                <ol class="ftw-questions">
+                                  </legend>
+                                  <ol class="ftw-questions">
 
                                     <li class="xf-input">
-                                        <label for="contact-address-line1">
-                                            <span class="xf-label">Address line 1</span>
+                                      <label for="contact-address-line1">
+                                        <span class="xf-label">Address line 1</span>
 
-                                        </label>
-                                        <input type="text" name="customer[address_line_1]" size="30" maxlength="50"
-                                               value="" id="contact-address-line1"/></li>
+                                      </label>
+                                      <input type="text" name="customer[address_line_1]" size="30" maxlength="50"
+                                             value="" id="contact-address-line1"/></li>
 
                                     <li class="xf-input">
-                                        <label for="contact-address-line2">
-                                            <span class="xf-label">Address line 2 (optional)</span>
+                                      <label for="contact-address-line2">
+                                        <span class="xf-label">Address line 2 (optional)</span>
 
-                                        </label>
-                                        <input type="text" id="contact-address-line2" name="customer[address_line_2]"
-                                               value="" size="30" maxlength="50"/>
+                                      </label>
+                                      <input type="text" id="contact-address-line2" name="customer[address_line_2]"
+                                             value="" size="30" maxlength="50"/>
                                     </li>
 
                                     <li class="xf-input">
-                                        <label for="contact-address-line3">
-                                            <span class="xf-label">Address line 3 (optional)</span>
-                                        </label>
-                                        <input type="text" id="contact-address-line3" name="customer[address_line_3]"
-                                               value="" size="30" maxlength="50"/>
+                                      <label for="contact-address-line3">
+                                        <span class="xf-label">Address line 3 (optional)</span>
+                                      </label>
+                                      <input type="text" id="contact-address-line3" name="customer[address_line_3]"
+                                             value="" size="30" maxlength="50"/>
                                     </li>
 
                                     <li class="xf-input">
-                                        <label for="contact-suburb">
-                                            <span class="xf-label">Town, suburb or city</span>
+                                      <label for="contact-suburb">
+                                        <span class="xf-label">Town, suburb or city</span>
 
-                                        </label>
-                                        <input type="text" id="contact-suburb" name="customer[city]"
-                                               value="" maxlength="46"/>
+                                      </label>
+                                      <input type="text" id="contact-suburb" name="customer[city]"
+                                             value="" maxlength="46"/>
                                     </li>
 
                                     <li class="xf-input">
-                                        <label for="contact-state">
-                                            <span class="xf-label">State or territory</span>
-                                        </label>
-                                        <input type="text" id="contact-state" name="customer[state]"
-                                               value="QLD" size="10" maxlength="46"/>
+                                      <label for="contact-state">
+                                        <span class="xf-label">State or territory</span>
+                                      </label>
+                                      <input type="text" id="contact-state" name="customer[state]"
+                                             value="QLD" size="10" maxlength="46"/>
                                     </li>
 
                                     <li class="xf-input">
-                                        <label for="contact-postcode">
-                                            <span class="xf-label">Postal or zip code</span>
+                                      <label for="contact-postcode">
+                                        <span class="xf-label">Postal or zip code</span>
 
-                                        </label>
-                                        <input type="text" id="contact-postcode" name="customer[postalcode]"
-                                               value="" size="5" maxlength="12"/>
+                                      </label>
+                                      <input type="text" id="contact-postcode" name="customer[postalcode]"
+                                             value="" size="5" maxlength="12"/>
                                     </li>
 
                                     <li class="xf-input">
-                                        <label for="contact-country">
-                                            <span class="xf-label">Country</span>
-                                        </label>
-                                        <input type="text" id="contact-country" name="customer[country]"
-                                               value="Australia" size="30" maxlength="100"/>
+                                      <label for="contact-country">
+                                        <span class="xf-label">Country</span>
+                                      </label>
+                                      <input type="text" id="contact-country" name="customer[country]"
+                                             value="Australia" size="30" maxlength="100"/>
                                     </li>
 
-                                </ol>
-                            </fieldset>
+                                  </ol>
+                                </fieldset>
+                              </li>
+
+                            </ol>
+                          </fieldset>
                         </li>
-
-                    </ol>
-                </fieldset>
-            </li>
-        </ol>
-    </fieldset>
-</li>
+                      </ol>
+                    </fieldset>
+                  </li>
 
 
-<li class="section">
-    <h2>Transaction details</h2>
+                  <li class="group">
 
-    <div class="ftw-instructions">
-        <p>Please take a moment to make sure these are correct.</p>
+                    <table class="line-items-summary">
+                      <col/>
+                      <col class="number" align="char" char="."/>
+
+                      <tbody>
+                        <tr class="total">
+                          <th scope="row">Total amount paid<br/>
+                            <small>No GST has been charged</small>
+                          </th>
+
+                          <td class="number">$10.00</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li class="tf-footer">
+                    <ul class="tf-submit">
+                      <li class="wfd-primary-action"><strong><input type="submit" id="pay" value="Continue"/></strong></li>
+                    </ul>
+                  </li>
+                </ol>
+                <% end %>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <table class="line-items">
-        <col/>
-        <col/>
-        <col class="number" align="char" char="."/>
-        <col class="number" align="char" char="."/>
-
-        <col class="number" align="char" char="."/>
-        <col class="number"/>
-        <col class="number" align="char" char="."/>
-        <thead>
-        <tr>
-            <th scope="col">Item description</th>
-            <td></td>
-            <th scope="col">Reference</th>
-
-            <th scope="col" class="number">Unit price
-                <small>(excl. GST)</small>
-            </th>
-            <th scope="col" class="number">GST</th>
-            <th scope="col" class="number">Unit price
-                <small>(incl. GST)</small>
-            </th>
-            <th scope="col" class="number">Qty</th>
-            <th scope="col" class="number">Total</th>
-
-        </tr>
-        </thead>
-
-        <tbody>
-
-        <tr>
-            <td scope="row">
-                <strong>Donation to Premier's Disaster Relief Appeal December 2010</strong>
-                <span class="description">All donations over $2.00 are tax deductible</span>
-
-                <small class="agency">Department of the Premier and Cabinet</small>
-            </td>
-            <td></td>
-            <td class="identifier"></td>
-            <td class="number">$10.00</td>
-            <td class="number">$0.00</td>
-            <td class="number">$10.00</td>
-
-            <td class="number">
-                1
-            </td>
-            <td class="number">$10.00</td>
-        </tr>
-        </tbody>
-
-        <tfoot>
-        <tr class="total">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-
-            <td></td>
-            <td>
-            </td>
-            <th scope="row">Total</th>
-            <td class="number">$10.00</td>
-        </tr>
-        </tfoot>
-    </table>
-
-</li>
-<li class="group">
-
-    <table class="line-items-summary">
-        <col/>
-        <col class="number" align="char" char="."/>
-
-        <tbody>
-        <tr class="total">
-            <th scope="row">Total amount paid<br/>
-                <small>No GST has been charged</small>
-            </th>
-
-            <td class="number">$10.00</td>
-
-        </tr>
-        </tbody>
-    </table>
-</li>
-<li class="tf-footer">
-    <ul class="tf-submit">
-        <li class="wfd-primary-action"><strong><input type="submit" id="pay" value="Continue"/></strong></li>
-    </ul>
-</li>
-</ol>
-<% end %>
-</div>
-</div>
-
-
-</div>
-</div>
-
-</div>
-</div>
