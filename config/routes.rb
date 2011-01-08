@@ -4,6 +4,7 @@ SsqTelethon::Application.routes.draw do
   get "donations/index"
   get "donations/callback"
   get "donations/complete"
+  get "donations/retry"
   post "donations" => "donations#create"
 
   # The priority is based upon order of creation:

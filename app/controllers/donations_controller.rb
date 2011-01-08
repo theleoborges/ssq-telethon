@@ -11,6 +11,13 @@ class DonationsController < ApplicationController
 
   def index
     response.headers['Cache-Control'] = 'public, max-age=300'
+    @donation = Donation.new
+    @donation.customer = Customer.new
+  end
+
+  def retry
+    @donation = Donation.find(flash[:transaction_reference])
+    render :action => "index"
   end
 
   def create
@@ -34,13 +41,16 @@ class DonationsController < ApplicationController
       DonationMailer.delay.donation_confirmation(donation)
     end
 
+    flash[:transaction_reference] = transaction_reference
     flash[:return_code] = return_code
-    redirect_to "/donations/complete"
+
+    return redirect_to "/donations/retry" unless return_code == "0"
+    return redirect_to "/donations/complete"
   end
 
   def complete
     @return_code = flash[:return_code]
-    return redirect_to "/" if @return_code.nil?
+    return redirect_to root_url if @return_code.nil?
 
     @error_msg = ERROR_MESSAGES[@return_code]
   end
