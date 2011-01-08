@@ -1,43 +1,45 @@
-<script type="text/javascript">
-  // $(function(){
-  //   $("#checkout").validate({
-  //      errorElement: "em",
-  //      errorLabelContainer: "#messageBox ol",
-  //      wrapper: "li"       
-  //   });
-  // });
-
-</script>
-
 <div id="page-container">
 
 <div id="content-container">
 <div id="article-container">
 <div id="content">
+
+    
+<div class="article">
+  <div class="inner"> 
+    <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
+    <div class="ftw-preamble"> 
+      <p>The Queensland Government has launched an appeal to help fellow
+  Queenslanders affected by the recent floods. Many communities have
+  been devastated. Some families have lost everything. You can help
+  make a difference by donating to the Premier's Flood Relief
+  Appeal.</p>         
+    </div> 
+</div>
+
 <div class="tf-status" id="outage-warnings-container"></div>
+
 
 <div class="article tf-form">
 <div class="inner">
-<div class="header"><h1>Checkout (1 of 3): Customer details</h1></div>
+<div class="header"><h1>Donate to the flood relief appeal</h1></div>
+
+
 
 <div class="ftw-preamble">
-
     <ul>
         <li>Enter customer details to continue.</li>
         <li><abbr class="xf-required" title="required">*</abbr>
             indicates required fields.
         </li>
     </ul>
-</div>
 
 <%= form_tag('donations', :method => "post", :id => "checkout", :class => "usetheforces tt-citizen hint-after") do %>
 
 <ol class="tf-sections">
-
   <li class="section">
       <fieldset id="contact-details">
           <legend>Amount</legend>
-          <%= link_to "Go go go", GatewayUrlBuilder.new.to_url(Donation.new(:amount => 100.01)) %>
           <fieldset>
               <ol class="ftw-questions ftw-slot-in">
                   <li class="xf-input">
@@ -56,7 +58,7 @@
     <fieldset id="contact-details">
         <legend>Customer details</legend>
         <div class="ftw-instructions privacy">
-            <p>Customer details assist with enquiries relating to this order.</p>
+            <p>Customer details assist with enquiries relating to this donation.</p>
         </div>
         <ol class="ftw-questions">
 
@@ -250,10 +252,10 @@
 
 
 <li class="section">
-    <h2>Order details</h2>
+    <h2>Transaction details</h2>
 
     <div class="ftw-instructions">
-        <p>Please take a moment to make sure this order is correct.</p>
+        <p>Please take a moment to make sure these are correct.</p>
     </div>
 
     <table class="line-items">
