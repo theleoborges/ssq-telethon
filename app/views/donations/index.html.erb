@@ -163,7 +163,8 @@
                                   <li><label for="copy-of-receipt-requested"><input type="checkbox" 
                                                                                     name="customer[wants_receipt_by_email]"
                                                                                     id="copy-of-receipt-requested"
-                                                                                    value="<%= @donation.customer.wants_receipt_by_email? %>"/>Send a copy of receipt
+                                                                                    <% if @donation.customer.wants_receipt_by_email? %>checked="checked"<% end %>
+                                                                                    value="true"/>Send a copy of receipt
                                       and any items via email</label></li>
                                 </ul>
                               </li>
