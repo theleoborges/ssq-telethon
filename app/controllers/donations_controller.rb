@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
     @return_code = params["vpc_TxnResponseCode"].to_s
     transaction_reference = params["vpc_MerchTxnRef"].to_s
 
-    donation = Donation.find_by_transaction_reference(transaction_reference)
+    donation = Donation.find(transaction_reference)
     donation.return_code = @return_code
     donation.save!
 

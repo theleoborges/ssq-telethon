@@ -12,8 +12,8 @@ class GatewayUrlBuilder
       :vpc_Merchant    =>  AppConstants.merchant_id,
       :vpc_AccessCode  =>  AppConstants.gateway_access_code,
       :vpc_ReturnURL   =>  AppConstants.gateway_callback_uri,
-      :vpc_MerchTxnRef =>  donation.transaction_reference,
-      :vpc_OrderInfo   =>  donation.order_info,
+      :vpc_MerchTxnRef =>  donation.id,
+      :vpc_OrderInfo   =>  donation.id,
       :vpc_Amount      =>  (donation.amount * 100).to_i
     }
     params[:vpc_SecureHash] = ParamsHasher.new(AppConstants.gateway_secret_hash).to_hash(params)
