@@ -27,8 +27,12 @@ class DonationsController < ApplicationController
     transaction_reference = params["vpc_MerchTxnRef"].to_s
 
     donation = Donation.find(transaction_reference)
-    donation.return_code = @return_code
+    donation.return_code = @return_code    
     donation.save!
+    
+    if (donation.customer.wants_receipt_by_email? && @return_code.to_s == "0")
+      DonationMailer.delay.donation_confirmation(donation)
+    end
 
     @error_msg = ERROR_MESSAGES[@return_code]
   end
