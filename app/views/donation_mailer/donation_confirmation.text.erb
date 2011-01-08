@@ -14,13 +14,13 @@ Date / time:    <%= DateTime.now %>
    Description: All donations over $2.00 are tax deductible
    Agency: Department of the Premier and Cabinet
    Reference:
-   Amount Ex GST: $<%= @donation.amount %>
+   Amount Ex GST: $<%= @donation.display_amount %>
    GST: $0.00
-   Total Amount: $<%= @donation.amount %>
+   Total Amount: $<%= @donation.display_amount %>
 
-Total (excl. GST): $$<%= @donation.amount %>
+Total (excl. GST): $$<%= @donation.display_amount %>
 Total GST amount paid: $0.00
-Total amount paid (incl. GST): $<%= @donation.amount %>
+Total amount paid (incl. GST): $<%= @donation.display_amount %>
 --------------------------------------------------------------------------------------
 
 
