@@ -9,7 +9,7 @@ development: &default
   
 production:
   <<: *default
-  # merchant_id:  "SMAQLDCOM01"  
+   merchant_id:  "SMAQLDCOM01"  
   
 test:
   <<: *default
