@@ -138,32 +138,32 @@
                                        value="<%= @donation.customer.organisation_name %>"
                                        id="organisation"/></li>
 
+		                              <li class="xf-input">
+		                                <label for="contact-phone">
+		                                  <span class="xf-label">Phone</span>
+
+		                                </label>
+		                                <input type="text" name="customer[phone]" size="15" maxlength="20" value="<%= @donation.customer.phone %>"
+		                                       id="contact-phone"/></li>
+
+		                              <li class="xf-input">
+		                                <label for="contact-fax">
+
+		                                  <span class="xf-label">Fax</span>
+
+		                                </label>
+		                                <input type="text" name="customer[fax]" size="15" maxlength="20" value="<%= @donation.customer.fax %>"
+		                                       id="contact-fax"/></li>
+
                             </ol>
                           </fieldset>
                         </li>
 
                         <li class="section">
                           <fieldset>
-                            <legend>Contact by phone, fax or email</legend>
+                            <legend>Contact by email</legend>
 
                             <ol class="ftw-questions ftw-slot-in">
-                              <li class="xf-input">
-                                <label for="contact-phone">
-                                  <span class="xf-label">Phone</span>
-
-                                </label>
-                                <input type="text" name="customer[phone]" size="15" maxlength="20" value="<%= @donation.customer.phone %>"
-                                       id="contact-phone"/></li>
-
-                              <li class="xf-input">
-                                <label for="contact-fax">
-
-                                  <span class="xf-label">Fax</span>
-
-                                </label>
-                                <input type="text" name="customer[fax]" size="15" maxlength="20" value="<%= @donation.customer.fax %>"
-                                       id="contact-fax"/></li>
-
 
                               <li class="xf-select">
                                 <ul class="xf-choices">
@@ -171,8 +171,7 @@
                                                                                     name="customer[wants_receipt_by_email]"
                                                                                     id="copy-of-receipt-requested"
                                                                                     <% if @donation.customer.wants_receipt_by_email? %>checked="checked"<% end %>
-                                                                                    value="true"/>Send a copy of receipt
-                                      and any items via email</label></li>
+                                                                                    value="true"/>Send receipt by email</label></li>
                                 </ul>
                               </li>
 
@@ -203,6 +202,16 @@
 
                             <legend>Contact by post</legend>
                             <ol class="ftw-questions ftw-slot-in">
+
+                              <li class="xf-select">
+                                <ul class="xf-choices">
+                                  <li><label for="copy-of-receipt-requested-by-snail-mail"><input type="checkbox" 
+                                                                                    name="customer[wants_receipt_by_snail_mail]"
+                                                                                    id="copy-of-receipt-requested-by-snail-mail"
+                                                                                    <% if @donation.customer.wants_receipt_by_snail_mail? %>checked="checked"<% end %>
+                                                                                    value="true"/>Send receipt by post</label></li>
+                                </ul>
+                              </li>
                               <li class="xf-group">
                                 <fieldset id="contact-address">
                                   <legend>
