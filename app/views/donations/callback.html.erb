@@ -1,52 +1,60 @@
 <div id="page-container">
 
-<div id="content-container">
-<div id="article-container">
-<div id="content">
-<div class="tf-status" id="outage-warnings-container"></div>
+  <div id="content-container">
+    <div id="article-container">
+      <div id="content">
+        <div class="tf-status" id="outage-warnings-container"></div>
 
 
-<div class="article tf-form">
-<div class="inner">
-<div class="header"><h1>Checkout (2 of 2): Summary</h1></div>
+        <div class="article tf-form">
+          <div class="inner">
+            <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
 
-<ol class="tf-sections">
+            <ol class="tf-sections">
 
-  <li class="section">
-      <%if @return_code.to_s == "0" %>
-      <fieldset id="contact-details">
-          <legend>Thank you!</legend>
-          <fieldset style="height: 5em">
-              <ol class="ftw-questions ftw-slot-in">
-                  <li class="xf-input">
-                      <label for="contact-phone">
+              <li class="section">
+
+                <%if @return_code.to_s == "0" %>
+
+                <fieldset id="contact-details">
+                  <legend>Thank you!</legend>
+                  <fieldset style="height: 5em">
+                    <ol class="ftw-questions ftw-slot-in">
+                      <li class="xf-input">
+                        <label for="contact-phone">
                           <span class="xf-label" style="width: 50em">Your donation has been successfully processed!</span>
-                      </label>
-                  </li>
-              </ol>
-      </fieldset>
-      <% else %>
-      <fieldset id="contact-details">      
-          <legend>Ooops! Something went wrong!</legend>
-          <fieldset style="height: 5em">
-              <ol class="ftw-questions ftw-slot-in">
-                  <li class="xf-input">
-                      <label for="contact-phone">
-                          <span class="xf-label" style="width: 50em">
-                            We were unable to process your order!<br>
-                            <%= @error_msg %>
-                          </span>
-                      </label>
-                  </li>
-              </ol>
-      </fieldset>      
-      <% end %>
-  </li>
-</ol>
+                        </label>
+                      </li>
+                    </ol>
+                  </fieldset>
 
-</div>
-</div>
-</div>
-</div>
-</div>
+                  <% else %>
+
+                  <fieldset id="contact-details">      
+                    <legend>Ooops! Something went wrong!</legend>
+                    <fieldset style="height: 5em">
+                      <ol class="ftw-questions ftw-slot-in">
+                        <li class="xf-input">
+                          <label for="contact-phone">
+                            <span class="xf-label" style="width: 50em">
+                              We were unable to process your
+                              donation! <a href="http://telethon.smartservice.qld.gov.au/">Click
+                                here to try again.</a><br>
+                              Error Message: <%= @error_msg %>
+                            </span>
+                          </label>
+                        </li>
+                      </ol>
+                    </fieldset>      
+
+                    <% end %>
+
+              </li>
+            </ol>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
