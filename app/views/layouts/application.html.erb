@@ -7,8 +7,9 @@
         <title>Donate to the flood relief appeal</title>
 	    <meta name="ROBOTS" content="NOINDEX, NOFOLLOW" />
         <!-- Build: build-8993 -->
-    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" %>
-    <%= javascript_include_tag "jquery.forces.forms.1.2.js" %>
+    <!-- <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" %> -->
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" %>
+
     
     <%= stylesheet_link_tag "payment-20100104.css" %>
     <%= stylesheet_link_tag "donations.css" %>
@@ -89,6 +90,18 @@
 
       </div>
   </div>
+    
+    <%= javascript_include_tag "jquery.forces.forms.1.2.js" %>
+	<script type="text/javascript">
+	<!-- //
+	
+        var nameGiven=$("#name-given");if(nameGiven.is(":-xf-required")){var nameFamily=$("#name-family");$("#name-given,#name-family").change(function(){nameGiven.forces_attr("required",nameFamily.is(":-xf-empty"));nameFamily.forces_attr("required",nameGiven.is(":-xf-empty"))}).triggerHandler("change")}$("#contact-email, #delivery-email").forces_attr("type","email").change(function(){var B=$(this);B.forces_setCustomValidity(B.val().match(/@[0-9.]+$/)?$.forces.MSG_TYPE_MISMATCH.email:null)}).triggerHandler("change");$.fn.forces_isConfirmationFor=function(D){D=$(D);var C=$(this);D.add(C).change(function(){C.forces_setCustomValidity(D.forces_val()==C.forces_val()?"":"doesn't match "+D.forces_label());if(C.is(":-tf-validated")){C.forces_validate()}});return this};$("#contact-email-confirm").forces_isConfirmationFor("#contact-email");$("#delivery-email-confirm").forces_isConfirmationFor("#delivery-email");
+        var emailReceipt=$("#copy-of-receipt-requested");
+        if(emailReceipt.is(":checked")||!$("#contact-email").is(":-xf-required")){
+          emailReceipt.click(function(){$("#contact-email, #contact-email-confirm").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}var taxInvoiceRequired=$("#tax-invoice-required");taxInvoiceRequired.click(function(){$("#tax-business-details").forces_attr("relevant",taxInvoiceRequired.is(":checked"))}).triggerHandler("click");var abn=$("#abn");abn.change(function(){var H=abn.val().replace(/\s+/g,"");if(H.length==0){abn.forces_setCustomValidity("")}else{if(H.match(/^[0-9]{11}$/)){var G=H.split("");var J=G[0]*10;var I=1;for(var F=1;11>F;F++){J+=(G[F]*I);I+=2}if(J%89===10){abn.forces_setCustomValidity("")}else{abn.forces_setCustomValidity("invalid number")}}else{abn.forces_setCustomValidity("invalid number")}}});if(abn.is(":-xf-required")){var taxAddressRequiredFields=$("#tax-address :-xf-required");var abnAddressChangeHandler=function(){var B=abn.is(":-xf-empty");taxAddressRequiredFields.forces_attr("required",B).filter(":-xf-invalid").forces_validate();abn.forces_attr("required",!B||taxAddressRequiredFields.filter(":-xf-empty").length>0).filter(":-xf-invalid").forces_validate()};abnAddressChangeHandler();abn.change(abnAddressChangeHandler);taxAddressRequiredFields.change(abnAddressChangeHandler);$(document).bind($.forces.EVENT_XF_SUBMIT_ERROR,function(){var B=$('.tf-alert a[href$="#abn"]');if(B.length&&B.text().match(/^ABN: must be completed$/)){B.text("ABN or business address: must be completed");B.closest("ol").find('a[href*="#tax-"]').parent().remove()}})}var addressAsAbove=$("#delivery-address-same-as-contact-address");addressAsAbove.click(function(){$("#delivery-details-needed").forces_attr("relevant",!addressAsAbove.is(":checked"))}).triggerHandler("click");          
+	// -->
+	</script>
+  
 
   <!--[if lt IE 9]>
   <script type="text/javascript" src="/payment/ui/ie.js"></script><![endif]-->
