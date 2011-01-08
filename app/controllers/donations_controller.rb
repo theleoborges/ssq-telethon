@@ -12,7 +12,7 @@ class DonationsController < ApplicationController
   def index
     response.headers['Cache-Control'] = 'public, max-age=300'
   end
-  
+
   def create
     donation = Donation.new
     donation.customer = Customer.new(params[:customer])
@@ -21,28 +21,36 @@ class DonationsController < ApplicationController
 
     redirect_to GatewayUrlBuilder.new.to_url donation
   end
-  
+
   def callback
-    @return_code = params["vpc_TxnResponseCode"].to_s
+    return_code = params["vpc_TxnResponseCode"].to_s
     transaction_reference = params["vpc_MerchTxnRef"].to_s
 
     donation = Donation.find(transaction_reference)
-    donation.return_code = @return_code    
+    donation.return_code = return_code
     donation.save!
-    
+
     if (donation.customer.wants_receipt_by_email? && @return_code.to_s == "0")
       DonationMailer.delay.donation_confirmation(donation)
     end
 
+    flash[:return_code] = return_code
+    redirect_to "/donations/complete"
+  end
+
+  def complete
+    @return_code = flash[:return_code]
+    return redirect_to "/" if @return_code.nil?
+
     @error_msg = ERROR_MESSAGES[@return_code]
   end
-  
+
   def load_test
     donation = Donation.new
     donation.customer = Customer.new(params[:customer])
     donation.amount = 300
     donation.save!    
   end
-  
+
 
 end

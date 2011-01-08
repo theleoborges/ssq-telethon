@@ -3,6 +3,7 @@ SsqTelethon::Application.routes.draw do
 
   get "donations/index"
   get "donations/callback"
+  get "donations/complete"
   post "donations" => "donations#create"
   get "donations/load_test"
 
