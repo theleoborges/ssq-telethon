@@ -34,6 +34,12 @@ class DonationsController < ApplicationController
   end
 
   def callback
+    query_string = {}
+    params.each {|k, v| query_string[k] = v unless %w[action controller source].include?(k)}
+    given_hash = query_string.delete("vpc_SecureHash")
+    computed_hash = ParamsHasher.new(AppConstants.gateway_secret_hash).to_hash(query_string)
+    return render :status => 403 unless computed_hash.upcase == given_hash.upcase
+    
     return_code = params["vpc_TxnResponseCode"].to_s
     transaction_reference = params["vpc_MerchTxnRef"].to_s
 
