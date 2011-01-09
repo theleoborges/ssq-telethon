@@ -58,6 +58,8 @@ class DonationsController < ApplicationController
   end
 
   def complete
+    @transaction_reference = flash[:transaction_reference]
+    redirect_to root_url if @transaction_reference.nil?
   end
   
   def deliver_messages(donation)
