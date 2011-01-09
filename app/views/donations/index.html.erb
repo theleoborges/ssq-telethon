@@ -1,3 +1,17 @@
+<script type="text/javascript">
+  $(function(){
+    // $('#amount').keydown(function(event){
+    //   if (event.keyCode ==  188 || (event.keyCode >= 65 && event.keyCode <= 90)) {
+    //      event.preventDefault();
+    //    }
+    // });
+    $("#checkout").submit(function() {
+      if (!$('#amount').val().match(/^[-+]?[0-9]+(\.[0-9]+)?$/)) {
+        return false;
+      }
+    });
+  });
+</script>
 <div id="page-container">
   <div id="content-container">
     <div id="article-container">
