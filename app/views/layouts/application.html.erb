@@ -109,11 +109,15 @@ amount.change(
 		var H=amount.val().replace(/\s+/g,"");
 		if(H.length==0){
 			amount.forces_setCustomValidity("")
-		}else{
-			if(H.match(/^[0-9]*(\.[0-9]{0,2})?$/)){
-				amount.forces_setCustomValidity("")
-			}else{
+		}else{parseFloat(H) >= 1.00
+			if(!H.match(/^\s*[0-9]*(\.[0-9]*)?\s*$/)){
 				amount.forces_setCustomValidity("invalid number")
+			}else if(!H.match(/^\s*[0-9]*(\.[0-9]{0,2})?\s*$/)){
+				amount.forces_setCustomValidity("too many decimal places")
+			}else if(parseFloat(H) < 1.00){
+				amount.forces_setCustomValidity("less than 1.00")
+			}else{
+				amount.forces_setCustomValidity("")
 			}
 		}
 	}
