@@ -58,6 +58,9 @@ class DonationsController < ApplicationController
   end
 
   def complete
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
     @transaction_reference = flash[:transaction_reference]
     redirect_to root_url if @transaction_reference.nil?
   end
