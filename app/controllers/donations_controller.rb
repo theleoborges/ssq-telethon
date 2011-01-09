@@ -37,6 +37,7 @@ class DonationsController < ApplicationController
     query_string = {}
     params.each {|k, v| query_string[k] = v unless %w[action controller source].include?(k)}
     given_hash = query_string.delete("vpc_SecureHash")
+    return render :status => 403 if given_hash.nil?
     computed_hash = ParamsHasher.new(AppConstants.gateway_secret_hash).to_hash(query_string)
     return render :status => 403 unless computed_hash.upcase == given_hash.upcase
     
