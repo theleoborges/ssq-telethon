@@ -1,39 +1,3 @@
-<script type="text/javascript">
-  $(function(){
-    // $('#amount').keydown(function(event){
-    //   if (event.keyCode ==  188 || (event.keyCode >= 65 && event.keyCode <= 90)) {
-    //      event.preventDefault();
-    //    }
-    // });
-    var full_error = '<div class="tf-status" style="" id="tf-ID-5">' +
-      '<div class="tf-alert inner">' +
-        '<h1>Unable to process this form</h1>' +
-        '<ol>' +
-          '<li><a href="#amount">Amount: is invalid. Please use only numbers and dot as the decimal separator.</a></li>' +
-        '</ol>' +
-      '</div>' +
-    '</div>';
-    
-    var error_item = '<li><a href="#amount">Amount: is invalid. Please use only numbers and dot as the decimal separator.</a></li>';
-    
-    $("#checkout").submit(function() {
-      if (!$('#amount').val().match(/^[-+]?[0-9]+(\.[0-9]+)?$/)) {
-        $('#tf-ID-5').remove();
-        $(full_error).insertAfter($('#outage-warnings-container'));        
-        // container = $('#tf-ID-5');
-        //         if (container.length != 0) {
-        //           container.remove();
-        //           $('#tf-ID-5 ol').append(error_item);
-        //         } else {
-        //           container.remove();
-        //           $(full_error).insertAfter($('#outage-warnings-container'));
-        //         }
-        // alert("The amount typed is invalid! Please use only numbers and dot as the decimal separator");
-        return false;
-      }
-    });
-  });
-</script>
 <div id="page-container">
   <div id="content-container">
     <div id="article-container">

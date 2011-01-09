@@ -101,7 +101,49 @@
           emailReceiptByPost.click(function(){$("#contact-address-line1, #contact-suburb, #contact-state, #contact-postcode, #contact-country").forces_attr("required",emailReceiptByPost.is(":checked"))}).triggerHandler("click")}
         var emailReceipt=$("#copy-of-receipt-requested");
         if(emailReceipt.is(":checked")||!$("#contact-email").is(":-xf-required")){
-          emailReceipt.click(function(){$("#contact-email, #contact-email-confirm").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}var taxInvoiceRequired=$("#tax-invoice-required");taxInvoiceRequired.click(function(){$("#tax-business-details").forces_attr("relevant",taxInvoiceRequired.is(":checked"))}).triggerHandler("click");var abn=$("#abn");abn.change(function(){var H=abn.val().replace(/\s+/g,"");if(H.length==0){abn.forces_setCustomValidity("")}else{if(H.match(/^[0-9]{11}$/)){var G=H.split("");var J=G[0]*10;var I=1;for(var F=1;11>F;F++){J+=(G[F]*I);I+=2}if(J%89===10){abn.forces_setCustomValidity("")}else{abn.forces_setCustomValidity("invalid number")}}else{abn.forces_setCustomValidity("invalid number")}}});if(abn.is(":-xf-required")){var taxAddressRequiredFields=$("#tax-address :-xf-required");var abnAddressChangeHandler=function(){var B=abn.is(":-xf-empty");taxAddressRequiredFields.forces_attr("required",B).filter(":-xf-invalid").forces_validate();abn.forces_attr("required",!B||taxAddressRequiredFields.filter(":-xf-empty").length>0).filter(":-xf-invalid").forces_validate()};abnAddressChangeHandler();abn.change(abnAddressChangeHandler);taxAddressRequiredFields.change(abnAddressChangeHandler);$(document).bind($.forces.EVENT_XF_SUBMIT_ERROR,function(){var B=$('.tf-alert a[href$="#abn"]');if(B.length&&B.text().match(/^ABN: must be completed$/)){B.text("ABN or business address: must be completed");B.closest("ol").find('a[href*="#tax-"]').parent().remove()}})}var addressAsAbove=$("#delivery-address-same-as-contact-address");addressAsAbove.click(function(){$("#delivery-details-needed").forces_attr("relevant",!addressAsAbove.is(":checked"))}).triggerHandler("click");          
+          emailReceipt.click(function(){$("#contact-email, #contact-email-confirm").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}var taxInvoiceRequired=$("#tax-invoice-required");taxInvoiceRequired.click(function(){$("#tax-business-details").forces_attr("relevant",taxInvoiceRequired.is(":checked"))}).triggerHandler("click");
+
+var amount=$("#amount");
+amount.change(
+	function(){
+		var H=amount.val().replace(/\s+/g,"");
+		if(H.length==0){
+			amount.forces_setCustomValidity("")
+		}else{
+			if(H.match(/^[0-9]*(\.[0-9]{0,2})?$/)){
+				amount.forces_setCustomValidity("")
+			}else{
+				amount.forces_setCustomValidity("invalid number")
+			}
+		}
+	}
+);
+
+var abn=$("#abn");
+abn.change(
+	function(){
+		var H=abn.val().replace(/\s+/g,"");
+		if(H.length==0){
+			abn.forces_setCustomValidity("")
+		}else{
+			if(H.match(/^[0-9]{11}$/)){
+				var G=H.split("");var J=G[0]*10;var I=1;
+				for(var F=1;11>F;F++){
+					J+=(G[F]*I);I+=2
+				}
+				if(J%89===10){
+					abn.forces_setCustomValidity("")
+				}else{
+					abn.forces_setCustomValidity("invalid number")
+				}
+			}else{
+				abn.forces_setCustomValidity("invalid number")
+			}
+		}
+	}
+);
+
+if(abn.is(":-xf-required")){var taxAddressRequiredFields=$("#tax-address :-xf-required");var abnAddressChangeHandler=function(){var B=abn.is(":-xf-empty");taxAddressRequiredFields.forces_attr("required",B).filter(":-xf-invalid").forces_validate();abn.forces_attr("required",!B||taxAddressRequiredFields.filter(":-xf-empty").length>0).filter(":-xf-invalid").forces_validate()};abnAddressChangeHandler();abn.change(abnAddressChangeHandler);taxAddressRequiredFields.change(abnAddressChangeHandler);$(document).bind($.forces.EVENT_XF_SUBMIT_ERROR,function(){var B=$('.tf-alert a[href$="#abn"]');if(B.length&&B.text().match(/^ABN: must be completed$/)){B.text("ABN or business address: must be completed");B.closest("ol").find('a[href*="#tax-"]').parent().remove()}})}var addressAsAbove=$("#delivery-address-same-as-contact-address");addressAsAbove.click(function(){$("#delivery-details-needed").forces_attr("relevant",!addressAsAbove.is(":checked"))}).triggerHandler("click");          
 	// -->
 	</script>
   
