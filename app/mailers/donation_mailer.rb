@@ -3,7 +3,7 @@ class DonationMailer < ActionMailer::Base
   
   def donation_confirmation(donation)
     @donation = donation
-    mail(:to => "#{donation.customer.given_name} #{donation.customer.family_name} <#{donation.customer.email}>", 
+    mail(:to => donation.customer.email, 
       :subject => "Smart Service Queensland - Tax Receipt: #{donation.id}")
   end
   
