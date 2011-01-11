@@ -115,7 +115,7 @@ amount.change(
 			}else if(!H.match(/^\s*[0-9]*(\.[0-9]{1,2})?\s*$/)){
 				amount.forces_setCustomValidity("use one or two decimal places, or no decimal point")
 			}else if(parseFloat(H) < 1.00){
-				amount.forces_setCustomValidity("less than 1.00")
+				amount.forces_setCustomValidity("minimum donation is 1.00")
 			}else{
 				amount.forces_setCustomValidity("")
 			}
