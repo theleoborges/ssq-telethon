@@ -5,8 +5,8 @@ if Rails.env.development?
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => "leonardoborges.com",
-    :user_name            => "do-not-reply@leonardoborges.com",
-    :password             => "labemoldelivery",
+    :user_name            => "",
+    :password             => "",
     :authentication       => "plain",
     :enable_starttls_auto => true
   }
