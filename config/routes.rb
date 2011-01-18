@@ -8,6 +8,7 @@ SsqTelethon::Application.routes.draw do
   post "donations" => "donations#create"
   
   get "admin/download_postal_receipts"
+  post "admin/download_postal_receipts"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

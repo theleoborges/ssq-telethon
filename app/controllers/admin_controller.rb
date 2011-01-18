@@ -4,6 +4,9 @@ class AdminController < ApplicationController
   before_filter :authenticate
 
   def download_postal_receipts
+    if params[:date] != nil
+      render :text => params[:date]
+    end
   end
 
   private
