@@ -4,7 +4,6 @@ class AdminController < ApplicationController
   before_filter :authenticate
 
   def download_postal_receipts
-    render :text => "Coming soon!"
   end
 
   private
