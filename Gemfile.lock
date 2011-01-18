@@ -37,6 +37,7 @@ GEM
       daemons
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    fastercsv (1.5.4)
     heroku (1.17.6)
       json (~> 1.4.6)
       launchy (~> 0.3.2)
@@ -87,6 +88,7 @@ PLATFORMS
 
 DEPENDENCIES
   delayed_job
+  fastercsv
   heroku
   mocha (= 0.9.10)
   pg
