@@ -6,6 +6,8 @@ SsqTelethon::Application.routes.draw do
   get "donations/complete/:transaction_reference" => "donations#complete", :as => :donations_complete
   get "donations/retry"
   post "donations" => "donations#create"
+  
+  get "admin/download_postal_receipts"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
