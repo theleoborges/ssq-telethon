@@ -14,7 +14,7 @@ class AdminController < ApplicationController
   
   def find_receipts
     date = DateTime.strptime(params[:donation_date], "%d/%m/%Y") unless params[:donation_date] == ""
-    @donations = Donation.paid.joins(:customer).limit(50).order(:id)
+    @donations = Donation.paid.joins(:customer).limit(50).order(:id).includes(:customer)
     @donations = @donations.where(:id => params[:receipt_number]) unless params[:receipt_number] == ""
     @donations = @donations.where(:amount => params[:amount]) unless params[:amount] == ""
     @donations = @donations.where("customers.given_name = ?", params[:given_name]) unless params[:given_name] == ""
