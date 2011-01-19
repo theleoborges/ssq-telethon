@@ -13,12 +13,14 @@ class AdminController < ApplicationController
   end
   
   def find_receipts
+    date = DateTime.parse(params[:donation_date]) unless params[:donation_date] == ""
     @donations = Donation.paid.joins(:customer).limit(50).order(:id)
     @donations = @donations.where(:id => params[:receipt_number]) unless params[:receipt_number] == ""
     @donations = @donations.where(:amount => params[:amount]) unless params[:amount] == ""
     @donations = @donations.where("customers.given_name = ?", params[:given_name]) unless params[:given_name] == ""
     @donations = @donations.where("customers.family_name = ?", params[:family_name]) unless params[:family_name] == ""
-    @donations = @donations.where("DATE(donations.updated_at) = ?", params[:donation_date]) unless params[:donation_date] == ""
+    @donations = @donations.where("donations.updated_at >= ?", date - 10.hours) unless date.nil?
+    @donations = @donations.where("donations.updated_at <= ?", date + 1.day - 10.hours) unless date.nil?
   end
 
   private
