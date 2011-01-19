@@ -1,8 +1,69 @@
-<% form_tag('/admin/find_receipts', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
-	Receipt Number: <input type="text" name="receipt_number" size="15" maxlength="20" id="receipt_number" /><br/>
-	Given Name: <input type="text" name="given_name" size="15" maxlength="20" id="given_name" /><br/>
-	Family Name: <input type="text" name="family_name" size="15" maxlength="20" id="family_name" /><br/>
-	Date of Donation: <input type="text" name="donation_date" size="15" maxlength="20" id="donation_date" /><br/>
-	Amount: <input type="text" name="amount" size="15" maxlength="20" id="amount" /><br/>
-	<input type="submit" id="search" value="Find Receipt"/>
-<% end %>
+<div id="page-container">
+	<div id="content-container">
+		<div id="article-container">
+			<div id="content">
+				<div class="article tf-form">
+					<div class="inner">
+						<div class="header">
+							<h1>
+								Reissue receipts: Search
+							</h1>
+						</div>
+						<% form_tag('/admin/find_receipts', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+							<ol class="tf-sections">
+			                  <li class="section">
+			                    <fieldset>
+			                      <fieldset>
+			                        <ol class="ftw-questions ftw-slot-in">
+			                          <li class="xf-input">
+			                            <label for="receipt_number">
+			                              <span class="xf-label">Receipt number</span>
+			                            </label>
+			                            <input type="text" name="receipt_number" size="15" maxlength="20" id="receipt_number" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="given_name">
+			                              <span class="xf-label">Given name</span>
+			                            </label>
+			                            <input type="text" name="given_name" size="15" maxlength="20" id="given_name" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="family_name">
+			                              <span class="xf-label">Family name</span>
+			                            </label>
+			                            <input type="text" name="family_name" size="15" maxlength="20" id="family_name" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="donation_date">
+			                              <span class="xf-label">Date of donation</span>
+			                            </label>
+			                            <input type="text" name="donation_date" size="15" maxlength="20" id="donation_date" />
+			                            <small class="xf-hint">YYYY-MM-DD</small>
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="amount">
+			                              <span class="xf-label">Amount</span>
+			                            </label>
+			                            $<input type="text" name="amount" size="15" maxlength="20" id="amount" />
+			                          </li>
+			                        </ol>
+			                      </fieldset>
+								</fieldset>
+			                  </li>
+							  <li class="tf-footer">
+				                <ul class="tf-submit">
+				                  <li class="wfd-primary-action">
+				                    <strong>
+				                      <input type="submit" id="submit" value="Search"/>
+				                    </strong>
+				                  </li>
+				                </ul>
+				              </li>
+							</ol>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
