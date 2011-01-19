@@ -8,6 +8,18 @@ class AdminController < ApplicationController
       render :text => params[:date]
     end
   end
+  
+  def reissue_receipts
+  end
+  
+  def find_receipts
+    @donations = Donation.paid.joins(:customer).limit(50)
+    @donations = @donations.where(:id => params[:receipt_number]) unless params[:receipt_number] == ""
+    @donations = @donations.where(:amount => params[:amount]) unless params[:amount] == ""
+    @donations = @donations.where("customers.given_name = ?", params[:given_name]) unless params[:given_name] == ""
+    @donations = @donations.where("customers.family_name = ?", params[:family_name]) unless params[:family_name] == ""
+    @donations = @donations.where("DATE(donations.updated_at) = ?", params[:donation_date]) unless params[:donation_date] == ""
+  end
 
   private
     def authenticate

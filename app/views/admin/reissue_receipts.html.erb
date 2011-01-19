@@ -1,0 +1,8 @@
+<% form_tag('/admin/find_receipts', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+	Receipt Number: <input type="text" name="receipt_number" size="15" maxlength="20" id="receipt_number" /><br/>
+	Given Name: <input type="text" name="given_name" size="15" maxlength="20" id="given_name" /><br/>
+	Family Name: <input type="text" name="family_name" size="15" maxlength="20" id="family_name" /><br/>
+	Date of Donation: <input type="text" name="donation_date" size="15" maxlength="20" id="donation_date" /><br/>
+	Amount: <input type="text" name="amount" size="15" maxlength="20" id="amount" /><br/>
+	<input type="submit" id="search" value="Find Receipt"/>
+<% end %>

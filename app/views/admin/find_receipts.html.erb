@@ -1,0 +1,7 @@
+<% @donations.each do |d| %>
+  <p>
+	Receipt Number: <%= d.id %><br/>
+	Amount: <%= d.amount %><br/>
+	Customer Name: <%= d.customer.given_name %> <%= d.customer.family_name %><br/>
+  </p>
+<% end %>

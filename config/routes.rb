@@ -7,6 +7,9 @@ SsqTelethon::Application.routes.draw do
   get "donations/retry"
   post "donations" => "donations#create"
   
+  get "admin/reissue_receipts"
+  post "admin/find_receipts"
+  
   get "admin/download_postal_receipts"
   post "admin/download_postal_receipts"
 
