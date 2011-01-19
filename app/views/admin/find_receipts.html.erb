@@ -1,7 +1,35 @@
-<% @donations.each do |d| %>
-  <p>
-	Receipt Number: <%= d.id %><br/>
-	Amount: <%= d.amount %><br/>
-	Customer Name: <%= d.customer.given_name %> <%= d.customer.family_name %><br/>
-  </p>
-<% end %>
+<div id="page-container">
+  <div id="content-container">
+    <div id="article-container">
+      <div id="content">
+
+        <div class="article">
+          <div class="inner"> 
+            <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
+            <div> 
+				<table>
+					<thead>
+						<th>Date</th>
+						<th>Receipt Number</th>
+						<th>Name</th>
+						<th>Amount</th>
+						<th>Email</th>
+					</thead>
+            	<% @donations.each do |d| %>
+					<tr>
+						<td><%= d.updated_at %></td>
+						<td><%= d.id %></td>
+						<td><%= d.customer %></td>
+						<td>$<%= d.display_amount %></td>
+						<td><%= d.customer.email %></td>
+					</tr>
+				<% end %>
+				</table>
+            </div> 
+          </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>
