@@ -13,7 +13,7 @@ class AdminController < ApplicationController
   end
   
   def find_receipts
-    @donations = Donation.paid.joins(:customer).limit(50)
+    @donations = Donation.paid.joins(:customer).limit(50).order(:id)
     @donations = @donations.where(:id => params[:receipt_number]) unless params[:receipt_number] == ""
     @donations = @donations.where(:amount => params[:amount]) unless params[:amount] == ""
     @donations = @donations.where("customers.given_name = ?", params[:given_name]) unless params[:given_name] == ""
