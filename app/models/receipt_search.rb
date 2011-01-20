@@ -7,9 +7,9 @@ class ReceiptSearch
   validates_format_of :email_address, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :message => "invalid email", :allow_blank => true
   validates_date :donation_date, :message => "invalid date - use dd/mm/yyyy", :allow_blank => true
  
-  attr_accessor :receipt_number, :given_name, :family_name, :email_address, :donation_date, :amount
+  attr_accessor :receipt_number, :given_name, :family_name, :organisation_name, :email_address, :donation_date, :amount
   
   def initialize(params = {})
-    @receipt_number, @given_name, @family_name, @email_address, @donation_date, @amount = params[:receipt_number], params[:given_name], params[:family_name], params[:email_address], params[:donation_date], params[:amount]
+    @receipt_number, @given_name, @family_name, @organisation_name, @email_address, @donation_date, @amount = params[:receipt_number], params[:given_name], params[:family_name], params[:organisation_name], params[:email_address], params[:donation_date], params[:amount]
   end
 end
