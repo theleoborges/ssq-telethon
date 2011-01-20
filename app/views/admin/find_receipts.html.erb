@@ -9,19 +9,21 @@
             <div> 
 				<table>
 					<thead>
-						<th>Date</th>
-						<th>Receipt Number</th>
 						<th>Name</th>
+						<th>Organisation</th>
 						<th>Amount</th>
+						<th>Date</th>
 						<th>Email</th>
+						<th>Receipt Number</th>
 					</thead>
             	<% @donations.each do |d| %>
 					<tr>
-						<td><%= d.updated_at %></td>
-						<td><%= d.id %></td>
 						<td><%= d.customer %></td>
+						<td><%= d.customer.organisation_name %></td>
 						<td>$<%= d.display_amount %></td>
+						<td><%= d.updated_at %></td>
 						<td><%= d.customer.email %></td>
+						<td><%= d.id %></td>
 					</tr>
 				<% end %>
 				</table>
