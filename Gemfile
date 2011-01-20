@@ -9,7 +9,7 @@ gem 'pg'
 gem 'delayed_job'
 gem 'heroku'
 gem 'fastercsv'
-
+gem 'validates_timeliness', '~> 3.0.2'
 
 # Use unicorn as the web server
 # gem 'unicorn'

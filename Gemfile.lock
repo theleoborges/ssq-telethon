@@ -79,9 +79,12 @@ GEM
     rest-client (1.6.1)
       mime-types (>= 1.16)
     thor (0.14.6)
+    timeliness (0.3.3)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    validates_timeliness (3.0.3)
+      timeliness (~> 0.3.2)
 
 PLATFORMS
   ruby
@@ -93,3 +96,4 @@ DEPENDENCIES
   mocha (= 0.9.10)
   pg
   rails (= 3.0.3)
+  validates_timeliness (~> 3.0.2)
