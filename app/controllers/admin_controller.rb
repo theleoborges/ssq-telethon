@@ -15,21 +15,23 @@ class AdminController < ApplicationController
   
   def find_receipts
     @receipt_search = ReceiptSearch.new(params[:receipt_search])
+    @donations = Donation.paid.joins(:customer).limit(50).order(:id).includes(:customer)
     
     if @receipt_search.valid?
       date = DateTime.strptime(@receipt_search.donation_date, "%d/%m/%Y") unless @receipt_search.donation_date == ""
       
-      @donations = Donation.paid.joins(:customer).limit(50).order(:id).includes(:customer)
       @donations = @donations.where(:id => @receipt_search.receipt_number) unless @receipt_search.receipt_number == ""
       @donations = @donations.where(:amount => @receipt_search.amount) unless @receipt_search.amount == ""
       @donations = @donations.where("customers.given_name = ?", @receipt_search.given_name) unless @receipt_search.given_name == ""
       @donations = @donations.where("customers.family_name = ?", @receipt_search.family_name) unless @receipt_search.family_name == ""
       @donations = @donations.where("donations.updated_at >= ?", date - 10.hours) unless date.nil?
       @donations = @donations.where("donations.updated_at <= ?", date + 1.day - 10.hours) unless date.nil?
-    else
-      @errors = @receipt_search.errors
-      render :action => "reissue_receipts"
     end
+    
+    @errors = @receipt_search.errors
+    @errors.add(:no_results_found, ["please refine your search parameters"]) unless @donations.all.count > 0
+    
+    render :action => "reissue_receipts" unless @errors.empty?
   end
 
   private
