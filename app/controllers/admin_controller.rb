@@ -15,7 +15,7 @@ class AdminController < ApplicationController
   
   def find_receipts
     @receipt_search = ReceiptSearch.new(params[:receipt_search])
-    @donations = Donation.paid.joins(:customer).limit(50).order(:id).includes(:customer)
+    @donations = Donation.paid.joins(:customer).limit(50).order("donations.id").includes(:customer)
     
     if @receipt_search.valid?
       date = DateTime.strptime(@receipt_search.donation_date, "%d/%m/%Y") unless @receipt_search.donation_date == ""
