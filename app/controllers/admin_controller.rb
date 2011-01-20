@@ -24,6 +24,7 @@ class AdminController < ApplicationController
       @donations = @donations.where(:amount => @receipt_search.amount) unless @receipt_search.amount == ""
       @donations = @donations.where("customers.given_name = ?", @receipt_search.given_name) unless @receipt_search.given_name == ""
       @donations = @donations.where("customers.family_name = ?", @receipt_search.family_name) unless @receipt_search.family_name == ""
+      @donations = @donations.where("customers.email = ?", @receipt_search.email_address) unless @receipt_search.email_address == ""
       @donations = @donations.where("donations.updated_at >= ?", date - 10.hours) unless date.nil?
       @donations = @donations.where("donations.updated_at <= ?", date + 1.day - 10.hours) unless date.nil?
     end
