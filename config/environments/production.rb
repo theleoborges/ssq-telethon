@@ -46,4 +46,15 @@ SsqTelethon::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+     :address => "smtp.sendgrid.com",
+     :domain => "smartservice.qld.gov.au",
+     :port => 25,
+     :user_name => ENV["MAIL_USER"],
+     :password => ENV["MAIL_PASSWORD"],
+     :authentication => :plain,
+     :enable_starttls_auto => false
+   }
 end
