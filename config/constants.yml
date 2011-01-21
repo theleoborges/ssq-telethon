@@ -6,14 +6,22 @@ development: &default
   gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay"
   gateway_callback_uri: "http://localhost:3000/donations/callback"
   merchant_id:  "TESTSMAQLDCOM01"
-  
+
+staging:
+  <<: *default
+  gateway_access_code: "244E358F"
+  gateway_secret_hash:  "42077ACECA1D7465E70C2563730B2D7A"
+  gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay"
+  gateway_callback_uri: "http://localhost:3000/donations/callback"
+  merchant_id:  "TESTSMAQLDCOM01"
+
 production:
   <<: *default
   gateway_access_code: "E3716752"
   gateway_secret_hash:  "55BE738BFF3D3A9F147F37D46AF58DA9"  
   merchant_id:  "SMAQLDCOM01"
   gateway_callback_uri: "http://telethon.smartservice.qld.gov.au/donations/callback"
-  
+
 test:
   <<: *default
   gateway_access_code: "access_code"
