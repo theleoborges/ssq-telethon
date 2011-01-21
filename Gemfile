@@ -9,4 +9,7 @@ gem 'validates_timeliness', '~> 3.0.2'
 group :development, :test do
   gem 'heroku'
   gem 'mocha', '0.9.10'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
