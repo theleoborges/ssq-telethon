@@ -36,7 +36,7 @@ SsqTelethon::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
      :address => "smtp.sendgrid.com",
-     :domain => "smartservice.qld.gov.au",
+     :domain => ENV["MAIL_DOMAIN"],
      :port => 25,
      :user_name => ENV["MAIL_USER"],
      :password => ENV["MAIL_PASSWORD"],
