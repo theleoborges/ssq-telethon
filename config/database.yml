@@ -36,7 +36,7 @@ development:
 # Do not set this db to the same as development or production.
 test: &test
   adapter: postgresql
-  encoding: sql_ascii
+  encoding: unicode
   database: ssq-telethon_test
   pool: 5
   username: postgres
