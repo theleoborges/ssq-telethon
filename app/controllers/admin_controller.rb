@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  USER_NAME, PASSWORD = "admin", "password"
+  USER_NAME, PASSWORD = ENV['ADMIN_USERNAME'], ENV['ADMIN_PASSWORD']
 
   before_filter :authenticate
 
