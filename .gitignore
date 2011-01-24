@@ -5,4 +5,6 @@ tmp/**/*
 #*
 *#
 ~*
+.idea
+vendor/bundle
 .#*
