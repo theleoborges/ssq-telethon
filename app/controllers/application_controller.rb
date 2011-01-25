@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
   
   def redirect_to_ssl
-    return if ENV["USE_SSL"]
+    return if ENV["NO_SSL"]
     return unless Rails.env.production?
     return if request.ssl? && request.host == CANONICAL_HOST
     redirect_to 'https://' + CANONICAL_HOST
