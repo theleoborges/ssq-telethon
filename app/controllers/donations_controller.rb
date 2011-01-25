@@ -25,14 +25,14 @@ class DonationsController < ApplicationController
   end
 
   def create
-    donation = Donation.new
+    donation = Donation.new(params[:donation])
     donation.customer = Customer.new(params[:customer])
-    donation.amount = params[:amount]
-    donation.save
-    if donation.errors.empty?
+    
+    if donation.valid? && donation.customer.valid?
+      donation.save
       redirect_to GatewayUrlBuilder.new.to_url donation
     else
-      @errors = donation.errors
+      @errors = donation.errors.merge(donation.customer.errors)
       @donation = donation
       render :action => "index"
     end

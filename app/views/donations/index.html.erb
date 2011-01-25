@@ -67,16 +67,16 @@
 
                 <ol class="tf-sections">
                   <li class="section">
-                    <fieldset id="contact-details">
+                    <fieldset id="donation-details">
                       <legend>Amount</legend>
                       <fieldset>
                         <ol class="ftw-questions ftw-slot-in">
                           <li class="xf-input">
-                            <label for="contact-phone">
+                            <label for="amount">
                               <span class="xf-label">Amount</span>
                               <abbr class="xf-required" title="required">*</abbr>
                             </label>
-                            $<input type="text" name="amount" size="15" maxlength="20" value="<%= @donation.amount.to_f == 0 ? "" : sprintf("%.2f", @donation.amount.to_f) %>" id="amount" />
+                            $<input type="text" name="donation[amount]" size="15" maxlength="20" value="<%= @donation.amount.to_f == 0 ? "" : sprintf("%.2f", @donation.amount.to_f) %>" id="amount" />
                             <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
                           </li>
                         </ol>
@@ -84,7 +84,7 @@
                   </li>
 
                   <li class="section">
-                    <fieldset id="contact-details">
+                    <fieldset id="customer-details">
                       <legend>Customer details</legend>
                       <div class="ftw-instructions privacy">
                         <p>Customer details assist with enquiries relating to this donation.</p>
@@ -99,21 +99,19 @@
                                 <fieldset id="name">
                                   <legend>
                                     <span class="xf-label">Name</span>
-
-
                                   </legend>
                                   <ol class="ftw-questions xf-appearance-compact">
                                     <li class="xf-input">
-                                      <label for="name-title">
+                                      <label for="title">
                                         <span class="xf-label">Title</span>
                                       </label>
                                       <input type="text"
                                       name="customer[title]" size="5"
-                                      maxlength="12" value="<%= @donation.customer.title %>" id="name-title"/></li>
+                                      maxlength="12" value="<%= @donation.customer.title %>" id="title"/></li>
 
                                     <li class="xf-input">
 
-                                      <label for="name-given">
+                                      <label for="given_name">
                                         <span class="xf-label">Given name</span>
 
                                       </label>
@@ -121,10 +119,10 @@
                                              name="customer[given_name]"
                                              size="20" maxlength="40"
                                              value="<%= @donation.customer.given_name %>"
-                                             id="name-given"/></li>
+                                             id="given_name"/></li>
 
                                     <li class="xf-input">
-                                      <label for="name-family">
+                                      <label for="family_name">
                                         <span class="xf-label">Family name</span>
 
 
@@ -133,12 +131,12 @@
                                              name="customer[family_name]"
                                              size="20" maxlength="40"
                                              value="<%= @donation.customer.family_name %>"
-                                             id="name-family"/></li>
+                                             id="family_name"/></li>
                                   </ol>
                                 </fieldset>
                               </li>
                               <li class="xf-input">
-                                <label for="organisation">
+                                <label for="organisation_name">
                                   <span class="xf-label">Organisation name</span>
 
                                 </label>
@@ -146,24 +144,24 @@
                                        name="customer[organisation_name]"
                                        size="40" maxlength="200"
                                        value="<%= @donation.customer.organisation_name %>"
-                                       id="organisation"/></li>
+                                       id="organisation_name"/></li>
 
 		                              <li class="xf-input">
-		                                <label for="contact-phone">
+		                                <label for="phone">
 		                                  <span class="xf-label">Phone</span>
 
 		                                </label>
 		                                <input type="text" name="customer[phone]" size="15" maxlength="20" value="<%= @donation.customer.phone %>"
-		                                       id="contact-phone"/></li>
+		                                       id="phone"/></li>
 
 		                              <li class="xf-input">
-		                                <label for="contact-fax">
+		                                <label for="fax">
 
 		                                  <span class="xf-label">Fax</span>
 
 		                                </label>
 		                                <input type="text" name="customer[fax]" size="15" maxlength="20" value="<%= @donation.customer.fax %>"
-		                                       id="contact-fax"/></li>
+		                                       id="fax"/></li>
 
                             </ol>
                           </fieldset>
@@ -177,9 +175,9 @@
 
                               <li class="xf-select">
                                 <ul class="xf-choices">
-                                  <li><label for="copy-of-receipt-requested"><input type="checkbox" 
+                                  <li><label for="wants_receipt_by_email"><input type="checkbox" 
                                                                                     name="customer[wants_receipt_by_email]"
-                                                                                    id="copy-of-receipt-requested"
+                                                                                    id="wants_receipt_by_email"
                                                                                     <% if @donation.customer.wants_receipt_by_email? %>checked="checked"<% end %>
                                                                                     value="true"/>Send receipt by email</label></li>
                                 </ul>
@@ -187,22 +185,22 @@
 
                               <li class="xf-input">
 
-                                <label for="contact-email">
+                                <label for="email">
                                   <span class="xf-label">Email</span>
 
                                 </label>
                                 <input type="text" name="customer[email]" size="40" maxlength="100" value="<%= @donation.customer.email %>"
-                                       id="contact-email"/></li>
+                                       id="email"/></li>
 
                               <li class="xf-input">
-                                <label for="contact-email-confirm">
+                                <label for="email-confirm">
                                   <span class="xf-label">Confirm email</span>
 
 
                                   <span class="xf-hint">Please retype to confirm</span>
                                 </label>
-                                <input type="text" name="customer_email_confirm]" size="40" maxlength="100" value="<%= @donation.customer.email %>"
-                                       id="contact-email-confirm"/></li>
+                                <input type="text" name="customer_email_confirm" size="40" maxlength="100" value="<%= @donation.customer.email %>"
+                                       id="customer_email_confirm"/></li>
                             </ol>
                           </fieldset>
                         </li>
@@ -215,76 +213,76 @@
 
                               <li class="xf-select">
                                 <ul class="xf-choices">
-                                  <li><label for="copy-of-receipt-requested-by-snail-mail"><input type="checkbox" 
+                                  <li><label for="wants_receipt_by_snail_mail"><input type="checkbox" 
                                                                                     name="customer[wants_receipt_by_snail_mail]"
-                                                                                    id="copy-of-receipt-requested-by-snail-mail"
+                                                                                    id="wants_receipt_by_snail_mail"
                                                                                     <% if @donation.customer.wants_receipt_by_snail_mail? %>checked="checked"<% end %>
                                                                                     value="true"/>Send receipt by post</label></li>
                                 </ul>
                               </li>
                               <li class="xf-group">
-                                <fieldset id="contact-address">
+                                <fieldset id="address">
                                   <legend>
                                     <span class="xf-label">Postal address</span>
                                   </legend>
                                   <ol class="ftw-questions">
 
                                     <li class="xf-input">
-                                      <label for="contact-address-line1">
+                                      <label for="address_line_1">
                                         <span class="xf-label">Address line 1</span>
 
                                       </label>
                                       <input type="text" name="customer[address_line_1]" size="30" maxlength="50"
-                                             value="<%= @donation.customer.address_line_1 %>" id="contact-address-line1"/></li>
+                                             value="<%= @donation.customer.address_line_1 %>" id="address_line_1"/></li>
 
                                     <li class="xf-input">
-                                      <label for="contact-address-line2">
+                                      <label for="address_line_2">
                                         <span class="xf-label">Address line 2 (optional)</span>
 
                                       </label>
-                                      <input type="text" id="contact-address-line2" name="customer[address_line_2]"
+                                      <input type="text" id="address_line_2" name="customer[address_line_2]"
                                              value="<%= @donation.customer.address_line_2 %>" size="30" maxlength="50"/>
                                     </li>
 
                                     <li class="xf-input">
-                                      <label for="contact-address-line3">
+                                      <label for="address_line_3">
                                         <span class="xf-label">Address line 3 (optional)</span>
                                       </label>
-                                      <input type="text" id="contact-address-line3" name="customer[address_line_3]"
+                                      <input type="text" id="address_line_3" name="customer[address_line_3]"
                                              value="<%= @donation.customer.address_line_3 %>" size="30" maxlength="50"/>
                                     </li>
 
                                     <li class="xf-input">
-                                      <label for="contact-suburb">
+                                      <label for="city">
                                         <span class="xf-label">Town, suburb or city</span>
 
                                       </label>
-                                      <input type="text" id="contact-suburb" name="customer[city]"
+                                      <input type="text" id="city" name="customer[city]"
                                              value="<%= @donation.customer.city %>" maxlength="46"/>
                                     </li>
 
                                     <li class="xf-input">
-                                      <label for="contact-state">
+                                      <label for="state">
                                         <span class="xf-label">State or territory</span>
                                       </label>
-                                      <input type="text" id="contact-state" name="customer[state]"
+                                      <input type="text" id="state" name="customer[state]"
                                              value="<%= @donation.customer.state %>" size="10" maxlength="46"/>
                                     </li>
 
                                     <li class="xf-input">
-                                      <label for="contact-postcode">
+                                      <label for="postalcode">
                                         <span class="xf-label">Postal or zip code</span>
 
                                       </label>
-                                      <input type="text" id="contact-postcode" name="customer[postalcode]"
+                                      <input type="text" id="postalcode" name="customer[postalcode]"
                                              value="<%= @donation.customer.postalcode %>" size="5" maxlength="12"/>
                                     </li>
 
                                     <li class="xf-input">
-                                      <label for="contact-country">
+                                      <label for="country">
                                         <span class="xf-label">Country</span>
                                       </label>
-                                      <input type="text" id="contact-country" name="customer[country]"
+                                      <input type="text" id="country" name="customer[country]"
                                              value="<%= @donation.customer.country %>" size="30" maxlength="100"/>
                                     </li>
 
