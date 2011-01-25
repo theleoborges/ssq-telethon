@@ -18,10 +18,10 @@ class DonationsController < ApplicationController
   end
 
   def retry
-    @return_code = flash[:return_code]
+    @return_code = params[:return_code]
     return redirect_to root_url if @return_code.nil?
 
-    @donation = Donation.find(flash[:transaction_reference])
+    @donation = Donation.find(params[:transaction_reference])
     @error_msg = ERROR_MESSAGES[@return_code]
     render :action => "index"
   end
@@ -60,8 +60,8 @@ class DonationsController < ApplicationController
 
     deliver_messages(donation)
 
-    flash[:transaction_reference] = transaction_reference
-    flash[:return_code] = return_code
+    params[:transaction_reference] = transaction_reference
+    params[:return_code] = return_code
 
     return redirect_to "/donations/retry" unless return_code == "0"
     return redirect_to donations_complete_path(transaction_reference)
@@ -71,7 +71,7 @@ class DonationsController < ApplicationController
     response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
     response.headers["Pragma"] = "no-cache"
     response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
-    @transaction_reference = flash[:transaction_reference]
+    @transaction_reference = params[:transaction_reference]
     redirect_to root_url if @transaction_reference.nil?
   end
   
