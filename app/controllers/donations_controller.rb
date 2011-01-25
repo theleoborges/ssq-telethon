@@ -27,9 +27,12 @@ class DonationsController < ApplicationController
   def create
     donation = Donation.new(params[:donation])
     donation.customer = Customer.new(params[:customer])
+    donation.save
     
-    if donation.valid? && donation.customer.valid?
-      donation.save
+    donation.errors.delete(:customer)
+    @errors = donation.errors.merge(donation.customer.errors)
+    
+    if @errors.empty?
       redirect_to GatewayUrlBuilder.new.to_url donation
     else
       @errors = donation.errors.merge(donation.customer.errors)
