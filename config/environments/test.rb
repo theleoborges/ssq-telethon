@@ -32,4 +32,15 @@ SsqTelethon::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+     :address => "smtp.sendgrid.com",
+     :domain => ENV["MAIL_DOMAIN"],
+     :port => 25,
+     :user_name => ENV["MAIL_USER"],
+     :password => ENV["MAIL_PASSWORD"],
+     :authentication => :plain,
+     :enable_starttls_auto => false
+   }
 end
