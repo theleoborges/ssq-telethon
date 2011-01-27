@@ -94,60 +94,34 @@
     <%= javascript_include_tag "jquery.forces.forms.1.2.js" %>
 	<script type="text/javascript">
 	<!-- //
-	
-        var nameGiven=$("#name-given");if(nameGiven.is(":-xf-required")){var nameFamily=$("#name-family");$("#name-given,#name-family").change(function(){nameGiven.forces_attr("required",nameFamily.is(":-xf-empty"));nameFamily.forces_attr("required",nameGiven.is(":-xf-empty"))}).triggerHandler("change")}$("#contact-email, #delivery-email").forces_attr("type","email").change(function(){var B=$(this);B.forces_setCustomValidity(B.val().match(/@[0-9.]+$/)?$.forces.MSG_TYPE_MISMATCH.email:null)}).triggerHandler("change");$.fn.forces_isConfirmationFor=function(D){D=$(D);var C=$(this);D.add(C).change(function(){C.forces_setCustomValidity(D.forces_val()==C.forces_val()?"":"doesn't match "+D.forces_label());if(C.is(":-tf-validated")){C.forces_validate()}});return this};$("#contact-email-confirm").forces_isConfirmationFor("#contact-email");$("#delivery-email-confirm").forces_isConfirmationFor("#delivery-email");
-        var emailReceiptByPost=$("#copy-of-receipt-requested-by-snail-mail");
-        if(emailReceiptByPost.is(":checked")||!$("#contact-address-line1").is(":-xf-required")){
-          emailReceiptByPost.click(function(){$("#contact-address-line1, #contact-suburb, #contact-state, #contact-postcode, #contact-country").forces_attr("required",emailReceiptByPost.is(":checked"))}).triggerHandler("click")}
-        var emailReceipt=$("#copy-of-receipt-requested");
-        if(emailReceipt.is(":checked")||!$("#contact-email").is(":-xf-required")){
-          emailReceipt.click(function(){$("#contact-email, #contact-email-confirm").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}var taxInvoiceRequired=$("#tax-invoice-required");taxInvoiceRequired.click(function(){$("#tax-business-details").forces_attr("relevant",taxInvoiceRequired.is(":checked"))}).triggerHandler("click");
+        var nameGiven=$("#given_name");
+        if(nameGiven.is(":-xf-required")){var nameFamily=$("#family_name");$("#given_name,#family_name").change(function(){nameGiven.forces_attr("required",nameFamily.is(":-xf-empty"));nameFamily.forces_attr("required",nameGiven.is(":-xf-empty"))}).triggerHandler("change")}$("#email").forces_attr("type","email").change(function(){var B=$(this);B.forces_setCustomValidity(B.val().match(/@[0-9.]+$/)?$.forces.MSG_TYPE_MISMATCH.email:null)}).triggerHandler("change");$.fn.forces_isConfirmationFor=function(D){D=$(D);var C=$(this);D.add(C).change(function(){C.forces_setCustomValidity(D.forces_val()==C.forces_val()?"":"doesn't match "+D.forces_label());if(C.is(":-tf-validated")){C.forces_validate()}});return this};$("#email_confirmation").forces_isConfirmationFor("#email");
+        var postReceipt=$("#wants_receipt_by_snail_mail");
+        if(postReceipt.is(":checked")||!$("#address_line_1").is(":-xf-required")){
+          postReceipt.click(function(){$("#address_line_1, #city, #state, #postalcode, #country").forces_attr("required",postReceipt.is(":checked"))}).triggerHandler("click")}
+        var emailReceipt=$("#wants_receipt_by_email");
+        if(emailReceipt.is(":checked")||!$("#email").is(":-xf-required")){
+          emailReceipt.click(function(){$("#email, #email_confirmation").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}
 
-var amount=$("#amount");
-amount.change(
-	function(){
-		var H=amount.val().replace(/\s+/g,"");
-		if(H.length==0){
-			amount.forces_setCustomValidity("")
-		}else{parseFloat(H) >= 1.00
-			if(!H.match(/^\s*[0-9]*(\.[0-9]*)?\s*$/)){
-				amount.forces_setCustomValidity("invalid number")
-			}else if(!H.match(/^\s*[0-9]*(\.[0-9]{1,2})?\s*$/)){
-				amount.forces_setCustomValidity("use one or two decimal places, or no decimal point")
-			}else if(parseFloat(H) < 1.00){
-				amount.forces_setCustomValidity("minimum donation is 1.00")
-			}else{
-				amount.forces_setCustomValidity("")
-			}
-		}
-	}
-);
-
-var abn=$("#abn");
-abn.change(
-	function(){
-		var H=abn.val().replace(/\s+/g,"");
-		if(H.length==0){
-			abn.forces_setCustomValidity("")
-		}else{
-			if(H.match(/^[0-9]{11}$/)){
-				var G=H.split("");var J=G[0]*10;var I=1;
-				for(var F=1;11>F;F++){
-					J+=(G[F]*I);I+=2
+		var amount=$("#amount");
+		amount.change(
+			function(){
+				var H=amount.val().replace(/\s+/g,"");
+				if(H.length==0){
+					amount.forces_setCustomValidity("")
+				}else{parseFloat(H) >= 1.00
+					if(!H.match(/^\s*[0-9]*(\.[0-9]*)?\s*$/)){
+						amount.forces_setCustomValidity("invalid number")
+					}else if(!H.match(/^\s*[0-9]*(\.[0-9]{1,2})?\s*$/)){
+						amount.forces_setCustomValidity("use one or two decimal places, or no decimal point")
+					}else if(parseFloat(H) < 1.00){
+						amount.forces_setCustomValidity("minimum donation is 1.00")
+					}else{
+						amount.forces_setCustomValidity("")
+					}
 				}
-				if(J%89===10){
-					abn.forces_setCustomValidity("")
-				}else{
-					abn.forces_setCustomValidity("invalid number")
-				}
-			}else{
-				abn.forces_setCustomValidity("invalid number")
 			}
-		}
-	}
-);
-
-if(abn.is(":-xf-required")){var taxAddressRequiredFields=$("#tax-address :-xf-required");var abnAddressChangeHandler=function(){var B=abn.is(":-xf-empty");taxAddressRequiredFields.forces_attr("required",B).filter(":-xf-invalid").forces_validate();abn.forces_attr("required",!B||taxAddressRequiredFields.filter(":-xf-empty").length>0).filter(":-xf-invalid").forces_validate()};abnAddressChangeHandler();abn.change(abnAddressChangeHandler);taxAddressRequiredFields.change(abnAddressChangeHandler);$(document).bind($.forces.EVENT_XF_SUBMIT_ERROR,function(){var B=$('.tf-alert a[href$="#abn"]');if(B.length&&B.text().match(/^ABN: must be completed$/)){B.text("ABN or business address: must be completed");B.closest("ol").find('a[href*="#tax-"]').parent().remove()}})}var addressAsAbove=$("#delivery-address-same-as-contact-address");addressAsAbove.click(function(){$("#delivery-details-needed").forces_attr("relevant",!addressAsAbove.is(":checked"))}).triggerHandler("click");          
+		);
 	// -->
 	</script>
   
