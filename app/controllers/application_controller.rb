@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :clear_etag, :redirect_to_ssl
+  before_filter :clear_etag
   
   def clear_etag
     response.etag = nil

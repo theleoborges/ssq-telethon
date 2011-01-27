@@ -1,4 +1,6 @@
 class DonationsController < ApplicationController
+  before_filter :redirect_to_ssl, :only => :index
+  
   ERROR_MESSAGES = {
     "0"	=> "Transaction approved",
     "1" => "Transaction could not be processed",
