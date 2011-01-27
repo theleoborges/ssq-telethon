@@ -15,7 +15,6 @@ class DonationsController < ApplicationController
     response.headers['Cache-Control'] = 'public, max-age=300'
     @donation = Donation.new
     @donation.customer = Customer.new
-    @donation.customer.wants_receipt_by_email=true
   end
 
   def retry
