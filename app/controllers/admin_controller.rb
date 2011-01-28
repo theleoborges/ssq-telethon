@@ -41,7 +41,9 @@ class AdminController < ApplicationController
   end
   
   def reissue_receipt
-    render :text => params[:donation_id]
+    donation = Donation.find(params[:donation_id])
+    DonationMailer.delay.donation_confirmation donation if donation.paid?
+    render :text => "Success!"
   end
 
   private
