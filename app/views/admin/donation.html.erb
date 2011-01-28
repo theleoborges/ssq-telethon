@@ -3,7 +3,7 @@
 <p>Family name: <input type="text" name="customer[family_name]" value="<%= @donation.customer.family_name %>" /></p>
 <p>Organisation: <input type="text" name="customer[organisation_name]" value="<%= @donation.customer.organisation_name %>" /></p>
 <p>Email: <input type="text" name="customer[email]" value="<%= @donation.customer.email %>" /></p>
-<p>Donated at: <%= @donation.updated_at.inspect %></p>
+<p>Donated at: <%= @donation.updated_at %></p>
 <p>Amount: $<%= @donation.display_amount %></p>
 <input type="hidden" name="donation_id" value="<%= @donation.id %>" />
 <input type="submit" value="Reissue" />

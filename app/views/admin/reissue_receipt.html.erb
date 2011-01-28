@@ -2,6 +2,6 @@
 <p>Given name: <%= @donation.customer %></p>
 <p>Organisation: <%= @donation.customer.organisation_name %></p>
 <p>Email: <%= @donation.customer.email %></p>
-<p>Donated at: <%= @donation.updated_at.inspect %></p>
+<p>Donated at: <%= @donation.updated_at %></p>
 <p>Amount: $<%= @donation.display_amount %></p>
 <%= link_to 'Start again', admin_receipt_search_path %>
