@@ -37,7 +37,7 @@ class AdminController < ApplicationController
   end
   
   def donation
-    render :text => params[:donation_id]
+    @donation = Donation.find(params[:donation_id])
   end
 
   private
