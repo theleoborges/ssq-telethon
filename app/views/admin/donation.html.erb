@@ -1,5 +1,5 @@
 <% if @errors %>
-  <div class="tf-status" style="" id="tf-ID-2">
+  <div class="tf-status" id="tf-ID-2">
     <div class="tf-alert inner">
       <h1>Unable to process this form</h1>
       <ol>
@@ -27,6 +27,12 @@
                   <fieldset>
                     <ol class="ftw-questions ftw-slot-in">
                       <li class="xf-input">
+                        <label for="given_name">
+                          <span class="xf-label">Title</span>
+                        </label>
+                        <input type="text" name="customer[title]" size="15" maxlength="20" id="title" value="<%= @donation.customer.title %>" />
+                      </li>
+					  <li class="xf-input">
                         <label for="given_name">
                           <span class="xf-label">Given name</span>
                         </label>
