@@ -33,7 +33,7 @@ class AdminController < ApplicationController
     @errors = @receipt_search.errors
     @errors.add(:no_results_found, ["please refine your search parameters"]) unless @donations.all.count > 0
     
-    render :action => "reissue_receipts" unless @errors.empty?
+    render :action => "receipt_search" unless @errors.empty?
   end
   
   def donation
