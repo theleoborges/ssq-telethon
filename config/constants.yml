@@ -29,4 +29,8 @@ test:
   gateway_secret_hash:  "42077ACECA1D7465E70C2563730B2D7A"
   gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay"
   gateway_callback_uri: "https://ssq-telethon-test.heroku.com/donations/callback"
-  merchant_id:  "TESTSMAQLDCOM01"  
+  merchant_id:  "TESTSMAQLDCOM01"
+
+# used for automated build tests
+cucumber:
+  <<: *default

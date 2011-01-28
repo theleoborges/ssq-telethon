@@ -15,4 +15,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'sinatra'
+  gem 'ruby-debug'
 end
