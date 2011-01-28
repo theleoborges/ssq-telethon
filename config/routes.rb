@@ -1,4 +1,6 @@
 SsqTelethon::Application.routes.draw do
+  devise_for :users
+
   get "api/totals"
 
   get "donations/index"

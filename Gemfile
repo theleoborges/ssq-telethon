@@ -5,7 +5,7 @@ gem 'pg'
 gem 'delayed_job'
 gem 'fastercsv'
 gem 'validates_timeliness', '~> 3.0.2'
-
+gem 'devise', '1.1.5'
 
 group :development, :test do
   gem 'heroku'

@@ -1,7 +1,5 @@
 class AdminController < ApplicationController
-  USER_NAME, PASSWORD = ENV['ADMIN_USERNAME'], ENV['ADMIN_PASSWORD']
-
-  before_filter :authenticate
+  before_filter :authenticate_user!
 
   def download_postal_receipts
     if params[:date] != nil
