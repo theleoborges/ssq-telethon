@@ -35,6 +35,10 @@ class AdminController < ApplicationController
     
     render :action => "reissue_receipts" unless @errors.empty?
   end
+  
+  def donation
+    render :text => params[:donation_id]
+  end
 
   private
     def authenticate

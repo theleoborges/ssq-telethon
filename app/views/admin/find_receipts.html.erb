@@ -15,6 +15,7 @@
 						<th>Date</th>
 						<th>Email</th>
 						<th>Receipt Number</th>
+						<th></th>
 					</thead>
             	<% @donations.each do |d| %>
 					<tr>
@@ -24,6 +25,7 @@
 						<td><%= d.updated_at %></td>
 						<td><%= d.customer.email %></td>
 						<td><%= d.id %></td>
+						<td><%= link_to 'Reissue', admin_donation_path(d.id) %>
 					</tr>
 				<% end %>
 				</table>
