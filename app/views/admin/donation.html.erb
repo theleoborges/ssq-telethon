@@ -1,7 +1,8 @@
-<%= form_tag('/admin/reissue_receipt', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
-<p>Customer: <%= @donation.customer %></p>
-<p>Organisation: <%= @donation.customer.organisation_name %></p>
-<p>Email: <%= @donation.customer.email %></p>
+<%= form_tag(admin_reissue_receipt_path, :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+<p>Given name: <input type="text" name="customer[given_name]" value="<%= @donation.customer.given_name %>" /></p>
+<p>Family name: <input type="text" name="customer[family_name]" value="<%= @donation.customer.family_name %>" /></p>
+<p>Organisation: <input type="text" name="customer[organisation_name]" value="<%= @donation.customer.organisation_name %>" /></p>
+<p>Email: <input type="text" name="customer[email]" value="<%= @donation.customer.email %>" /></p>
 <p>Donated at: <%= @donation.updated_at.inspect %></p>
 <p>Amount: $<%= @donation.display_amount %></p>
 <input type="hidden" name="donation_id" value="<%= @donation.id %>" />

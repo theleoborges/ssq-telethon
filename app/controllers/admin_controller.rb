@@ -9,7 +9,7 @@ class AdminController < ApplicationController
     end
   end
   
-  def reissue_receipts
+  def receipt_search
     @receipt_search = ReceiptSearch.new
   end
   
@@ -41,9 +41,10 @@ class AdminController < ApplicationController
   end
   
   def reissue_receipt
-    donation = Donation.find(params[:donation_id])
-    DonationMailer.delay.donation_confirmation donation if donation.paid?
-    render :text => "Success!"
+    @donation = Donation.find(params[:donation_id])
+    @donation.customer.update_attributes(params[:customer])
+    @donation.customer.save
+    DonationMailer.delay.donation_confirmation @donation if donation.paid?
   end
 
   private
