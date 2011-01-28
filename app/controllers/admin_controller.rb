@@ -39,6 +39,10 @@ class AdminController < ApplicationController
   def donation
     @donation = Donation.find(params[:donation_id])
   end
+  
+  def reissue_receipt
+    render :text => params[:donation_id]
+  end
 
   private
     def authenticate

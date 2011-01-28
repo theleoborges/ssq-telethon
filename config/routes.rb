@@ -10,6 +10,7 @@ SsqTelethon::Application.routes.draw do
   get "admin/reissue_receipts"
   post "admin/find_receipts"
   get "admin/donation/:donation_id" => "admin#donation", :as => :admin_donation
+  post "admin/reissue_receipt" => "admin#reissue_receipt"
   
   get "admin/download_postal_receipts"
   post "admin/download_postal_receipts"

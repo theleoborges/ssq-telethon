@@ -1,5 +1,9 @@
+<%= form_tag('/admin/reissue_receipt', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
 <p>Customer: <%= @donation.customer %></p>
 <p>Organisation: <%= @donation.customer.organisation_name %></p>
 <p>Email: <%= @donation.customer.email %></p>
 <p>Donated at: <%= @donation.updated_at.inspect %></p>
 <p>Amount: $<%= @donation.display_amount %></p>
+<input type="hidden" name="donation_id" value="<%= @donation.id %>" />
+<input type="submit" value="Reissue" />
+<% end %>
