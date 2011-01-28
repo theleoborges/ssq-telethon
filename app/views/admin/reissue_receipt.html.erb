@@ -1,7 +1,56 @@
-<h1>Receipt reissued</h1>
-<p>Customer: <%= @donation.customer %></p>
-<p>Organisation: <%= @donation.customer.organisation_name %></p>
-<p>Email: <%= @donation.customer.email %></p>
-<p>Donated at: <%= @donation.updated_at %></p>
-<p>Amount: $<%= @donation.display_amount %></p>
-<%= link_to 'Start again', admin_receipt_search_path %>
+<div class="article tf-form">
+	<div class="inner">
+		<div class="header">
+			<h1>
+				Receipt reissued successfully
+			</h1>
+		</div>
+		<ol class="tf-sections">
+          <li class="section">
+            <fieldset>
+              <fieldset>
+                <ol class="ftw-questions ftw-slot-in">
+                  <li class="xf-input">
+                    <label for="family_name">
+                      <span class="xf-label">Customer</span>
+                    </label>
+                    <%= @donation.customer %>
+                  </li>
+				  <li class="xf-input">
+                    <label for="organisation_name">
+                      <span class="xf-label">Organisation</span>
+                    </label>
+                    <%= @donation.customer.organisation_name %>
+                  </li>
+				  <li class="xf-input">
+                    <label for="email_address">
+                      <span class="xf-label">Email address</span>
+                    </label>
+                    <%= @donation.customer.email %>
+                  </li>
+				  <li class="xf-input">
+                    <label for="donation_date">
+                      <span class="xf-label">Date of donation</span>
+                            </label>
+                    <%= @donation.updated_at %>
+                  </li>
+				  <li class="xf-input">
+                    <label for="amount">
+                      <span class="xf-label">Amount</span>
+                    </label>
+                    $<%= @donation.display_amount %>
+                  </li>
+                </ol>
+              </fieldset>
+			</fieldset>
+          </li>	
+		  <li class="tf-footer">
+            <ul class="tf-submit">
+              <li class="wfd-primary-action">
+		    	  <%= link_to '<< Start again', admin_receipt_search_path %>
+              </li>
+            </ul>
+          </li>
+		</ol>
+	</div>
+</div>
