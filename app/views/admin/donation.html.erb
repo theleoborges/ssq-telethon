@@ -20,7 +20,6 @@
 			</h1>
 		</div>
 		<%= form_tag(admin_reissue_receipt_path, :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
-			<input type="submit" value="Reissue" />
 			<ol class="tf-sections">
               <li class="section">
                 <fieldset>
@@ -61,7 +60,6 @@
                           <span class="xf-label">Date of donation</span>
 	                            </label>
                         <%= @donation.updated_at %>
-                        <small class="xf-hint">dd/mm/yyyy</small>
                       </li>
 					  <li class="xf-input">
                         <label for="amount">
@@ -78,7 +76,7 @@
                   <li class="wfd-primary-action">
                     <strong>
 					  <input type="hidden" name="donation_id" value="<%= @donation.id %>" />
-                      <input type="submit" id="submit" value="Search"/>
+                      <input type="submit" id="submit" value="Reissue"/>
                     </strong>
                   </li>
                 </ul>

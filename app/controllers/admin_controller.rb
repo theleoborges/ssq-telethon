@@ -41,8 +41,16 @@ class AdminController < ApplicationController
   def reissue_receipt
     @donation = Donation.find(params[:donation_id])
     @donation.customer.update_attributes(params[:customer])
+    @donation.customer.wants_receipt_by_email = true
     @donation.customer.save
-    DonationMailer.delay.donation_confirmation @donation if donation.paid?
+    
+    @errors = @donation.customer.errors
+    
+    if @errors.empty?
+      DonationMailer.delay.donation_confirmation @donation if donation.paid?
+    else
+      render :action => "donation"
+    end
   end
 
   private
