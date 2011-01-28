@@ -9,7 +9,7 @@ class DonationMailer < ActionMailer::Base
   
   def snail_mail_confirmation(donation)
     @donation = donation
-    mail(:to => "taxreceipts@premiers.qld.gov.au", 
+    mail(:to => ENV["POSTAL_RECEIPT_EMAIL_DESTINATION"], 
       :subject => "Smart Service Queensland - Receipt: #{donation.id}")    
   end
   

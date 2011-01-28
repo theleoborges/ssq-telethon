@@ -1,0 +1,37 @@
+<div id="page-container">
+  <div id="content-container">
+    <div id="article-container">
+      <div id="content">
+
+        <div class="article">
+          <div class="inner"> 
+            <div class="header"><h1>Premier's Disaster Relief Appeal</h1></div> 
+            <div> 
+				<table>
+					<thead>
+						<th>Name</th>
+						<th>Organisation</th>
+						<th>Amount</th>
+						<th>Date</th>
+						<th>Email</th>
+						<th>Receipt Number</th>
+					</thead>
+            	<% @donations.each do |d| %>
+					<tr>
+						<td><%= d.customer %></td>
+						<td><%= d.customer.organisation_name %></td>
+						<td>$<%= d.display_amount %></td>
+						<td><%= d.updated_at %></td>
+						<td><%= d.customer.email %></td>
+						<td><%= d.id %></td>
+					</tr>
+				<% end %>
+				</table>
+            </div> 
+          </div>
+        </div>
+
+</div>
+</div>
+</div>
+</div>

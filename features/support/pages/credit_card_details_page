@@ -1,0 +1,13 @@
+require File.dirname(__FILE__) + "/page"
+class CreditCardDetailsPage < Page
+  def check_we_are_on_this_page
+    @driver.current_path.should =~ /.+ssl.*\/?$/
+  end
+
+  def pay (number, month, year)
+    @driver.fill_in "CardNumber", :with => number
+    @driver.fill_in "CardMonth", :with => month
+    @driver.fill_in "CardYear", :with => year
+    @driver.click_button "Paybutton"
+  end
+end

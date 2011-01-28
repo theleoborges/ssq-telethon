@@ -1,0 +1,95 @@
+<div id="page-container">
+	<div id="content-container">
+		<div id="article-container">
+			<div id="content">
+				<% if @errors %>
+		          <div class="tf-status" style="" id="tf-ID-2">
+		            <div class="tf-alert inner">
+		              <h1>Unable to process this form</h1>
+		              <ol>
+		                <% @errors.each do |key, message| %>
+		                  <li>
+		                    <a href="#<%= key %>"><%= key.to_s.capitalize %>: <%= message %></a>
+		                  </li>
+		                <% end %>
+		              </ol>
+		            </div>
+		          </div>
+		        <% end %>
+				<div class="article tf-form">
+					<div class="inner">
+						<div class="header">
+							<h1>
+								Reissue receipts: Search
+							</h1>
+						</div>
+						<% form_tag('/admin/find_receipts', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+							<ol class="tf-sections">
+			                  <li class="section">
+			                    <fieldset>
+			                      <fieldset>
+			                        <ol class="ftw-questions ftw-slot-in">
+			                          <li class="xf-input">
+			                            <label for="receipt_number">
+			                              <span class="xf-label">Receipt number</span>
+			                            </label>
+			                            <input type="text" name="receipt_search[receipt_number]" size="15" maxlength="20" id="receipt_number" value="<%= @receipt_search.receipt_number %>" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="given_name">
+			                              <span class="xf-label">Given name</span>
+			                            </label>
+			                            <input type="text" name="receipt_search[given_name]" size="15" maxlength="20" id="given_name" value="<%= @receipt_search.given_name %>" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="family_name">
+			                              <span class="xf-label">Family name</span>
+			                            </label>
+			                            <input type="text" name="receipt_search[family_name]" size="15" maxlength="20" id="family_name" value="<%= @receipt_search.family_name %>" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="family_name">
+			                              <span class="xf-label">Organisation name</span>
+			                            </label>
+			                            <input type="text" name="receipt_search[organisation_name]" size="15" maxlength="20" id="organisation_name" value="<%= @receipt_search.organisation_name %>" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="email_address">
+			                              <span class="xf-label">Email address</span>
+			                            </label>
+			                            <input type="text" name="receipt_search[email_address]" size="30" maxlength="40" id="email_address" value="<%= @receipt_search.email_address %>" />
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="donation_date">
+			                              <span class="xf-label">Date of donation</span>
+					                            </label>
+			                            <input type="text" name="receipt_search[donation_date]" size="15" maxlength="20" id="donation_date" value="<%= @receipt_search.donation_date %>" />
+			                            <small class="xf-hint">dd/mm/yyyy</small>
+			                          </li>
+									  <li class="xf-input">
+			                            <label for="amount">
+			                              <span class="xf-label">Amount</span>
+			                            </label>
+			                            $<input type="text" name="receipt_search[amount]" size="15" maxlength="20" id="amount" value="<%= @receipt_search.amount %>" />
+			                          </li>
+			                        </ol>
+			                      </fieldset>
+								</fieldset>
+			                  </li>
+							  <li class="tf-footer">
+				                <ul class="tf-submit">
+				                  <li class="wfd-primary-action">
+				                    <strong>
+				                      <input type="submit" id="submit" value="Search"/>
+				                    </strong>
+				                  </li>
+				                </ul>
+				              </li>
+							</ol>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

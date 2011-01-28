@@ -3,7 +3,8 @@
 development: &default
   gateway_access_code: "244E358F"
   gateway_secret_hash:  "42077ACECA1D7465E70C2563730B2D7A"
-  gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay"
+  #gateway_payment_uri:  "https://migs.mastercard.com.au/vpcpay"
+  gateway_payment_uri:  "http://localhost:4567/vpcpay"
   gateway_callback_uri: "http://localhost:3000/donations/callback"
   merchant_id:  "TESTSMAQLDCOM01"
 
