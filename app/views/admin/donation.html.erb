@@ -1,10 +1,81 @@
-<%= form_tag(admin_reissue_receipt_path, :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
-<p>Given name: <input type="text" name="customer[given_name]" value="<%= @donation.customer.given_name %>" /></p>
-<p>Family name: <input type="text" name="customer[family_name]" value="<%= @donation.customer.family_name %>" /></p>
-<p>Organisation: <input type="text" name="customer[organisation_name]" value="<%= @donation.customer.organisation_name %>" /></p>
-<p>Email: <input type="text" name="customer[email]" value="<%= @donation.customer.email %>" /></p>
-<p>Donated at: <%= @donation.updated_at %></p>
-<p>Amount: $<%= @donation.display_amount %></p>
-<input type="hidden" name="donation_id" value="<%= @donation.id %>" />
-<input type="submit" value="Reissue" />
+<% if @errors %>
+  <div class="tf-status" style="" id="tf-ID-2">
+    <div class="tf-alert inner">
+      <h1>Unable to process this form</h1>
+      <ol>
+        <% @errors.each do |key, message| %>
+          <li>
+            <a href="#<%= key %>"><%= key.to_s.capitalize %>: <%= message %></a>
+          </li>
+        <% end %>
+      </ol>
+    </div>
+  </div>
 <% end %>
+<div class="article tf-form">
+	<div class="inner">
+		<div class="header">
+			<h1>
+				Reissue receipts: Search
+			</h1>
+		</div>
+		<%= form_tag(admin_reissue_receipt_path, :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+			<input type="submit" value="Reissue" />
+			<ol class="tf-sections">
+              <li class="section">
+                <fieldset>
+                  <fieldset>
+                    <ol class="ftw-questions ftw-slot-in">
+                      <li class="xf-input">
+                        <label for="given_name">
+                          <span class="xf-label">Given name</span>
+                        </label>
+                        <input type="text" name="customer[given_name]" size="15" maxlength="20" id="given_name" value="<%= @donation.customer.given_name %>" />
+                      </li>
+					  <li class="xf-input">
+                        <label for="family_name">
+                          <span class="xf-label">Family name</span>
+                        </label>
+                        <input type="text" name="customer[family_name]" size="15" maxlength="20" id="family_name" value="<%= @donation.customer.family_name %>" />
+                      </li>
+					  <li class="xf-input">
+                        <label for="organisation_name">
+                          <span class="xf-label">Organisation</span>
+                        </label>
+                        <input type="text" name="customer[organisation_name]" size="15" maxlength="20" id="organisation_name" value="<%= @donation.customer.organisation_name %>" />
+                      </li>
+					  <li class="xf-input">
+                        <label for="email_address">
+                          <span class="xf-label">Email address</span>
+                        </label>
+                        <input type="text" name="customer[email]" size="30" maxlength="40" id="email_address" value="<%= @donation.customer.email %>" />
+                      </li>
+					  <li class="xf-input">
+                        <label for="donation_date">
+                          <span class="xf-label">Date of donation</span>
+	                            </label>
+                        <%= @donation.updated_at %>
+                        <small class="xf-hint">dd/mm/yyyy</small>
+                      </li>
+					  <li class="xf-input">
+                        <label for="amount">
+                          <span class="xf-label">Amount</span>
+                        </label>
+                        $<%= @donation.display_amount %>
+                      </li>
+                    </ol>
+                  </fieldset>
+				</fieldset>
+              </li>
+			  <li class="tf-footer">
+                <ul class="tf-submit">
+                  <li class="wfd-primary-action">
+                    <strong>
+					  <input type="hidden" name="donation_id" value="<%= @donation.id %>" />
+                      <input type="submit" id="submit" value="Search"/>
+                    </strong>
+                  </li>
+                </ul>
+              </li>
+			</ol>
+		<% end %>
