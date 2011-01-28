@@ -1,7 +1,5 @@
 class AdminController < ApplicationController
-  USER_NAME, PASSWORD = ENV['ADMIN_USERNAME'], ENV['ADMIN_PASSWORD']
-
-  before_filter :authenticate
+  before_filter :authenticate_user!
 
   def download_postal_receipts
     if params[:date] != nil
@@ -9,7 +7,7 @@ class AdminController < ApplicationController
     end
   end
   
-  def reissue_receipts
+  def receipt_search
     @receipt_search = ReceiptSearch.new
   end
   
@@ -33,7 +31,18 @@ class AdminController < ApplicationController
     @errors = @receipt_search.errors
     @errors.add(:no_results_found, ["please refine your search parameters"]) unless @donations.all.count > 0
     
-    render :action => "reissue_receipts" unless @errors.empty?
+    render :action => "receipt_search" unless @errors.empty?
+  end
+  
+  def donation
+    @donation = Donation.find(params[:donation_id])
+  end
+  
+  def reissue_receipt
+    @donation = Donation.find(params[:donation_id])
+    @donation.customer.update_attributes(params[:customer])
+    @donation.customer.save
+    DonationMailer.delay.donation_confirmation @donation if donation.paid?
   end
 
   private

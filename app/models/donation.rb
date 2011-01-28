@@ -8,4 +8,8 @@ class Donation < ActiveRecord::Base
   def display_amount
     sprintf "%.2f", self.amount.to_f
   end
+  
+  def paid?
+    return_code == "0"
+  end
 end

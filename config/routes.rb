@@ -1,4 +1,6 @@
 SsqTelethon::Application.routes.draw do
+  devise_for :users
+
   get "api/totals"
 
   get "donations/index"
@@ -7,8 +9,10 @@ SsqTelethon::Application.routes.draw do
   get "donations/retry"
   post "donations" => "donations#create"
   
-  get "admin/reissue_receipts"
+  get "admin/receipt_search"
   post "admin/find_receipts"
+  get "admin/donation/:donation_id" => "admin#donation", :as => :admin_donation
+  post "admin/reissue_receipt" => "admin#reissue_receipt"
   
   get "admin/download_postal_receipts"
   post "admin/download_postal_receipts"

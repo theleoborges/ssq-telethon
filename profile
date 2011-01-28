@@ -1,0 +1,6 @@
+alias go="rake db:migrate; open http://localhost:3000; rails server"
+alias gpush="git push origin master --tags"
+alias gpull="git pull origin master --tags"
+alias ga="git add"
+alias g="git status"
+alias gc="git commit"
