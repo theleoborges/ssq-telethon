@@ -1,42 +1,34 @@
-<div id="page-container">
-  <div id="content-container">
-    <div id="article-container">
-      <div id="content">
-        <div class="article tf-form">
-          <div class="inner">
-            <div class="header"><h1>Download postal receipt requests</h1></div>
-        <% form_tag('/admin/download_postal_receipts', :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
-          <ol class="tf-sections">
-            <li class="section">
-              <fieldset>
-                <fieldset>
-                  <ol class="ftw-questions ftw-slot-in">
-                    <li class="xf-input">
-                      <label for="date">
-                        <span class="xf-label">Date</span>
-                        <abbr class="xf-required" title="required">*</abbr>
-                      </label>
-                      <input type="text" name="date" size="15" maxlength="20" id="date" />
-                      <small class="xf-hint">YYYY-MM-DD</small>
-                    </li>
-                  </ol>
-                </fieldset>
-			  </fieldset>
-            </li>
-            <li class="tf-footer">
-              <ul class="tf-submit">
-                <li class="wfd-primary-action">
-                  <strong>
-                    <input type="submit" id="submit" value="Download"/>
-                  </strong>
+<div class="article tf-form">
+  <div class="inner">
+    <div class="header"><h1>Download postal receipt requests</h1></div>
+    <% form_tag('/admin/download_postal_receipts', :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
+      <ol class="tf-sections">
+        <li class="section">
+          <fieldset>
+            <fieldset>
+              <ol class="ftw-questions ftw-slot-in">
+                <li class="xf-input">
+                  <label for="date">
+                    <span class="xf-label">Date</span>
+                    <abbr class="xf-required" title="required">*</abbr>
+                  </label>
+                  <input type="text" name="date" size="15" maxlength="20" id="date" />
+                  <small class="xf-hint">YYYY-MM-DD</small>
                 </li>
-              </ul>
+              </ol>
+            </fieldset>
+          </fieldset>
+        </li>
+        <li class="tf-footer">
+          <ul class="tf-submit">
+            <li class="wfd-primary-action">
+              <strong>
+                <input type="submit" id="submit" value="Download"/>
+              </strong>
             </li>
-          </ol>
-        <% end %>
-      </div>
-    </div>
+          </ul>
+        </li>
+      </ol>
+    <% end %>
   </div>
-</div>
-</div>
 </div>
