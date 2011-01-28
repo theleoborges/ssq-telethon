@@ -5,7 +5,7 @@ ABN 69 689 161 916
 PO Box 15185 CITY EAST QLD 4002
 --------------------------------------------------
 
-Date / time:    <%= DateTime.now %>
+Date / time:    <%= @donation.updated_at %>
 
    Customer: <%= @donation.customer.title %> <%= @donation.customer.given_name %> <%= @donation.customer.family_name %>
    Organisation: <%= @donation.customer.organisation_name %>
