@@ -3,6 +3,7 @@ Feature: Make donation
   We want to collect millions of dollars
   by creation a fake flood appeal for donations
 
+  @wip
   @javascript
   Scenario: Make a donation
     When I enter details to make a donation and continue:
