@@ -1,4 +1,4 @@
-DonationID
-<% @donations.each do |d| %>
-<%= d.id %>
+"Name","Organisation","Date of donation","Address","Amount","Receipt Reference"
+<% @donations.each do |donation| %>
+<%= customer=donation.customer; [customer.name, customer.organisation_name, donation.created_at, customer.address, donation.amount, donation.id].join(',') %>
 <% end %>
