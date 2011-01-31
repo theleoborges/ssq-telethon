@@ -8,3 +8,4 @@ tmp/**/*
 .idea
 vendor/bundle
 .#*
+[.]redcar

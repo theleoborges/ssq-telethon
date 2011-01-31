@@ -10,5 +10,3 @@ Feature: Make donation
         | email_confirmation      | ssqosidt@gmail.com |
     And pay via the payment gateway
     Then I get a confirmation that my donation was made
-
-

@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + "/page"
 class DonatePage < Page
 
   def visit
-     driver.visit '/'
+     driver.goto 'http://google.com'
   end
 
   def make_donation details
