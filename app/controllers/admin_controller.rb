@@ -1,5 +1,6 @@
 class AdminController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :force_no_cache
 
   def download_postal_receipts
     if params[:date] != nil

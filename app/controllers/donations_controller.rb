@@ -1,5 +1,7 @@
 class DonationsController < ApplicationController
   before_filter :redirect_to_ssl, :only => :index
+  before_filter :force_cache, :only => :index
+  before_filter :force_no_cache, :only => :complete
   
   ERROR_MESSAGES = {
     "0"	=> "Transaction approved",
@@ -12,7 +14,6 @@ class DonationsController < ApplicationController
   }
 
   def index
-    response.headers['Cache-Control'] = 'public, max-age=300'
     @donation = Donation.new
     @donation.customer = Customer.new(:wants_receipt_by_email => true)
   end
@@ -68,9 +69,6 @@ class DonationsController < ApplicationController
   end
 
   def complete
-    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
-    response.headers["Pragma"] = "no-cache"
-    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
     @transaction_reference = params[:transaction_reference]
     redirect_to root_url if @transaction_reference.nil?
   end
