@@ -8,10 +8,20 @@ class AdminController < ApplicationController
 
   def download_postal_receipts_csv
     @download_postal_receipts_search = DownloadPostalReceiptsSearch.new(params[:download_postal_receipts_search])
-    render :text => @download_postal_receipts_search.date if @download_postal_receipts_search.valid?
     
-    @errors = @download_postal_receipts_search.errors
-    render :action => :download_postal_receipts unless @errors.empty?
+    if @download_postal_receipts_search.valid?
+      date = DateTime.strptime(@download_postal_receipts_search.date, "%d/%m/%Y") unless @download_postal_receipts_search.date == ""
+      @donations = Donation.paid.joins(:customer).includes(:customer).order("donations.id")
+      @donations = @donations.where("donations.updated_at >= ?", date - 10.hours) unless date.nil?
+      @donations = @donations.where("donations.updated_at <= ?", date + 1.day - 10.hours) unless date.nil?
+      
+      response.headers['Content-type'] = 'text/csv'
+      response.headers['Content-disposition'] = 'attachment;filename=TelethonPostalReceipts.csv'
+      render :layout => false
+    else
+      @errors = @download_postal_receipts_search.errors
+      render :action => :download_postal_receipts unless @errors.empty?
+    end
   end
   
   def receipt_search
