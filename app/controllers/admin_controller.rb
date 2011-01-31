@@ -9,22 +9,37 @@ class AdminController < ApplicationController
   def download_postal_receipts_csv
     @download_postal_receipts_search = DownloadPostalReceiptsSearch.new(params[:download_postal_receipts_search])
     
-    if @download_postal_receipts_search.valid?
+    @download_postal_receipts_search.valid?
+    @errors = @download_postal_receipts_search.errors
+
+    if @errors.empty?
       date_from = to_date @download_postal_receipts_search.date_from
       date_to = to_date @download_postal_receipts_search.date_to
+      
       @donations = Donation.paid.joins(:customer).includes(:customer).order("donations.id")
       @donations = @donations.where("donations.updated_at >= ?", date_from - 10.hours) unless date_from.nil?
-      @donations = @donations.where("donations.updated_at <= ?", date_to + 10.hours) unless date_to.nil?
+      @donations = @donations.where("donations.updated_at <= ?", date_to + 1.day - 10.hours) unless date_to.nil?
 
+      if params[:submit] == 'Postal Receipts'
+        @donations = @donations.where("customers.wants_receipt_by_snail_mail = true")
+      end
+
+      if params[:submit] == '$10K+ Donations'
+        @donations = @donations.where("donations.amount >= 10000.00")
+      end
+
+      @errors.add(:no_results_found, ["please refine your search parameters"]) unless @donations.all.count > 0
+    end
+
+    if @errors.empty?
       response.headers['Content-type'] = 'text/csv'
       response.headers['Content-disposition'] = 'attachment;filename=TelethonPostalReceipts.csv'
       render :layout => false
     else
-      @errors = @download_postal_receipts_search.errors
       render :action => :download_postal_receipts unless @errors.empty?
     end
   end
-  
+
   def receipt_search
     @receipt_search = ReceiptSearch.new
   end
