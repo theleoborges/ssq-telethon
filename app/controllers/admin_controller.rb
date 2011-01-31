@@ -43,6 +43,7 @@ class AdminController < ApplicationController
     @donation = Donation.find(params[:donation_id])
     @donation.customer.update_attributes(params[:customer])
     @donation.customer.wants_receipt_by_email = true
+    @donation.customer.wants_receipt_by_snail_mail = false
     @donation.customer.save
     
     @errors = @donation.customer.errors
