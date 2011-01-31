@@ -15,7 +15,7 @@ SsqTelethon::Application.routes.draw do
   post "admin/reissue_receipt" => "admin#reissue_receipt"
   
   get "admin/download_postal_receipts"
-  post "admin/download_postal_receipts"
+  post "admin/download_postal_receipts_csv"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

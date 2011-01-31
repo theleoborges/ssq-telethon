@@ -1,7 +1,7 @@
 <div class="article tf-form">
   <div class="inner">
     <div class="header"><h1>Download postal receipt requests</h1></div>
-    <% form_tag('/admin/download_postal_receipts', :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
+    <% form_tag(admin_download_postal_receipts_csv_path, :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
       <ol class="tf-sections">
         <li class="section">
           <fieldset>
@@ -13,7 +13,7 @@
                     <abbr class="xf-required" title="required">*</abbr>
                   </label>
                   <input type="text" name="date" size="15" maxlength="20" id="date" />
-                  <small class="xf-hint">YYYY-MM-DD</small>
+                  <small class="xf-hint">dd/mm/yyyy</small>
                 </li>
               </ol>
             </fieldset>
