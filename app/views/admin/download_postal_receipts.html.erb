@@ -8,11 +8,17 @@
             <fieldset>
               <ol class="ftw-questions ftw-slot-in">
                 <li class="xf-input">
-                  <label for="date">
-                    <span class="xf-label">Date</span>
-                    <abbr class="xf-required" title="required">*</abbr>
+                  <label for="date_from">
+                    <span class="xf-label">Date From</span>
                   </label>
-                  <input type="text" name="download_postal_receipts_search[date]" size="15" maxlength="20" id="date" value="<%= @download_postal_receipts_search.date %>" />
+                  <input type="text" name="download_postal_receipts_search[date_from]" size="15" maxlength="20" id="date_from" value="<%= @download_postal_receipts_search.date_from %>" />
+                  <small class="xf-hint">dd/mm/yyyy</small>
+                </li>
+                <li class="xf-input">
+                  <label for="date_to">
+                    <span class="xf-label">Date To</span>
+                  </label>
+                  <input type="text" name="download_postal_receipts_search[date_to]" size="15" maxlength="20" id="date_to" value="<%= @download_postal_receipts_search.date_to %>" />
                   <small class="xf-hint">dd/mm/yyyy</small>
                 </li>
               </ol>
