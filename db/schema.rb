@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110128035017) do
+ActiveRecord::Schema.define(:version => 20110131132400) do
 
   create_table "customers", :force => true do |t|
     t.string   "title"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20110128035017) do
   create_table "donations", :force => true do |t|
     t.string   "transaction_reference"
     t.string   "order_info"
-    t.decimal  "amount",                :precision => 8, :scale => 2
+    t.decimal  "amount",                :precision => 10, :scale => 2
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
