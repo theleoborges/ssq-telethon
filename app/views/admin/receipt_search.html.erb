@@ -5,7 +5,7 @@
 				Reissue receipts: Search
 			</h1>
 		</div>
-		<% form_tag('/admin/find_receipts', :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
+		<% form_tag(admin_find_receipts_path, :method => "post", :id => "reissue", :class => "usetheforces tt-citizen hint-after") do %>
 			<ol class="tf-sections">
               <li class="section">
                 <fieldset>
