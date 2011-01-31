@@ -1,7 +1,7 @@
 <div class="article tf-form">
   <div class="inner">
     <div class="header"><h1>Download postal receipt requests</h1></div>
-    <% form_tag(admin_download_postal_receipts_csv_path, :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
+    <% form_tag(admin_download_receipts_csv_path, :method => "post", :id => "download", :class => "usetheforces tt-citizen hint-after") do %>
       <ol class="tf-sections">
         <li class="section">
           <fieldset>
@@ -11,14 +11,14 @@
                   <label for="date_from">
                     <span class="xf-label">Date From</span>
                   </label>
-                  <input type="text" name="download_postal_receipts_search[date_from]" size="15" maxlength="20" id="date_from" value="<%= @download_postal_receipts_search.date_from %>" />
+                  <input type="text" name="download_receipts_search[date_from]" size="15" maxlength="20" id="date_from" value="<%= @download_receipts_search.date_from %>" />
                   <small class="xf-hint">dd/mm/yyyy</small>
                 </li>
                 <li class="xf-input">
                   <label for="date_to">
                     <span class="xf-label">Date To</span>
                   </label>
-                  <input type="text" name="download_postal_receipts_search[date_to]" size="15" maxlength="20" id="date_to" value="<%= @download_postal_receipts_search.date_to %>" />
+                  <input type="text" name="download_receipts_search[date_to]" size="15" maxlength="20" id="date_to" value="<%= @download_receipts_search.date_to %>" />
                   <small class="xf-hint">dd/mm/yyyy</small>
                 </li>
               </ol>

@@ -14,8 +14,8 @@ SsqTelethon::Application.routes.draw do
   get "admin/donation/:donation_id" => "admin#donation", :as => :admin_donation
   post "admin/reissue_receipt" => "admin#reissue_receipt"
   
-  get "admin/download_postal_receipts"
-  post "admin/download_postal_receipts_csv"
+  get "admin/download_receipts"
+  post "admin/download_receipts_csv"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

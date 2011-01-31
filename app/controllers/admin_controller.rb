@@ -2,19 +2,19 @@ class AdminController < ApplicationController
   before_filter :authenticate_user!
   before_filter :force_no_cache
   
-  def download_postal_receipts
-    @download_postal_receipts_search = DownloadPostalReceiptsSearch.new
+  def download_receipts
+    @download_receipts_search = DownloadReceiptsSearch.new
   end
 
-  def download_postal_receipts_csv
-    @download_postal_receipts_search = DownloadPostalReceiptsSearch.new(params[:download_postal_receipts_search])
+  def download_receipts_csv
+    @download_receipts_search = DownloadReceiptsSearch.new(params[:download_receipts_search])
     
-    @download_postal_receipts_search.valid?
-    @errors = @download_postal_receipts_search.errors
+    @download_receipts_search.valid?
+    @errors = @download_receipts_search.errors
 
     if @errors.empty?
-      date_from = to_date @download_postal_receipts_search.date_from
-      date_to = to_date @download_postal_receipts_search.date_to
+      date_from = to_date @download_receipts_search.date_from
+      date_to = to_date @download_receipts_search.date_to
       
       @donations = Donation.paid.joins(:customer).includes(:customer).order("donations.id")
       @donations = @donations.where("donations.updated_at >= ?", date_from - 10.hours) unless date_from.nil?
@@ -33,10 +33,10 @@ class AdminController < ApplicationController
 
     if @errors.empty?
       response.headers['Content-type'] = 'text/csv'
-      response.headers['Content-disposition'] = 'attachment;filename=TelethonPostalReceipts.csv'
+      response.headers['Content-disposition'] = 'attachment;filename=TelethonReceipts.csv'
       render :layout => false
     else
-      render :action => :download_postal_receipts unless @errors.empty?
+      render :action => :download_receipts unless @errors.empty?
     end
   end
 

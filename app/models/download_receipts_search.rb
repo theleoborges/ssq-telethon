@@ -1,4 +1,4 @@
-class DownloadPostalReceiptsSearch
+class DownloadReceiptsSearch
   require 'timeliness'
   include ActiveModel::Validations
  
