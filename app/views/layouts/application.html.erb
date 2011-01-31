@@ -72,7 +72,24 @@
 	  <div id="content-container">
 	    <div id="article-container">
 	      <div id="content">
+		
+			<% if @errors %>
+			  <div class="tf-status" style="" id="tf-ID-2">
+			    <div class="tf-alert inner">
+			      <h1>Unable to process this form</h1>
+			      <ol>
+			        <% @errors.each do |key, message| %>
+			          <li>
+			            <a href="#<%= key %>"><%= key.to_s.capitalize %>: <%= message %></a>
+			          </li>
+			        <% end %>
+			      </ol>
+			    </div>
+			  </div>
+			<% end %>
+			
             <%= yield %>
+
           </div>
         </div>
       </div>
