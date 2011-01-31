@@ -3,10 +3,15 @@ class AdminController < ApplicationController
   before_filter :force_no_cache
   
   def download_postal_receipts
+    @download_postal_receipts_search = DownloadPostalReceiptsSearch.new
   end
 
   def download_postal_receipts_csv
-    render :text => params[:date]
+    @download_postal_receipts_search = DownloadPostalReceiptsSearch.new(params[:download_postal_receipts_search])
+    render :text => @download_postal_receipts_search.date if @download_postal_receipts_search.valid?
+    
+    @errors = @download_postal_receipts_search.errors
+    render :action => :download_postal_receipts unless @errors.empty?
   end
   
   def receipt_search
