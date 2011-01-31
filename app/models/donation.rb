@@ -1,6 +1,7 @@
 class Donation < ActiveRecord::Base
   belongs_to :customer
   validates_numericality_of :amount, :greater_than_or_equal_to => 1.00, :message => "invalid number - use one or two decimal places, or no decimal point"
+  validates_numericality_of :amount, :less_than_or_equal_to => 20000000.00, :message => "invalid number - the maximum allowable donation is $20,000,000.00"
   validates_associated :customer
 
   scope :paid, where(:return_code => '0')
