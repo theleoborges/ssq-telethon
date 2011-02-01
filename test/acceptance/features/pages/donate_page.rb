@@ -1,6 +1,3 @@
-require File.dirname(__FILE__) + '/../support/watir_helper'
-require File.dirname(__FILE__) + '/page'
-
 class DonatePage < Page
   include WatirHelper
 

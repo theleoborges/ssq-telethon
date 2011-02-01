@@ -17,12 +17,13 @@ When /^I enter my credit card details$/ do |table|
 end
 
 Then /^I get a confirmation that my donation was made$/ do
-   on(ConfirmationPage) 
+  on ConfirmationPage do |page|
+    raise "Donation was not successful" unless page.successful?
+  end
 end
 
 When /^pay via the payment gateway$/ do
-  # cucumber doesn't do the GET for the gateway url, so we help it along
-  on(GatewayPage) do |page|
-    page.pay
+  on GatewayPage do |page|
+    page.pay_with :provider => :visa, :number => '4005 5500 0000 0001', :month => '05', :year => '13'
   end
 end

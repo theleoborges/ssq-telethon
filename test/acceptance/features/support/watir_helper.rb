@@ -23,17 +23,13 @@ module WatirHelper
     # will generate the 'first_name', 'first_name=', and
     # 'first_text_field' methods
     def text_field name, identifier=default_identifier(name)      
-      puts "defining methods for #{name} with identifier #{identifier.inspect}"
       define_method(name) do
-        puts "getting value for #{identifier.inspect}"
         @browser.text_field(identifier).value
       end
       define_method("#{name}=") do |value|        
-        puts "setting #{identifier.inspect} to #{value}"
         @browser.text_field(identifier).set(value)
       end
       define_method("#{name}_text_field") do
-        puts "getting field #{identifier.inspect}"
         @browser.text_field(identifier)
       end
     end

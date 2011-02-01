@@ -8,7 +8,7 @@ module NavigationHelpers
   end
   
   def on(page_class)
-    page = page_class.new(self)
+    page = page_class.new(@browser)
     page.check_we_are_on_this_page
     yield page if block_given?
   end

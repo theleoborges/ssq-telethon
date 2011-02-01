@@ -3,6 +3,7 @@ require File.dirname(__FILE__)+'/../pages/page'
 raise "Please set TELETHON_ENVIRONMENT to one of #{Page.urls.keys.join(',')}" unless ENV['TELETHON_ENVIRONMENT']
 
 require 'watir-webdriver'
+require 'watir-webdriver/extensions/wait'
 
 driver = Selenium::WebDriver.for :firefox
 
@@ -15,5 +16,5 @@ Before do
 end
 
 at_exit do
-  #browser.close
+  browser.close
 end

@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/../support/watir_helper'
+
 class Page
   def self.urls
     {
@@ -9,7 +11,7 @@ class Page
   end
 
   attr_reader :browser
-  
+
   def initialize browser
     @browser = browser
   end
