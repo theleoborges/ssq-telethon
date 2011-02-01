@@ -14,8 +14,6 @@ When /^I enter my credit card details$/ do |table|
   on(CreditCardDetailsPage) do |page|
     page.pay cc_details['number'], cc_details['month'], cc_details['year'] 
   end
-
-
 end
 
 Then /^I get a confirmation that my donation was made$/ do
@@ -28,5 +26,3 @@ When /^pay via the payment gateway$/ do
     page.pay
   end
 end
-
-

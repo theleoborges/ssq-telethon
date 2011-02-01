@@ -5,7 +5,7 @@ Feature: Make donation
 
   Scenario: Make a donation
     When I enter details to make a donation and continue:
-        | amount                  | 1 |
+        | amount                  | 1                  |
         | email                   | ssqosidt@gmail.com |
         | email_confirmation      | ssqosidt@gmail.com |
     And pay via the payment gateway

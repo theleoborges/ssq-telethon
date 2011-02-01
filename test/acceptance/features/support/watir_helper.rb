@@ -12,20 +12,28 @@ module WatirHelper
   end
 
   module ClassMethods
+    def default_identifier name
+      {:id => name.to_s}
+    end
+    
     # adds three methods - one to put data in a text field, another
     # to fetch that data, and another to return the actual text_field.
     #
     # Example:  text_field(:first_name, {:id => "first_name})
     # will generate the 'first_name', 'first_name=', and
     # 'first_text_field' methods
-    def text_field(name, identifier)
+    def text_field name, identifier=default_identifier(name)      
+      puts "defining methods for #{name} with identifier #{identifier.inspect}"
       define_method(name) do
+        puts "getting value for #{identifier.inspect}"
         @browser.text_field(identifier).value
       end
-      define_method("#{name}=") do |value|
+      define_method("#{name}=") do |value|        
+        puts "setting #{identifier.inspect} to #{value}"
         @browser.text_field(identifier).set(value)
       end
       define_method("#{name}_text_field") do
+        puts "getting field #{identifier.inspect}"
         @browser.text_field(identifier)
       end
     end
@@ -113,7 +121,7 @@ module WatirHelper
     # Example:  button(:save, {:value => "save"})
     # will generate the 'save', 'save_no_wait', and
     # 'save_button' methods
-    def button(name, identifier)
+    def button name, identifier=default_identifier(name)    
       define_method(name) do
         @browser.button(identifier).click
       end

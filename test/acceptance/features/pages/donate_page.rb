@@ -1,14 +1,22 @@
-require File.dirname(__FILE__) + "/page"
+require File.dirname(__FILE__) + '/../support/watir_helper'
+require File.dirname(__FILE__) + '/page'
+
 class DonatePage < Page
+  include WatirHelper
+
+  text_field :amount
+  text_field :email
+  text_field :email_confirmation
+  button :pay
 
   def visit
-     driver.goto 'http://google.com'
+     browser.goto base_url
   end
 
   def make_donation details
-    @driver.fill_in "amount", :with => details['amount']
-    @driver.fill_in "email", :with => details['email']
-    @driver.fill_in "email_confirmation", :with => details['email_confirmation']
-    @driver.click_button 'pay'
+    self.amount = details['amount']
+    self.email = details['email']
+    self.email_confirmation = details['email']
+    pay
   end
 end
