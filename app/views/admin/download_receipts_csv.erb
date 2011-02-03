@@ -1,4 +1,4 @@
 "Title","Given Name","Family Name","Organisation","Address Line 1","Address Line 2","Address Line 3","City","State","Post Code","Country","Amount","Date of Donation","Receipt Number"
 <% @donations.each do |donation| %>
-<%= customer=donation.customer; [customer.title, customer.given_name, customer.family_name, customer.organisation_name, customer.address_line_1, customer.address_line_2, customer.address_line_3, customer.city, customer.state, customer.postalcode, customer.country, donation.amount, donation.updated_at, donation.id].join(',') %>
+<%= customer=donation.customer; [customer.title, customer.given_name, customer.family_name, customer.organisation_name, customer.address_line_1, customer.address_line_2, customer.address_line_3, customer.city, customer.state, customer.postalcode, customer.country, donation.amount, donation.updated_at, donation.id].map{|a| a.to_s.gsub(',', ' ')}.join(',') %>
 <% end %>
