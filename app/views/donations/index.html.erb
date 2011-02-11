@@ -55,7 +55,7 @@
                       <abbr class="xf-required" title="required">*</abbr>
                     </label>
                     $<input type="text" name="donation[amount]" size="15" maxlength="20" value="<%= @donation.amount.to_f == 0 ? "" : sprintf("%.2f", @donation.amount.to_f) %>" id="amount" />
-                    <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $1 per donation.</small>
+                    <small class="xf-hint">Donations greater than $2 are tax deductible. Minimum $2 per donation.</small>
                   </li>
                 </ol>
               </fieldset>
