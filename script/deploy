@@ -2,6 +2,6 @@
 
 HEROKU_APP=$1
 
-git push -f git@heroku.com:$HEROKU_APP.git master
+git push git@heroku.com:$HEROKU_APP.git master
 heroku rake db:migrate --app $HEROKU_APP
 heroku restart --app $HEROKU_APP
