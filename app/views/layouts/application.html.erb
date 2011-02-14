@@ -73,7 +73,7 @@
 	    <div id="article-container">
 	      <div id="content">
 		
-			<% if @errors %>
+			<% if @errors and !@errors.empty? %>
 			  <div class="tf-status" style="" id="tf-ID-2">
 			    <div class="tf-alert inner">
 			      <h1>Unable to process this form</h1>
