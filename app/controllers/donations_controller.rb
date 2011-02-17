@@ -30,8 +30,10 @@ class DonationsController < ApplicationController
   def create
     donation = Donation.new(params[:donation])
     donation.customer = Customer.new(params[:customer])
+    donation.customer.wants_receipt_by_email = (params[:receipt_by] == 'email')
+    donation.customer.wants_receipt_by_snail_mail = (params[:receipt_by] == 'snail_mail')
     donation.save
-    
+
     donation.errors.delete(:customer)
     @errors = donation.errors.merge(donation.customer.errors)
     

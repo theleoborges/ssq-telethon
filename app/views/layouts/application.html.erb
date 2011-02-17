@@ -124,11 +124,14 @@
         var nameGiven=$("#given_name");
         if(nameGiven.is(":-xf-required")){var nameFamily=$("#family_name");$("#given_name,#family_name").change(function(){nameGiven.forces_attr("required",nameFamily.is(":-xf-empty"));nameFamily.forces_attr("required",nameGiven.is(":-xf-empty"))}).triggerHandler("change")}$("#email").forces_attr("type","email").change(function(){var B=$(this);B.forces_setCustomValidity(B.val().match(/@[0-9.]+$/)?$.forces.MSG_TYPE_MISMATCH.email:null)}).triggerHandler("change");$.fn.forces_isConfirmationFor=function(D){D=$(D);var C=$(this);D.add(C).change(function(){C.forces_setCustomValidity(D.forces_val()==C.forces_val()?"":"doesn't match "+D.forces_label());if(C.is(":-tf-validated")){C.forces_validate()}});return this};$("#email_confirmation").forces_isConfirmationFor("#email");
         var postReceipt=$("#wants_receipt_by_snail_mail");
-        if(postReceipt.is(":checked")||!$("#address_line_1").is(":-xf-required")){
-          postReceipt.click(function(){$("#address_line_1, #city, #state, #postalcode, #country").forces_attr("required",postReceipt.is(":checked"))}).triggerHandler("click")}
         var emailReceipt=$("#wants_receipt_by_email");
-        if(emailReceipt.is(":checked")||!$("#email").is(":-xf-required")){
-          emailReceipt.click(function(){$("#email, #email_confirmation").forces_attr("required",emailReceipt.is(":checked"))}).triggerHandler("click")}
+        var contactValidations = function() {
+          $("#address_line_1, #city, #state, #postalcode, #country").forces_attr("required",postReceipt.is(":checked"));
+          $("#email, #email_confirmation").forces_attr("required",emailReceipt.is(":checked"));
+        }
+        contactValidations();
+        postReceipt.click(contactValidations).triggerHandler("click");
+        emailReceipt.click(contactValidations).triggerHandler("click");
 
 		var amount=$("#amount");
 		amount.change(

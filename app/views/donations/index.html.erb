@@ -153,11 +153,11 @@
 
                       <li class="xf-select">
                         <ul class="xf-choices">
-                          <li><label for="wants_receipt_by_email"><input type="checkbox" 
-                                                                            name="customer[wants_receipt_by_email]"
+                          <li><label for="wants_receipt_by_email"><input type="radio" 
+                                                                            name="receipt_by"
                                                                             id="wants_receipt_by_email"
                                                                             <% if @donation.customer.wants_receipt_by_email? %>checked="checked"<% end %>
-                                                                            value="true"/>Send tax receipt by email</label></li>
+                                                                            value="email"/>Send tax receipt by email</label></li>
                         </ul>
                       </li>
 
@@ -191,11 +191,11 @@
 
                       <li class="xf-select">
                         <ul class="xf-choices">
-                          <li><label for="wants_receipt_by_snail_mail"><input type="checkbox" 
-                                                                            name="customer[wants_receipt_by_snail_mail]"
+                          <li><label for="wants_receipt_by_snail_mail"><input type="radio" 
+                                                                            name="receipt_by"
                                                                             id="wants_receipt_by_snail_mail"
                                                                             <% if @donation.customer.wants_receipt_by_snail_mail? %>checked="checked"<% end %>
-                                                                            value="true"/>Send tax receipt by post</label></li>
+                                                                            value="snail_mail"/>Send tax receipt by post</label></li>
                         </ul>
                       </li>
                       <li class="xf-group">
