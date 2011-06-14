@@ -1,0 +1,1 @@
+cmd /k profile.cmd
