@@ -6,6 +6,11 @@ class Donation < ActiveRecord::Base
 
   scope :paid, where(:return_code => '0')
   scope :unpaid, where(:return_code => nil)
+  
+  def mark_as_paid
+    self.return_code = '0'
+    self.save
+  end
 
   def display_amount
     sprintf "%.2f", self.amount.to_f
@@ -13,6 +18,10 @@ class Donation < ActiveRecord::Base
   
   def paid?
     return_code == "0"
+  end
+  
+  def unpaid?
+    !paid?
   end
 
   def status
