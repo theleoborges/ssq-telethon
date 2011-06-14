@@ -65,6 +65,9 @@
                       <input type="submit" id="submit" value="Reissue"/>
                     </strong>
                   </li>
+                  <% if @donation.status == "Unpaid"%>
+                   <span class="warning-message" > This will mark the receipt as paid </span>
+                   <% end%>
                 </ul>
               </li>
 			</ol>
