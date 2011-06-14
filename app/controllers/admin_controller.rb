@@ -74,11 +74,11 @@ class AdminController < ApplicationController
   
   def reissue_receipt
     @donation = Donation.find(params[:donation_id])
+    @donation.update_attributes(:return_code => '0') if @donation.status == 'Unpaid'
     @donation.customer.update_attributes(params[:customer])
     @donation.customer.wants_receipt_by_email = true
     @donation.customer.wants_receipt_by_snail_mail = false
     @donation.customer.save
-    
     @errors = @donation.customer.errors
     
     if @errors.empty?
