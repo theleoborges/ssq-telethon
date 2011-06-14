@@ -46,11 +46,12 @@ class AdminController < ApplicationController
   
   def find_receipts
     @receipt_search = ReceiptSearch.new(params[:receipt_search])
-    @donations = Donation.paid.joins(:customer).limit(50).order("donations.id").includes(:customer)
+    @donations = Donation.joins(:customer).limit(50).order("donations.id").includes(:customer)
     
     if @receipt_search.valid?
       date = DateTime.strptime(@receipt_search.donation_date, "%d/%m/%Y") unless @receipt_search.donation_date == ""
-      
+      @donations = @donations.paid if @receipt_search.paid?
+      @donations = @donations.unpaid if @receipt_search.unpaid?
       @donations = @donations.where(:id => @receipt_search.receipt_number) unless @receipt_search.receipt_number == ""
       @donations = @donations.where(:amount => @receipt_search.amount) unless @receipt_search.amount == ""
       @donations = @donations.where("customers.given_name ILIKE ?", "%#{@receipt_search.given_name}%") unless @receipt_search.given_name == ""
@@ -63,7 +64,7 @@ class AdminController < ApplicationController
     
     @errors = @receipt_search.errors
     @errors.add(:no_results_found, ["please refine your search parameters"]) unless @donations.all.count > 0
-    
+
     render :action => "receipt_search" unless @errors.empty?
   end
   

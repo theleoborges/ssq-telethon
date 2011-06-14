@@ -5,6 +5,7 @@ class Donation < ActiveRecord::Base
   validates_associated :customer
 
   scope :paid, where(:return_code => '0')
+  scope :unpaid, where(:return_code => nil)
 
   def display_amount
     sprintf "%.2f", self.amount.to_f
@@ -12,5 +13,9 @@ class Donation < ActiveRecord::Base
   
   def paid?
     return_code == "0"
+  end
+
+  def status
+    paid? ? 'Paid' : 'Unpaid'
   end
 end
