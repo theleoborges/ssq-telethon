@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20110131132400) do
   create_table "donations", :force => true do |t|
     t.string   "transaction_reference"
     t.string   "order_info"
-    t.decimal  "amount",                :precision => 10, :scale => 2
+    t.decimal  "amount"
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"

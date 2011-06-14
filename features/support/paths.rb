@@ -1,7 +1,7 @@
 module NavigationHelpers
   
   def goto(page_class)
-    page = page_class.new(@browser)
+    page = page_class.new(self)
     page.visit
     page.check_we_are_on_this_page
     yield page if block_given?
