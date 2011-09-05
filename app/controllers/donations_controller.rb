@@ -14,6 +14,9 @@ class DonationsController < ApplicationController
   }
 
   def index
+  end
+  
+  def e5f4a96ae0e556fc021037059c97a640
     @donation = Donation.new
     @donation.customer = Customer.new(:wants_receipt_by_email => true)
   end
