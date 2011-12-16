@@ -4,7 +4,6 @@ SsqTelethon::Application.routes.draw do
 
     get "api/totals"
 
-    get "e5f4a96ae0e556fc021037059c97a640" => "donations#e5f4a96ae0e556fc021037059c97a640"
     get "donations/index"
     get "donations/callback"
     get "donations/complete/:transaction_reference" => "donations#complete", :as => :donations_complete
