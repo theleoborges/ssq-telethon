@@ -21,6 +21,12 @@ class DonationsController < ApplicationController
     @donation.customer = Customer.new(:wants_receipt_by_email => true)
   end
 
+  def e5f4a96ae0e556fc021037059c97a640
+    @donation = Donation.new
+    @donation.customer = Customer.new(:wants_receipt_by_email => true)
+    render :index
+  end
+
   def retry
     @return_code = params[:return_code]
     return redirect_to root_url if @return_code.nil?
