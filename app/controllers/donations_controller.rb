@@ -14,6 +14,9 @@ class DonationsController < ApplicationController
   }
 
   def index
+    if ENV['DEACTIVATED'] == 'true'
+      redirect_to ENV['DEACTIVATED_URL'] and return
+    end
     @donation = Donation.new
     @donation.customer = Customer.new(:wants_receipt_by_email => true)
   end
